@@ -2,6 +2,11 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config.js";
 
+import authRouter from "./routes/auth.route";
+import connectDataBase from "./config/mongoDB";
+
+connectDataBase();
+
 const app = express();
 
 const PORT = process.env.PORT;
@@ -14,7 +19,7 @@ app.use(cors());
 
 // Routes
 
-app.use("/api/auth");
+app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando al puerto ${PORT}`);
