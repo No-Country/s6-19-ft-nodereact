@@ -8,7 +8,7 @@ import {
 import { userIdExist } from "../middlewares/verifyUser";
 import { check } from "express-validator";
 import handleErrors from "../middlewares/handleErrors";
-import { verifyToken } from "../middlewares/verify-token";
+import verifyToken from "../middlewares/verify-token";
 
 router.get(
   "/:id",
@@ -21,7 +21,7 @@ router.get(
   getUser
 );
 
-router.get("/", [verifyToken], getAllUsers);
+router.get("/", verifyToken, getAllUsers);
 
 router.put("/:id", userIdExist, updateUser);
 router.delete("/:id", userIdExist, deleteUser);

@@ -1,12 +1,18 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-interface RequestUser extends Request {
-  user: any;
+interface IPayload extends Request {
+  _id: string;
+  iat: number;
+  exp: number;
+}
+
+interface RequestUserId extends Request {
+  userId: string;
 }
 
 const verifyToken = async (
-  req: RequestUser,
+  req: RequestUserId,
   res: Response,
   next: NextFunction
 ) => {
@@ -17,8 +23,8 @@ const verifyToken = async (
       return res.status(400).send({ error: "Debes tener un token" });
     }
 
-    const payload = jwt.verify(token, `${process.env.JWT_KEY}`);
-    req.user = payload;
+    const payload = jwt.verify(token, `${process.env.JWT_KEY}`) as IPayload;
+    req.userId = payload._id;
 
     next();
   } catch (error) {
@@ -26,4 +32,4 @@ const verifyToken = async (
   }
 };
 
-export { verifyToken };
+export default verifyToken;
