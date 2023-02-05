@@ -1,14 +1,21 @@
 import mongoose from "mongoose";
 
-interface User {
+interface DocumentNode {
+  _doc: any;
+}
+
+interface User extends DocumentNode {
   username: string;
   email: string;
   password: string;
-  profile?: string;
+  picture?: string;
+  state: Boolean;
+  isAdmin: Boolean;
 }
 
 const userSchema = new mongoose.Schema(
   {
+    profile: String,
     username: {
       type: String,
       required: [true, "El nombre de usuario es obligatorio"],
@@ -24,10 +31,17 @@ const userSchema = new mongoose.Schema(
       required: [true, "La contraseña es obligatoria"],
       unique: true,
     },
-    profile: String,
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    state: {
+      type: Boolean,
+      default: true,
+    },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model<User>("User", userSchema);
 export default User;
