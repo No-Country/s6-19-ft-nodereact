@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb51"
+  },
+  "title": "malla",
+  "price": 2800,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/bikini-1024.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb52"
+  },
+  "title": "lentes de sol",
+  "price": 3400,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/eyeglasses-1024.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb53"
+  },
+  "title": "antiparras",
+  "price": 4500,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/swimming_goggles-1024.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb55"
+  },
+  "title": "patas de rana",
+  "price": 4200,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/snorkling-1024.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb57"
+  },
+  "title": "canasta",
+  "price": 3860,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/basket-1024.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb58"
+  },
+  "title": "tabla de surf",
+  "price": 4680,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/surfing-1024.png",
+  "stock": 0
+},{
+  "_id": {
+    "$oid": "63aae44dd26745b37f3efb59"
+  },
+  "title": "ancla",
+  "price": 2740,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/anchor-1024.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "63aae594d26745b37f3efb64"
+  },
+  "title": "salvavidas",
+  "price": 2900,
+  "thumbnail": "https://cdn1.iconfinder.com/data/icons/summer-123/512/buoy-1024.png",
+  "stock": 100
+},{
+  "_id": {
+    "$oid": "63aae6ad59c6d0904152e4e0"
+  },
+  "title": "prod pepe"
+}]

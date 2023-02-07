@@ -1,0 +1,22 @@
+{
+  "name": "desafio clase 11git",
+  "version": "1.0.0",
+  "description": "Desafio 11 backend Coderhouse",
+  "author": "Diego Silva Cordoba",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --inspect ./src/server.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "16.0.0",
+    "express": "4.17.3",
+    "mongoose": "6.3.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.2.0",
+    "eslint": "8.13.0"
+  }
+}
