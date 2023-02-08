@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { FilterQuery } from "mongoose";
+
 import User from "../models/user.model";
 
 const userIdExist = async (id: string) => {
-  const user = (await User.findById(id)) as FilterQuery<User>;
+  const user = await User.findById(id);
 
   if (!user) {
     throw new Error(`El id no es valido o no existe`);
@@ -30,8 +30,4 @@ export async function verifyUser(
   } catch (error) {
     return res.status(404).send({ error: "Error de autenticacion" });
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> backend-dev
