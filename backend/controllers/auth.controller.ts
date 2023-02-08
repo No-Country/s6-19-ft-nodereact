@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import generateToken from "../helpers/generateToken";
 import otpGenerator from "otp-generator";
 import verifyToken from "../middlewares/verify-token";
+import { transporter, mailGenerator } from "../config/emailer";
 
 const login = async (req: Request, res: Response) => {
   try {
@@ -23,32 +24,18 @@ const login = async (req: Request, res: Response) => {
     if (!match) {
       return res.status(404).send({ error: "La contraseña es incorrecta" });
     }
-    
+
     // Enviar mail
-    const nodemailer = require("nodemailer");
+
     const log = console.log;
 
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "diegosilvacordoba4@gmail.com" || "abc@gmail.com",
-        pass: "wftuhbaiahzbksab" || "1234",
-      },
-    });
-
-    let mailOptions = {
-      from: "abc@gmail.com",
-      to: "cba@gmail.com",
-      subject: "Prueba",
-      text: "Hola!!",
-    };
-
-    transporter.sendMail(mailOptions, (err, data) => {
-      if (err) {
-        return log("Error");
-      }
-      return log("Correo enviado!");
-    });
+    // let transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: "jmosquella11@gmail.com" || "abc@gmail.com",
+    //     pass: "mosquella96" || "1234",
+    //   },
+    // });
 
     // genero el jwt token
 
@@ -104,8 +91,6 @@ const register = async (req: Request, res: Response) => {
   }
 };
 
-interface Options {}
-
 const generateOTP = async (req: Request, res: Response) => {
   req.app.locals.OTP = await otpGenerator.generate(6, {
     lowerCaseAlphabets: false,
@@ -113,7 +98,34 @@ const generateOTP = async (req: Request, res: Response) => {
     specialChars: false,
   });
 
-  res.status(201).send({ code: req.app.locals.OTP });
+  let code = req.app.locals.OTP;
+
+  let email = {
+    body: {
+      name: "juanma",
+      intro: `Este es tu codigo de verificacion: ${code}`,
+      outro: "Need help or have questions?",
+    },
+  };
+
+  let emailBody = mailGenerator.generate(email);
+
+  let mail = {
+    from: "abc@gmail.com",
+    to: "jmosquella11@gmail.com",
+    subject: `Codigo de verificaion`,
+    html: emailBody,
+  };
+
+  transporter
+    .sendMail(mail)
+    .then(() =>
+      res.status(201).json({
+        msg: "Email enviado exitosamente",
+        code,
+      })
+    )
+    .catch(() => res.status(400).send({ error: "Algo malo paso" }));
 };
 
 const verifyOTP = (req: Request, res: Response) => {
