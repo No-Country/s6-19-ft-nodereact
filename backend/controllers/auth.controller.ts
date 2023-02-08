@@ -6,6 +6,11 @@ import otpGenerator from "otp-generator";
 import verifyToken from "../middlewares/verify-token";
 import { transporter, mailGenerator } from "../config/emailer";
 
+interface UserType {
+  name: string;
+  email: string;
+}
+
 const login = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -98,13 +103,17 @@ const generateOTP = async (req: Request, res: Response) => {
     specialChars: false,
   });
 
+  const { username } = req.query;
+
+  const user: UserType = await User.findOne({ username });
+
   let code = req.app.locals.OTP;
 
   let email = {
     body: {
-      name: "juanma",
+      name: user.name,
       intro: `Este es tu codigo de verificacion: ${code}`,
-      outro: "Need help or have questions?",
+      outro: "¿Te quedaste con alguna pregunta?",
     },
   };
 
@@ -112,7 +121,7 @@ const generateOTP = async (req: Request, res: Response) => {
 
   let mail = {
     from: "abc@gmail.com",
-    to: "jmosquella11@gmail.com",
+    to: user.email,
     subject: `Codigo de verificaion`,
     html: emailBody,
   };
