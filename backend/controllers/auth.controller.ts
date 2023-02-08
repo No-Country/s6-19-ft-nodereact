@@ -13,24 +13,15 @@ interface UserType {
 
 const login = async (req: Request, res: Response) => {
   try {
-
-    const { username, password } = req.body;
-
-    const user = await User.findOne({ username });
-
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-
 
     if (!user) {
       return res
         .status(404)
 
-        .send({ error: `${username} no es un usuario registrado` });
-
         .send({ error: `${email} no es un usuario registrado` });
-
     }
 
     // Comparo si la contraseña  es igual a la contraseña encryptada en la base de datos
@@ -39,30 +30,13 @@ const login = async (req: Request, res: Response) => {
     if (!match) {
       return res.status(404).send({ error: "La contraseña es incorrecta" });
     }
-
     // Enviar mail
-
-    const log = console.log;
-
-    // let transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: "jmosquella11@gmail.com" || "abc@gmail.com",
-    //     pass: "mosquella96" || "1234",
-    //   },
-    // });
-
-    // genero el jwt token
 
     const token = generateToken(user.id);
 
     res.status(201).json({
       msg: "Usuario logeado con exito",
-<<<<<<< HEAD
-      username,
-=======
       email,
->>>>>>> backend-dev
       token,
     });
   } catch (error) {
