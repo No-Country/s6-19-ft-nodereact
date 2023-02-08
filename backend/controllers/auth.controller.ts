@@ -3,6 +3,7 @@ import User from "../models/user.model";
 import bcrypt from "bcrypt";
 import generateToken from "../helpers/generateToken";
 import otpGenerator from "otp-generator";
+import verifyToken from "../middlewares/verify-token";
 
 const login = async (req: Request, res: Response) => {
   try {
@@ -22,6 +23,32 @@ const login = async (req: Request, res: Response) => {
     if (!match) {
       return res.status(404).send({ error: "La contraseña es incorrecta" });
     }
+    
+    // Enviar mail
+    const nodemailer = require("nodemailer");
+    const log = console.log;
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "diegosilvacordoba4@gmail.com" || "abc@gmail.com",
+        pass: "wftuhbaiahzbksab" || "1234",
+      },
+    });
+
+    let mailOptions = {
+      from: "abc@gmail.com",
+      to: "cba@gmail.com",
+      subject: "Prueba",
+      text: "Hola!!",
+    };
+
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+        return log("Error");
+      }
+      return log("Correo enviado!");
+    });
 
     // genero el jwt token
 
