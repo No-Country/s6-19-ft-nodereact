@@ -13,24 +13,24 @@ interface UserType {
 
 const login = async (req: Request, res: Response) => {
   try {
-<<<<<<< HEAD
+
     const { username, password } = req.body;
 
     const user = await User.findOne({ username });
-=======
+
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
->>>>>>> backend-dev
+
 
     if (!user) {
       return res
         .status(404)
-<<<<<<< HEAD
+
         .send({ error: `${username} no es un usuario registrado` });
-=======
+
         .send({ error: `${email} no es un usuario registrado` });
->>>>>>> backend-dev
+
     }
 
     // Comparo si la contraseña  es igual a la contraseña encryptada en la base de datos

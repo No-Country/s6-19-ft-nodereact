@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -8,12 +8,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 
 const cors_1 = __importDefault(require("cors"));
-=======
+
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
 var cors_1 = require("cors");
->>>>>>> backend-dev
+
 require("dotenv/config.js");
 
 var mongoDB_1 = require("../config/mongoDB");
@@ -26,11 +26,8 @@ app.use(express_1["default"].json());
 app.use((0, cors_1["default"])());
 // Routes
 
-<<<<<<< HEAD
-app.listen(PORT, () => {
-  console.log(`Servidor escuchando al puerto ${PORT}`);
-=======
+
 app.listen(PORT, function () {
   console.log("Servidor escuchando al puerto ".concat(PORT));
->>>>>>> backend-dev
+
 });
