@@ -1,4 +1,6 @@
-import router from ".";
+import express from "express";
+const router = express.Router();
+
 import {
   createResetSession,
   generateOTP,

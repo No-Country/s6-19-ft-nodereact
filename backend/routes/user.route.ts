@@ -1,4 +1,5 @@
-import router from ".";
+import express from "express";
+const router = express.Router();
 import {
   deleteUser,
   getAllUsers,
