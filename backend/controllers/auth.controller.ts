@@ -34,21 +34,13 @@ const login = async (req: Request, res: Response) => {
 
     const log = console.log;
 
-    // let transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: {
-    //     user: "jmosquella11@gmail.com" || "abc@gmail.com",
-    //     pass: "mosquella96" || "1234",
-    //   },
-    // });
-
-    // genero el jwt token
-
     const token = generateToken(user.id);
 
     res.status(201).json({
       msg: "Usuario logeado con exito",
+
       email,
+
       token,
     });
   } catch (error) {
