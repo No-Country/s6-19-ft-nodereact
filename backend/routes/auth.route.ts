@@ -1,5 +1,9 @@
 import express from "express";
 const router = express.Router();
+<<<<<<< HEAD
+=======
+
+>>>>>>> backend-dev
 import {
   createResetSession,
   generateOTP,

@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "@types/mongoose": "^5.11.97",
+>>>>>>> backend-dev
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -18,7 +22,11 @@
     "express-validator": "^6.14.3",
     "jsonwebtoken": "^9.0.0",
     "mailgen": "^2.0.27",
+<<<<<<< HEAD
     "mongoose": "^6.9.1",
+=======
+    "mongoose": "^6.9.0",
+>>>>>>> backend-dev
     "nodemailer": "^6.9.1",
     "nodemon": "^2.0.20",
     "otp-generator": "^4.0.1"

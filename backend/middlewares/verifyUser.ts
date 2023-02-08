@@ -30,4 +30,8 @@ export async function verifyUser(
   } catch (error) {
     return res.status(404).send({ error: "Error de autenticacion" });
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> backend-dev
