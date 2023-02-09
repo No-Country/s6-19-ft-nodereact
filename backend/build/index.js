@@ -4,12 +4,13 @@ var __importDefault =
     return mod && mod.__esModule ? mod : { default: mod };
   };
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
+// const express_1 = __importDefault(require("express"));
 
-const cors_1 = __importDefault(require("cors"));
+// const cors_1 = __importDefault(require("cors"));
 
-("use strict");
 exports.__esModule = true;
+var express_1 = require("express");
+var cors_1 = require("cors");
 
 require("dotenv/config.js");
 
