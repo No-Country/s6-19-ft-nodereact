@@ -1,6 +1,6 @@
 <h3 align="center">Pagina web para publicitar los servicios y productos de una personal trainer</h3>
 
-<h3 align="left">Connect with me:</h3>
+
 <p align="left">
 </p>
 
