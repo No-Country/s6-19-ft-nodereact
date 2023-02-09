@@ -14,7 +14,5 @@ Equipo de trabajo / Team:
 
 Tecnologias :
 
-https://user-images.githubusercontent.com/105647455/204136664-59e43a31-b209-40fa-9980-34f378252d94.png
 
-<a href="https://codepen.io/carlossalvadordiaz/pen/PozMmdq" target="_blank"> <img src="https://user-images.githubusercontent.com/105647455/204136664-59e43a31-b209-40fa-9980-34f378252d94.png" width="120" height="120"/></a> 
 
