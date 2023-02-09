@@ -1,5 +1,6 @@
 import express from "express";
 const router = express.Router();
+
 import {
   deleteUser,
   getAllUsers,
@@ -24,7 +25,17 @@ router.get(
 
 router.get("/", verifyToken, getAllUsers);
 
-router.put("/:id", userIdExist, updateUser);
+router.put(
+  "/:id",
+  [
+    verifyToken,
+    check("id", "No es un id valido de mongo").isMongoId(),
+    check("id", "Este id no existe").custom(userIdExist),
+    handleErrors,
+  ],
+  updateUser
+);
+
 router.delete("/:id", userIdExist, deleteUser);
 
 export default router;

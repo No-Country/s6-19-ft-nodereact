@@ -15,7 +15,9 @@ interface User extends DocumentNode {
 
 const userSchema = new mongoose.Schema(
   {
-    profile: String,
+    picture: {
+      type: String,
+    },
     username: {
       type: String,
       required: [true, "El nombre de usuario es obligatorio"],
