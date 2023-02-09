@@ -1,4 +1,3 @@
-
 var __importDefault =
   (this && this.__importDefault) ||
   function (mod) {
@@ -9,10 +8,8 @@ const express_1 = __importDefault(require("express"));
 
 const cors_1 = __importDefault(require("cors"));
 
-"use strict";
+("use strict");
 exports.__esModule = true;
-var express_1 = require("express");
-var cors_1 = require("cors");
 
 require("dotenv/config.js");
 
@@ -24,10 +21,9 @@ var PORT = process.env.PORT;
 app.use(express_1["default"].urlencoded({ extended: true }));
 app.use(express_1["default"].json());
 app.use((0, cors_1["default"])());
-// Routes
 
+// Routes
 
 app.listen(PORT, function () {
   console.log("Servidor escuchando al puerto ".concat(PORT));
-
 });
