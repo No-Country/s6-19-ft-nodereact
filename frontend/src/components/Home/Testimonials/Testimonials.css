@@ -5,7 +5,7 @@
 }
 
 .testimonialsOne{
-    display: flex;
+    
 }
 
 .titleTestimonials{
@@ -34,15 +34,14 @@
 .profilesImages img{
     padding-right:10px;
 }
-.decoration{
+.decorationThree{
     position: relative;
     top:180px;
-    padding-left:40px;
+    
     
 }
-.decoration img{
+.decorationThree img{
     width:220px;
-    height:219.13x;
 
 }
 
@@ -56,3 +55,9 @@
     font-weight: 700;
 }
 
+.testimonialsTwo{
+  display: flex;
+  position:relative;
+  left:80px;
+   
+}

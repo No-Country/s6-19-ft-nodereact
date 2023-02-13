@@ -45,11 +45,14 @@ const Testimonials = () => {
                             <p>+ 24 Reviews</p>
                         </div>
                     </div>
-                    <div className="decoration">
+                    <div className="decorationThree">
                         <img  src="./assets/decorationInfo.png" alt="decoration info" />
                     </div>
                 </div>
-                <Cards/>
+                <div className="testimonialsTwo">
+                    <Cards/>
+                </div>
+               
             </div>
         </>
     );

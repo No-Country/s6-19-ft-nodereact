@@ -8,7 +8,7 @@
 }
 
 .infoTitle{
-    font-size: 25px;
+    font-size: 50px;
     display:flex;
     width:100%;
     align-items: center;
@@ -17,35 +17,46 @@
 .infoTitle img{
     width:50px;
     height:54.3px;
-    padding-right:25px;
+    margin-right:25px;
     
     
 }
 
 .infoParagraphOne{
     padding-top:50px;
-    padding-bottom:10px;
+    padding-bottom:30px;
+    
 }
 
 .infoParagraphTwo{
     display: flex;
     align-items: center;
+
+}
+
+.infoParagraphTwo p{
+   position: relative;
+   bottom:20px;
+
 }
 
 .decoration{
     width:220px;
-    height:219.13x;
-    padding-right:60px;
+    margin-right:90px;
+    
 }
 
 .imageInfo{
+    width:750px;
+    height:auto;
     position:relative;
     top:55px;
 }
 
+
+
 .decorationTwo{
     width:220px;
-    height:219.13x;
     position:absolute;
     padding-left:40px;
 
