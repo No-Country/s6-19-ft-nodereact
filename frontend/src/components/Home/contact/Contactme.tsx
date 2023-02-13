@@ -76,12 +76,12 @@ export default function App() {
             </form>
           </div>
           <div className="opacity-70 w-48" style={{ marginTop: "-110px", pointerEvents:"none" }}>
-            <img src="./src/assets/Ellipse 11.png" alt="" />
+            <img src="./assets/contacme/Ellipse 11.png" alt="" />
           </div>
         </div>
         <div>
           <div className="flex justify-end opacity-70" style={{pointerEvents:"none" }}>
-            <img src="./src/assets/Ellipse 12.png" alt="" />
+            <img src="./assets/contacme/Ellipse 12.png" alt="" />
           </div>
         </div>
 

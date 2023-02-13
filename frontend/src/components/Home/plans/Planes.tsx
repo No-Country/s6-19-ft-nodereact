@@ -1,5 +1,5 @@
-import IconCheck from '../../assets/Vector.png';
-import IconCancel from '../../assets/leaf quad.png';
+import IconCheck from '../../../../public/assets/plans/Vector.png';
+import IconCancel from '../../../../public/assets/plans/leaf-quad.png';
 
 const Planes = () => {
     return (
@@ -7,12 +7,12 @@ const Planes = () => {
             <div className="grid grid-cols-4">
                 <div className="mt-16 mx-3">
                     <div className='flex justify-end mr-10 mb-24'>
-                        <img src="./src/assets/arcticons_verifit.png" alt="" />
+                        <img src="./assets/plans/arcticons_verifit.png" alt="" />
                     </div>
                     <h1 className='text-5xl text-center font-bold mb-5'>ELEGÍ UN PLAN ACORDE A VOS</h1>
                     <h1 className='text-xl text-center font-bold mb-5'>+ 24 reviews</h1>
                     <div className='flex justify-center'>
-                        <img src="./src/assets/puntitos.png" alt="" />
+                        <img src="./assets/plans/puntitos.png" alt="" />
                     </div>
                 </div>
                 <div className="">
