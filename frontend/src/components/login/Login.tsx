@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 type FormData = {
   email: string;
@@ -17,7 +18,7 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-[url('./public/assets/fondoLogin.png')] bg-cover bg-no-repeat bg-center h-screen w-screen">
+    <div className="bg-[url('./public/assets/fondoLogin.png')] bg-cover bg-no-repeat bg-center ">
       <div className="container mx-auto min-h-screen flex justify-end items-center">
         <div className="bg-white w-1/3 rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
           <div className=" bg-white rounded-lg p-1 m-1">
@@ -28,7 +29,7 @@ export default function Login() {
             <div className="flex justify-center my-10 ">
               <h1 className="text-lg">¿Eres nuevo usuario?</h1>
               <div className="mx-2">
-                <a href="">Crear una cuenta</a>
+                <Link to="/register">Crear una cuenta</Link>
               </div>
             </div>
             <form onSubmit={onSubmit}>

@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import './Navbar.css'
+import { Link } from "react-router-dom"
 
 
 const Navbar = () => {
@@ -14,7 +15,9 @@ const Navbar = () => {
         {name:"Sobre mi",link:"/"},
         {name:"Planes",link:"/"},
         {name:"Testimonios",link:"/"},
-        {name:"Contacto",link:"/"}
+        {name:"Contacto",link:"/"},
+        {name:"Registrarse",link:"/register"},
+        {name:"Login",link:"/login"}
 
     ]
 
@@ -29,9 +32,9 @@ const Navbar = () => {
                     <ul className={`md:flex md:items-center transition-all duration-500 ease-in ${open?"opacity-100" :"hidden"} md:opacity-100 opacity-0`} >   
                         {links.map((link,index)=>{
                             return(
-                             <li key={index}className="md:mr-10 md:my-0 my-10 w-[160px] h-[43px] flex md:items-center md:justify-center hover:rounded-xl hover:bg-violeta-100 hover:text-white hover:cursor-pointer">
+                                <Link  to={link.link} key={index}><li className="md:mr-2 md:my-0 my-10 w-[160px] h-[43px] flex md:items-center md:justify-center hover:rounded-xl hover:bg-violeta-100 hover:text-white hover:cursor-pointer">
                                     <span className="uppercase font-black text-lg " >{link.name}</span>
-                             </li>
+                             </li></Link> 
                         )
                         })}
                     </ul>
