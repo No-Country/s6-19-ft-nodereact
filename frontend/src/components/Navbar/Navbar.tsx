@@ -27,9 +27,9 @@ const Navbar = () => {
                 <div className="md:flex md:items-center md:justify-between ">
                     <img src="./assets/logo.png" alt="logo" />
                     <ul className={`md:flex md:items-center transition-all duration-500 ease-in ${open?"opacity-100" :"hidden"} md:opacity-100 opacity-0`} >   
-                        {links.map(link=>{
+                        {links.map((link,index)=>{
                             return(
-                             <li className="md:mr-10 md:my-0 my-10 w-[160px] h-[43px] flex md:items-center md:justify-center hover:rounded-xl hover:bg-violeta-100 hover:text-white hover:cursor-pointer">
+                             <li key={index}className="md:mr-10 md:my-0 my-10 w-[160px] h-[43px] flex md:items-center md:justify-center hover:rounded-xl hover:bg-violeta-100 hover:text-white hover:cursor-pointer">
                                     <span className="uppercase font-black text-lg " >{link.name}</span>
                              </li>
                         )
