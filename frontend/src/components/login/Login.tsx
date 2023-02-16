@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "../../api/axios";
+
 
 type FormData = {
   email: string;
@@ -11,10 +13,30 @@ export default function Login() {
   const { register, setValue, getValues, handleSubmit, formState: { errors } } = useForm<FormData>();
   const [loading, setLoading] = React.useState(false);
 
+  const navigate = useNavigate();
+
+  const LOGIN_URL= 'api/auth/login'
+
   const onSubmit = (data: object) => {
-    setLoading(true);
-    console.log(data);
+    if (errors) {
+      console.log("Hubo un error al loguearse")
+    }
+    setLoading(true)
+    try {
+     axios.post(LOGIN_URL,data)
+    
+      .then(res=>{
+        console.log("Logueo exitoso", res)
+      })
+
+      .catch(()=>{
+        console.log("No Server Response")
+      })
+    } catch (err) {
+      alert(err);
+    }
     setLoading(false);
+    navigate("/");
   };
 
   return (
@@ -29,7 +51,7 @@ export default function Login() {
             <div className="flex justify-center my-10 ">
               <h1 className="text-lg">¿Eres nuevo usuario?</h1>
               <div className="mx-2">
-                <Link to="/register">Crear una cuenta</Link>
+                <Link to="/register" className="text-violeta-100">Crear una cuenta</Link>
               </div>
             </div>
             <form onSubmit={onSubmit}>
@@ -66,7 +88,7 @@ export default function Login() {
                     <div className="m-1">
                       <input
                         type="checkbox"
-                        required
+                        
                         className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                       />
                     </div>

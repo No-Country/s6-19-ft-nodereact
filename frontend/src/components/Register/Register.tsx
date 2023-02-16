@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import axios from '../../api/axios'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 interface FormData  {
     username: string,
@@ -16,6 +16,8 @@ const Register = () => {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     const REGISTER_URL= 'api/auth/register'
 
@@ -45,6 +47,7 @@ const Register = () => {
           alert(err);
         }
         setLoading(false);
+        navigate("/");
         
       });
     
