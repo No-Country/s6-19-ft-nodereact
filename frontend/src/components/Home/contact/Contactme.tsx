@@ -11,7 +11,7 @@ type FormData = {
   message: string;
 };
 
-export default function App() {
+export default function Contactme() {
   const { register, setValue, getValues, handleSubmit, formState: { errors } } = useForm<FormData>();
   const [loading, setLoading] = React.useState(false);
 
