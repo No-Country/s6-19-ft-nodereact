@@ -1,14 +1,16 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { Document, ObjectId } from "mongoose";
+import User from "../models/user.model";
 
 interface IPayload extends Request {
-  _id: string;
+  id: string;
   iat: number;
   exp: number;
 }
 
 interface RequestUserId extends Request {
-  userId: string;
+  user: any;
 }
 
 const verifyToken = async (
@@ -23,8 +25,9 @@ const verifyToken = async (
       return res.status(400).send({ error: "Debes tener un token" });
     }
 
-    const payload = jwt.verify(token, `${process.env.JWT_KEY}`) as IPayload;
-    req.userId = payload._id;
+    const { id } = jwt.verify(token, `${process.env.JWT_KEY}`) as IPayload;
+    const authenticatedUser = await User.findById(id);
+    req.user = authenticatedUser;
 
     next();
   } catch (error) {

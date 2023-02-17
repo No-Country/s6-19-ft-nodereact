@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config.js";
 import authRouter from "./routes/auth.route";
 import userRouter from "./routes/user.route";
+import cartRouter from "./routes/cart.route";
+import productRouter from "./routes/product.route";
 import connectDataBase from "./config/mongoDB";
 import fileUpload from "express-fileupload";
 
@@ -32,6 +34,10 @@ app.use(
 app.use("/api/auth", authRouter);
 
 app.use("/api/user", userRouter);
+
+app.use("/api/cart", cartRouter);
+
+app.use("/api/product", productRouter);
 
 app.listen(PORT, () => {
   console.log(`Servidor escuchando al puerto ${PORT}`);
