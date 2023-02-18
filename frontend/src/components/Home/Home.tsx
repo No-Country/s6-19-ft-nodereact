@@ -5,6 +5,7 @@ import Planes from './plans/Planes'
 import Contactme from './contact/Contactme'
 import Testimonials from './Testimonials/Testimonials'
 import Navbar from '../Navbar/Navbar'
+import Ebooks from './Ebooks/Ebooks'
 
 
 const Home = () => {
@@ -13,8 +14,9 @@ const Home = () => {
             <Navbar/>
             <Hero/>
             <Info/>
-            <Testimonials/>
             <Planes/>
+            <Testimonials/>
+            <Ebooks/>
             <Contactme/>
             
         </>
