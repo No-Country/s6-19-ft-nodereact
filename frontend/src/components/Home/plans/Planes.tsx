@@ -17,8 +17,8 @@ const Planes = () => {
                 </div>
                 <div className="">
                     <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
-                        <div className='flex justify-end'>
-                            <button>
+                        <div className='flex justify-end '>
+                            <button className="bg-white">
                                 <img src={IconCancel} />
                             </button>
                         </div>
@@ -45,7 +45,7 @@ const Planes = () => {
                 <div className="">
                     <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
                         <div className='flex justify-end'>
-                            <button>
+                            <button className="bg-white">
                                 <img src={IconCancel} />
                             </button>
                         </div>
@@ -72,7 +72,7 @@ const Planes = () => {
                 <div className="">
                     <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
                         <div className='flex justify-end'>
-                            <button>
+                            <button className="bg-white">
                                 <img src={IconCancel} />
                             </button>
                         </div>

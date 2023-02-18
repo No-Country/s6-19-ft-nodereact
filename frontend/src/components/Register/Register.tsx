@@ -47,7 +47,7 @@ const Register = () => {
           alert(err);
         }
         setLoading(false);
-        navigate("/");
+        navigate("/login");
         
       });
     
