@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { addProductToCart, getCart } from "../controllers/cart.controller";
+import {
+  addProductToCart,
+  getCart,
+  updateProductQty,
+} from "../controllers/cart.controller";
 import verifyToken from "../middlewares/verify-token";
 const router = Router();
 
@@ -7,7 +11,7 @@ router.get("/", verifyToken, getCart);
 
 router.post("/", verifyToken, addProductToCart);
 
-// router.put("/:id", verifyToken, updateProductQuantity);
+router.put("/:id", verifyToken, updateProductQty);
 
 // router.delete("/:id", verifyToken, removeProduct);
 

@@ -34,6 +34,15 @@ const CartSchema = new Schema(
   }
 );
 
-const Cart = model("Cart", CartSchema);
+interface CartDocument extends Document {
+  id: string;
+  owner: string;
+  items: any;
+  subTotal: number;
+  totalQty: number;
+  createdAt: number;
+}
+
+const Cart = model<CartDocument>("Cart", CartSchema);
 
 export default Cart;

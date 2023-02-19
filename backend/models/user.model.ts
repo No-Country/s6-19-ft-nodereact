@@ -33,6 +33,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "La contraseña es obligatoria"],
       unique: true,
     },
+    cart: { type: mongoose.Schema.Types.ObjectId, ref: "Cart" },
     isAdmin: {
       type: Boolean,
       default: false,
@@ -45,5 +46,18 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model<User>("User", userSchema);
+interface UserDocument extends Document {
+  id: string;
+  username: string;
+  picture?: string;
+  email: string;
+  password: string;
+  cart: any;
+  isAdmin: boolean;
+  state: boolean;
+  _doc: any;
+  createdAt: number;
+}
+
+const User = mongoose.model<UserDocument>("User", userSchema);
 export default User;
