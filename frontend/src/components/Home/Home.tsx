@@ -6,6 +6,7 @@ import Contactme from './contact/Contactme'
 import Testimonials from './Testimonials/Testimonials'
 import Navbar from '../Navbar/Navbar'
 import Ebooks from './Ebooks/Ebooks'
+import Footer from '../Footer/Footer'
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
             <Testimonials/>
             <Ebooks/>
             <Contactme/>
+            <Footer/>
             
         </>
         
