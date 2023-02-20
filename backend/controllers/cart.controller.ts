@@ -77,7 +77,7 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
         cart.totalQty += quantity;
       }
 
-      cart.save();
+      await cart.save();
 
       res.status(401).send(cart);
     } else {

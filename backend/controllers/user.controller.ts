@@ -3,9 +3,12 @@ import { Request, Response } from "express";
 import cloudinary from "../config/cloudinary";
 import User from "../models/user.model";
 
+
+
 const getUser = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+    
 
     const user = await User.findById(id);
 
