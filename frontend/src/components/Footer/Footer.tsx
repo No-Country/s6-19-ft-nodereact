@@ -33,12 +33,12 @@ const Footer = () => {
                     <div className="w-2/4">
                       <div className="columns-2">
                          
-                          <a className="flex items-center space-x-3 pt-5 pr-5 hover:text-violeta-100 transition cursor-pointer">
+                          <div className="flex items-center space-x-3 pt-5 pr-5 hover:text-violeta-100 transition cursor-pointer">
                             <a className="flex items-center space-x-3  ">
                             <img className="icon" src="./assets/footer/vaadin_twitter-square.png"  alt=""/>
                               <span>Twitter</span>
                             </a>
-                          </a> 
+                          </div> 
                     </div>
                 </div>
         

@@ -28,7 +28,7 @@ export default function Contactme() {
             <form onSubmit={onSubmit}>
               <div className="mb-2 flex">
                 <div className="w-1/2 mr-2">
-                  <label className="block font-medium text-gray-700 mb-2">Nombre</label>
+                  <label className="block font-medium text-gray-700 mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Nombre</label>
                   <input
                     type="text"
                     required
@@ -37,7 +37,7 @@ export default function Contactme() {
                   />
                 </div>
                 <div className="w-1/2">
-                  <label className="block font-medium text-gray-700 mb-2">Apellidos</label>
+                  <label className="block font-medium text-gray-700 mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Apellidos</label>
                   <input
                     type="text"
                     required
@@ -55,7 +55,7 @@ export default function Contactme() {
                 </label>
               </div>
               <div className="mb-2">
-                <label className="block font-medium text-gray-700 mb-2">Mensaje</label>
+                <label className="block font-medium text-gray-700 mb-2">¿Cómo puedo ayudarte?</label>
                 <textarea
                   className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                   rows={6}
@@ -64,7 +64,7 @@ export default function Contactme() {
               </div>
 
               <div className="flex justify-end">
-                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-xl block mt-5 drop-shadow-lg"
+                <button className="bg-purple-600 hover:bg-purple-500 text-xs text-white font-medium py-2 px-16 rounded-xl block mt-5 drop-shadow-lg uppercase"
                   disabled={loading}
                   type="submit"
                 >
@@ -75,7 +75,7 @@ export default function Contactme() {
               </div>
             </form>
           </div>
-          <div className="opacity- w-48" style={{ marginTop: "-110px", pointerEvents:"none" }}>
+          <div className="opacity-80 w-48" style={{ marginTop: "-110px", pointerEvents:"none" }}>
             <img src="./assets/contacme/Ellipse 11.png" alt="" />
           </div>
         </div>
