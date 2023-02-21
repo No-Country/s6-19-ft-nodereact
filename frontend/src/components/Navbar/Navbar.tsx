@@ -1,7 +1,12 @@
 import React from "react";
 import { useState } from "react";
+<<<<<<< HEAD
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+=======
+import { Link } from "react-router-dom"
+
+>>>>>>> 9da34c2307464e0529e7293e15af9d098833f479
 
 const Navbar = () => {
   interface Links {
