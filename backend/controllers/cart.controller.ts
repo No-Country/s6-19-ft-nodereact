@@ -58,6 +58,12 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
       await Product.findById(product),
     ]);
 
+    if (!cart) {
+      return res.status(400).json({
+        msg: "This user does not have a cart yet",
+      });
+    }
+
     if (cart) {
       const duplicatedProduct = cart.items.find((product) => {
         return foundProduct.id === product.item.id;
@@ -135,6 +141,13 @@ const updateProductQty = async (req: UserRequest, res: Response) => {
       }),
       await Product.findById(id),
     ]);
+
+    if (!cart) {
+      return res.status(400).json({
+        msg: "This user does not have a cart yet",
+      });
+    }
+
     const findProduct = cart.items.find((item) => {
       return product.id === item.item.id;
     });
@@ -177,4 +190,39 @@ const updateProductQty = async (req: UserRequest, res: Response) => {
   }
 };
 
-export { getCart, addProductToCart, updateProductQty };
+const removeProductFromCart = async (req: UserRequest, res: Response) => {
+  try {
+    const { owner } = req.user;
+    const { id } = req.params;
+
+    const [cart, product] = await Promise.all([
+      await Cart.findOne({ owner }).populate({
+        path: "items",
+        populate: {
+          path: "item",
+        },
+      }),
+      await Product.findById(id),
+    ]);
+
+    if (!cart) {
+      return res.status(400).json({
+        msg: "This user does not have a cart yet",
+      });
+    }
+
+    const newArray = cart.items.filter((item) => {
+      return product.id !== item.item.id;
+    });
+
+    if (newArray) {
+      cart.items = newArray;
+
+      res.status(200).send({ msg: "Product removed succesfully" });
+    }
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export { getCart, addProductToCart, updateProductQty, removeProductFromCart };
