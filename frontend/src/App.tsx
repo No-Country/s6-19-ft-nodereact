@@ -5,9 +5,19 @@ import {Routes, Route} from 'react-router-dom';
 import Register from './components/Register/Register'
 import Login from './components/login/Login'
 import Ebooks from './components/Ebooks/Ebooks';
-
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { setCredentials } from './redux/slices/authSlice';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+
+  useEffect(() => {
+    dispatch(setCredentials(user))
+  }, [])
+  
 
   return (
     <>

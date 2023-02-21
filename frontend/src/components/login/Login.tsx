@@ -1,8 +1,8 @@
 import * as React from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "../../api/axios";
 import { useLoginMutation } from "../../redux/api/authApi";
 import { setCredentials } from "../../redux/slices/authSlice";
 
@@ -20,8 +20,6 @@ interface Body {
 export default function Login() {
   const {
     register,
-    setValue,
-    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
@@ -36,8 +34,6 @@ export default function Login() {
 
   const dispatch = useDispatch();
 
-  const LOGIN_URL = "api/auth/login";
-
   const onSubmit = (data: Body) => {
     setLoading(true);
     try {
@@ -50,14 +46,14 @@ export default function Login() {
     setLoading(false);
   };
 
-  console.log(loginData, error, isLoading);
+  console.log("hola",loginData, error, isLoading);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isLoginSuccess) {
       dispatch(setCredentials(loginData));
 
       navigate("/");
-    }
+    } 
   }, [isLoginSuccess]);
 
   return (
