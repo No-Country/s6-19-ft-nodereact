@@ -75,12 +75,12 @@ export default function Contactme() {
               </div>
             </form>
           </div>
-          <div className="opacity-70 w-48" style={{ marginTop: "-110px", pointerEvents:"none" }}>
+          <div className="opacity- w-48" style={{ marginTop: "-110px", pointerEvents:"none" }}>
             <img src="./assets/contacme/Ellipse 11.png" alt="" />
           </div>
         </div>
         <div>
-          <div className="flex justify-end opacity-70" style={{pointerEvents:"none" }}>
+          <div className="flex justify-end opacity-80" style={{pointerEvents:"none" }}>
             <img src="./assets/contacme/Ellipse 12.png" alt="" />
           </div>
         </div>

@@ -3,13 +3,12 @@ const Footer = () => {
     <>
 
     <footer>
-      <div className="logo-container">
         <div className="md:auto sm:auto flex justify-between ">
           <div className="w-3/4 ">
               <a className="flex items-center pt-6 pb-4 pl-16 ">
                 <img className="w-[230px] h-auto relative left-4 " src="./assets/footer/logo.png" alt=""/>
               </a>
-                <div className="text-start pl-48 font-semibold ">
+                <div className="text-start relative left-56 font-semibold ">
                   <h6> CAMILA BRONN</h6>
                 </div>
                 <br></br>
@@ -18,49 +17,36 @@ const Footer = () => {
                 </div>
             </div>
               <div className="w-2/4">
-                <div className="redes-container font-bold  text-2xl pt-16  "> 
+                <div className="font-bold text-xl flex flex-col justify-center  "> 
                   <h3> MIS REDES</h3>
                   <div className="columns-2">
-                      <div className="redes-container_instagram">
-                        <div className="logo-instagram ">
-                          <a className="flex items-center space-x-3 pt-6 pb-3 pr-5 hover:text-sky-300 transition cursor-pointer">
+                          <a className="flex items-center space-x-3 pt-6 pb-3 pr-5 hover:text-violeta-100 transition cursor-pointer">
                            <img className="icon" src="./assets/footer/ant-design_instagram-filled.png"  alt=""/>
                             <span>Instagram</span>
                         </a> 
-                      </div>
-                   </div>
                 </div>
                   <div className="columns-2 ">
-                    <div className="redes-container_facebook">
-                      <div className="logo-facebook">
-                        <a className="flex items-center space-x-3 pt-5 pb-3 pr-5 hover:text-sky-300 transition  cursor-pointer">
+                        <a className="flex items-center space-x-3 pt-5 pb-3 pr-5 hover:text-violeta-100 transition  cursor-pointer">
                         <img className="icon" src="./assets/footer/ri_facebook-box-fill.svg"  alt=""/>
                             <span>Facebook</span>
                         </a> 
-                      </div>
-                  <div className="w-2/4">
-                    <div className="container-twitter">
+                    <div className="w-2/4">
                       <div className="columns-2">
-                        <div className="redes-container_twitter">
-                         <div className="logo-twitter">
-                          <a className="flex items-center space-x-3 pt-5 pr-5 hover:text-sky-300 transition cursor-pointer">
+                         
+                          <a className="flex items-center space-x-3 pt-5 pr-5 hover:text-violeta-100 transition cursor-pointer">
                             <a className="flex items-center space-x-3  ">
                             <img className="icon" src="./assets/footer/vaadin_twitter-square.png"  alt=""/>
                               <span>Twitter</span>
                             </a>
                           </a> 
-                       </div>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+        
             </div>
             </div>
           </div>
           <div/>
         </div>
-      </div>
     </footer>   
     </>
   )

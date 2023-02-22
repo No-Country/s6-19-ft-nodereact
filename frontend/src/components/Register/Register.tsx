@@ -123,7 +123,7 @@ const Register = () => {
                     className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                     placeholder="Confirm password"
                     {...register("confirmpassword", {
-                      minLength: { value: 8, message: 'Debe tener al menos 4 caracteres' },
+                      minLength: { value: 8, message: 'Debe tener al menos 8 caracteres' },
                       validate: (value) => {
                         if (watch("password") !== value) {
                           return "Las contraseñas no coinciden";

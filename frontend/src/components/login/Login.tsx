@@ -21,6 +21,7 @@ export default function Login() {
     if (errors) {
       console.log("Hubo un error al loguearse")
     }
+    console.log(data)
     setLoading(true)
     try {
      axios.post(LOGIN_URL,data)
@@ -54,7 +55,7 @@ export default function Login() {
                 <Link to="/register" className="text-violeta-100">Crear una cuenta</Link>
               </div>
             </div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-2">
                 <label className="block">
                   <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-slate-700">
