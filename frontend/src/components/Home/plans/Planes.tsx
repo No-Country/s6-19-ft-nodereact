@@ -9,7 +9,7 @@ const Planes = () => {
           <div className="flex justify-end mr-10 mb-24">
             <img src="./assets/plans/arcticons_verifit.png" alt="" />
           </div>
-          <h1 className="text-5xl text-center font-bold mb-5">
+          <h1 className="text-4xl text-center font-bold mb-5">
             ELEGÍ UN PLAN ACORDE A VOS
           </h1>
           <h1 className="text-xl text-center font-bold mb-5">+ 24 reviews</h1>

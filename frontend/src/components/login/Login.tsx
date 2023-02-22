@@ -58,15 +58,15 @@ export default function Login() {
 
   return (
     <div className="bg-[url('./public/assets/fondoLogin.png')] bg-cover bg-no-repeat bg-center ">
-      <div className="container mx-auto min-h-screen flex justify-end items-center">
-        <div className="bg-white w-1/3 rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
+      <div className="container mx-auto min-h-screen flex justify-end items-center ">
+        <div className="bg-white w-[37%]  rounded-3xl shadow-lg p-10 border border-gray-400  mx-3">
           <div className=" bg-white rounded-lg p-1 m-1">
             <div className="flex justify-center mt-10">
               <h1 className="text-2xl font-bold">Inicio de Sesión</h1>
             </div>
 
-            <div className="flex justify-center my-10 ">
-              <h1 className="text-lg">¿Eres nuevo usuario?</h1>
+            <div className="flex justify-center  items-center my-10 ">
+              <h1 className="text-base">¿Eres nuevo usuario?</h1>
               <div className="mx-2">
                 <Link to="/register" className="text-violeta-100">
                   Crear una cuenta
@@ -90,7 +90,7 @@ export default function Login() {
               </div>
               <div>
                 <div className=" mr-2">
-                  <label className="block font-medium text-gray-700 mb-2">
+                  <label className="block font-medium text-gray-700 mb-2 text-sm">
                     Contraseña
                   </label>
                   <input
