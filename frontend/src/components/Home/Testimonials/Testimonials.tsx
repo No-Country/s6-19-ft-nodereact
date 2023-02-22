@@ -18,7 +18,7 @@ const Testimonials = () => {
   return (
     <>
       <div className="md:container testimonialsSection">
-        <div className="testimonialsOne mr-10">
+        <div className="relative">
           <div className="profiles">
             <div className="titleTestimonials">
               <h2>Testimonios</h2>
