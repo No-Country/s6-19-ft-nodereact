@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import RatingStars from "./RatingStart";
+import { useGetSingleEbookQuery } from "../../redux/api/authApi";
 
 interface Book {
   title: string;
@@ -20,72 +21,10 @@ const EbooksDetail = () => {
   const [loading, setLoading] = useState(false);
   const { ebookId } = useParams();
 
-  const books: Book[] = [
-    {
-      title: "book 1",
-      image: "../../../public/assets/EbooksPage/book1.png",
-      price: 3000,
-      cantidad: 1,
-      rating: 1,
-      link: "/ebooksDetail/1",
-    },
-    {
-      title: "book 2",
-      image: "../../../public/assets/EbooksPage/book2.png",
-      price: 3000,
-      cantidad: 2,
-      rating: 2,
-      link: "/ebooksDetail/2",
-    },
-    {
-      title: "book 3",
-      image: "../../../public/assets/EbooksPage/book3.png",
-      price: 3000,
-      cantidad: 3,
-      rating: 3,
-      link: "/ebooksDetail/3",
-    },
-    {
-      title: "book 4",
-      image: "../../../public/assets/EbooksPage/book4.png",
-      price: 3000,
-      cantidad: 4,
-      rating: 4,
-      link: "/ebooksDetail/4",
-    },
-    {
-      title: "book 5",
-      image: "../../../public/assets/EbooksPage/book5.png",
-      price: 1000,
-      cantidad: 5,
-      rating: 5,
-      link: "/ebooksDetail/5",
-    },
-    {
-      title: "book 6",
-      image: "../../../public/assets/EbooksPage/book6.png",
-      price: 6000,
-      cantidad: 6,
-      rating: 6,
-      link: "/ebooksDetail/6",
-    },
-    {
-      title: "book 7",
-      image: "../../../public/assets/EbooksPage/book7.png",
-      price: 300,
-      cantidad: 1,
-      rating: 2,
-      link: "/ebooksDetail/7",
-    },
-    {
-      title: "book 8",
-      image: "../../../public/assets/EbooksPage/book8.png",
-      price: 9000,
-      cantidad: 10,
-      rating: 5,
-      link: "/ebooksDetail/8",
-    },
-  ];
+  const { data, error, isLoading } = useGetSingleEbookQuery(ebookId);
+
+  console.log(data, error);
+
   return (
     <div className="container mx-auto my-10">
       <nav className="breadcrumb mb-6 pt-12" aria-label="breadcrumbs">
@@ -105,63 +44,54 @@ const EbooksDetail = () => {
           <li className="text-gray-500">Detail</li>
         </ol>
       </nav>
-      <div className="flex flex-wrap">
-        <div className="w-full md:w-1/2 p-4 mt-8">
-          <div className="flex items-center mb-4">
-            <img
-              src={books[ebookId - 1].image}
-              alt="Nombre del eBook"
-              className="w-1/2"
-            />
-            <div className="w-1/2 ml-20">
-              <div className="flex items-center mb-4">
-                <p className="text-4xl font-bold">
-                  $ {books[ebookId - 1].price}
-                </p>
-              </div>
-              <p className="text-gray-600 text-sm">
-                No, no nos hemos equivocado de sección y esto no es una lección
-                de medicina. Pero es que para que los entrenamientos te lleven a
-                un a buena condición física es necesario primero que conozcas tu
-                propio cuerpo para comprender mejor los ejercicios. Y este libro
-                es básicamente eso, una guía explicativa de qué partes de tu
-                anatomía trabajas con cada movimiento. Y de paso te puedes hacer
-                el entendido en el gimnasio.
-              </p>
-
-              <div className="flex items-center mb-4">
-                <p className="text-2xl font-bold">cantidadd</p>
-                <input
-                  type="number"
-                  value={books[ebookId - 1].cantidad}
-                  min="1"
-                  className="w-16 border border-gray-300 rounded-md ml-4"
-                />
-              </div>
-              <button
-                className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
-                disabled={loading}
-                type="submit"
-              >
-                {loading ? (
-                  <svg
-                    className="motion-reduce:hidden animate-spin ..."
-                    viewBox="0 0 24 24"
-                  >
-                    Processing...
-                  </svg>
-                ) : (
-                  <div className="flex uppercase items-center justify-center ">
-                    <i className="fa-solid fa-cart-shopping text-base pr-2"></i>
-                    <p className="text-xs">Agregar al carrito</p>
-                  </div>
-                )}
-              </button>
+      <div className="">
+        <div className="grid grid-cols-3  w-full mb-4 gap-4">
+          <img
+            src={data?.img}
+            alt="Nombre del eBook"
+            className="w-full object-cover"
+          />
+          <div className="col-span-2 ml-20">
+            <h3>{data?.title}</h3>
+            <div className="flex items-center mb-4">
+              <p className="text-4xl font-bold">$ {data?.price}</p>
             </div>
+            <p className="text-gray-600 text-sm">
+              {data?.description.slice(0, 700)}
+            </p>
+
+            <div className="flex items-center mb-4">
+              <p className="text-2xl font-bold">{data?.stock}</p>
+              <input
+                type="number"
+                value={data?.stock}
+                min="1"
+                className="w-16 border border-gray-300 rounded-md ml-4"
+              />
+            </div>
+            <button
+              className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
+              disabled={loading}
+              type="submit"
+            >
+              {loading ? (
+                <svg
+                  className="motion-reduce:hidden animate-spin ..."
+                  viewBox="0 0 24 24"
+                >
+                  Processing...
+                </svg>
+              ) : (
+                <div className="flex uppercase items-center justify-center ">
+                  <i className="fa-solid fa-cart-shopping text-base pr-2"></i>
+                  <p className="text-xs">Agregar al carrito</p>
+                </div>
+              )}
+            </button>
           </div>
         </div>
       </div>
-      <EbookList books={books} />
+      {/* <EbookList books={books} /> */}
     </div>
   );
 };

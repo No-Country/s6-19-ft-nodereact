@@ -58,6 +58,9 @@ export const authApi = createApi({
     getAllEbooks: builder.query<Product[], void>({
       query: () => "/products",
     }),
+    getSingleEbook: builder.query<Product, string | undefined>({
+      query: (id) => `/products/${id}`,
+    }),
   }),
 });
 
@@ -65,4 +68,5 @@ export const {
   useLoginMutation,
   useRegisterUserMutation,
   useGetAllEbooksQuery,
+  useGetSingleEbookQuery,
 } = authApi;
