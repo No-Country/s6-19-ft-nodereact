@@ -79,4 +79,20 @@ const getAllProducts = async (req: Request, res: Response) => {
   res.status(200).send(products);
 };
 
-export { createProduct, getAllProducts };
+const getProduct = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findById(id);
+
+    if (!product) {
+      return res.status(400).send({ msg: "Product not found" });
+    }
+
+    res.status(200).send(product);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export { createProduct, getAllProducts, getProduct };
