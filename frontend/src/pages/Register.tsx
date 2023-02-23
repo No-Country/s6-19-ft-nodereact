@@ -71,7 +71,7 @@ const Register = () => {
               </div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex flex-col items-center justify-center ">
+                <div className="flex flex-col items-center justify-center gap-2 ">
                   <div className="w-3/4 mr-2">
                     <label className="block font-medium text-gray-700 mb-2">
                       Nombres y apellidos

@@ -60,16 +60,16 @@ export default function Login() {
   return (
     <div className="bg-[url('./public/assets/fondoLogin.png')] bg-cover bg-no-repeat bg-center ">
       <div className="container mx-auto min-h-screen flex justify-end items-center ">
-        <div className="bg-white w-[37%]  rounded-3xl shadow-lg p-10 border border-gray-400  mx-3">
+        <div className="bg-white w-[500px]  rounded-3xl shadow-lg py-10 px-14 border border-gray-400  mx-3">
           <div className=" bg-white rounded-lg p-1 m-1">
             <div className="flex justify-center mt-10">
-              <h1 className="text-2xl font-bold">Inicio de Sesión</h1>
+              <h1 className="text-2xl font-thin ">Inicio de Sesión</h1>
             </div>
 
             <div className="flex justify-center  items-center my-10 ">
-              <h1 className="text-base">¿Eres nuevo usuario?</h1>
+              <h2 className="font-thin">¿Eres nuevo usuario?</h2>
               <div className="mx-2">
-                <Link to="/register" className="text-violeta-100">
+                <Link to="/register" className="text-violeta-100 ">
                   Crear una cuenta
                 </Link>
               </div>
@@ -139,7 +139,7 @@ export default function Login() {
                   alt="Google Icon"
                 />
               </div>
-              <h1 className="text-lg">Continuar con google</h1>
+              <p className="text-md">Continuar con google</p>
             </div>
           </div>
         </div>
