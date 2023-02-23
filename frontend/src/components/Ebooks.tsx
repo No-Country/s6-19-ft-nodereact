@@ -6,7 +6,7 @@ const Ebooks = () => {
 
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="md:container flex items-center justify-between">
         <img src="./assets/ebooks/imageEbooks.png" alt="ebooks image" />
         <div className="mt-16 mx-3 flex flex-col items-center ">
           <h1 className="text-6xl tracking-widest	leading-relaxed text-center font-bold mb-5 px-5">

@@ -3,7 +3,7 @@ import IconCancel from "../../public/assets/plans/leaf-quad.png";
 
 const Planes = () => {
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-10 ">
       <div className="grid grid-cols-4">
         <div className="mt-16 mx-3">
           <div className="flex justify-end mr-10 mb-24">
