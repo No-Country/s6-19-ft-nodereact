@@ -1,15 +1,20 @@
 import { useState } from "react";
+import RatingStars from "../pages/EbookDetail.tsx/RatingStart";
+import { Link } from "react-router-dom";
 
 interface Props {
   books: Array<{
-    title?: string;
+    title: string;
     image: string;
     price: number;
+    rating: number;
+    link: string;
   }>;
 }
 
 const EbookList = ({ books }: Props) => {
   const [loading, setLoading] = useState(false);
+  const [rating, setRating] = useState(0);
 
   return (
     <>
@@ -17,7 +22,9 @@ const EbookList = ({ books }: Props) => {
         {books.map((book, index) => {
           return (
             <div key={index} className="flex flex-col items-center">
-              <img src={book.image} alt={book.title} />
+              <Link to={book.link}>
+                <img src={book.image} alt={book.title} />
+              </Link>
               <button
                 className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
                 disabled={loading}
@@ -38,33 +45,7 @@ const EbookList = ({ books }: Props) => {
                 )}
               </button>
               <div className="flex items-center mb-32">
-                <div className="flex">
-                  <img
-                    className="w-5 h-5"
-                    src="./assets/greenStar.png"
-                    alt="green start"
-                  />
-                  <img
-                    className="w-5 h-5"
-                    src="./assets/greenStar.png"
-                    alt="green start"
-                  />
-                  <img
-                    className="w-5 h-5"
-                    src="./assets/greenStar.png"
-                    alt="green start"
-                  />
-                  <img
-                    className="w-5 h-5"
-                    src="./assets/greenStar.png"
-                    alt="green start"
-                  />
-                  <img
-                    className="w-5 h-5"
-                    src="./assets/greenStar.png"
-                    alt="green start"
-                  />
-                </div>
+                <RatingStars RatingIndex={book.rating} setRatingIndex={setRating} />
                 <p className="text-sm font-black">${book.price}</p>
               </div>
             </div>

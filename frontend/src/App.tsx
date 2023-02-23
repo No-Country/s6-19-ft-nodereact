@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { setCredentials } from "./redux/slices/authSlice";
 import Home from "./pages/Home";
 import EbooksPage from "./pages/EbooksPage";
+import EbooksDetail from "./pages/EbookDetail.tsx/EbooksDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/ebooks" element={<EbooksPage />}></Route>
+        <Route path="/ebooksDetail/:ebookId" element={<EbooksDetail />}></Route>
       </Routes>
     </>
   );
