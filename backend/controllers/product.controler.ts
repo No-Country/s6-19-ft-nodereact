@@ -64,4 +64,17 @@ const createProduct = async (req: RequestFiles, res: Response) => {
   }
 };
 
-export { createProduct };
+const getAllProducts = async (req: Request, res: Response) => {
+  const { category, minPrice } = req.query;
+
+  const filters = {
+    ...(category && { category }),
+    price: { $gt: minPrice },
+  };
+
+  const products = await Product.find(filters);
+
+  res.status(200).send(products);
+};
+
+export { createProduct, getAllProducts };

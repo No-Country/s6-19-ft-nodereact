@@ -5,6 +5,7 @@ import authRouter from "./routes/auth.route";
 import userRouter from "./routes/user.route";
 import cartRouter from "./routes/cart.route";
 import productRouter from "./routes/product.route";
+import paymentRouter from "./routes/payment.route";
 import connectDataBase from "./config/mongoDB";
 import fileUpload from "express-fileupload";
 import Product from "./models/product.model";
@@ -38,7 +39,9 @@ app.use("/api/user", userRouter);
 
 app.use("/api/cart", cartRouter);
 
-app.use("/api/product", productRouter);
+app.use("/api/products", productRouter);
+
+app.use("/api/payments", paymentRouter);
 
 // Ruta para insertar productos en la db
 
