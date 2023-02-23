@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { useRegisterUserMutation } from "../redux/api/authApi";
 
 interface FormData {
@@ -172,13 +173,8 @@ const Register = () => {
                     className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 w-3/4 mb-5  rounded-xl block mt-5 drop-shadow-lg"
                     type="submit"
                   >
-                    {loading ? (
-                      <svg
-                        className="motion-reduce:hidden animate-spin ..."
-                        viewBox="0 0 24 24"
-                      >
-                        Processing...
-                      </svg>
+                    {isLoading ? (
+                      <Spinner text={"Processing"} />
                     ) : (
                       "Registrarse"
                     )}

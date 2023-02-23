@@ -1,5 +1,4 @@
 import Info from "../components/Info/Info";
-
 import Navbar from "../components/Navbar/Navbar";
 import Contactme from "../components/Contactme";
 import Ebooks from "../components/Ebooks";

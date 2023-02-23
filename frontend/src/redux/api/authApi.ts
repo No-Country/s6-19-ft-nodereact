@@ -14,7 +14,7 @@ interface Body {
 
 interface RegisterResponse {
   msg: string;
-  user: object
+  user: object;
 }
 
 interface BodyRegister {

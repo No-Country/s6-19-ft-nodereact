@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { useLoginMutation } from "../redux/api/authApi";
 import { setCredentials } from "../redux/slices/authSlice";
 
@@ -123,20 +124,11 @@ export default function Login() {
 
               <div className="">
                 <button
-                  className="bg-purple-600 w-full hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-xl block mt-5 drop-shadow-lg"
-                  disabled={loading}
+                  className="bg-purple-600 w-full hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-xl mt-5 drop-shadow-lg flex justify-center items-center"
+                  disabled={isLoading}
                   type="submit"
                 >
-                  {loading ? (
-                    <svg
-                      className="motion-reduce:hidden animate-spin ..."
-                      viewBox="0 0 24 24"
-                    >
-                      Processing...
-                    </svg>
-                  ) : (
-                    "Ingresar"
-                  )}
+                  {isLoading ? <Spinner text={"Processing"} /> : "Ingresar"}
                 </button>
               </div>
             </form>
