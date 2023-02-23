@@ -69,8 +69,10 @@ const getAllProducts = async (req: Request, res: Response) => {
 
   const filters = {
     ...(category && { category }),
-    price: { $gt: minPrice },
+    ...(minPrice && { price: { $gt: minPrice } }),
   };
+
+  console.log(filters);
 
   const products = await Product.find(filters);
 
