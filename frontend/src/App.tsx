@@ -24,11 +24,13 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="/ebooks" element={<EbooksPage />} />
+          <Route path="/ebooks/:ebookId" element={<EbooksDetail />} />
+        </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/ebooks" element={<EbooksPage />}></Route>
-        <Route path="/ebooksDetail/:ebookId" element={<EbooksDetail />}></Route>
       </Routes>
     </>
   );

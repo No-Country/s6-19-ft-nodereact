@@ -2,29 +2,27 @@ import { useState } from "react";
 import RatingStars from "../pages/EbookDetail.tsx/RatingStart";
 import { Link } from "react-router-dom";
 import AsideFilter from "./AsideFilter";
+import { Ebook } from "../types";
 
 interface Props {
-  books: Array<{
-    title: string;
-    image: string;
-    price: number;
-    rating: number;
-  }>;
+  books: Ebook[];
 }
 
 const EbookList = ({ books }: Props) => {
   const [loading, setLoading] = useState(false);
   const [rating, setRating] = useState(0);
 
+  console.log(books);
+
   return (
     <section className="flex">
       <AsideFilter />
       <div className="w-full grid grid-cols-4  ">
-        {books.map((book, index) => {
+        {books?.map((book, index) => {
           return (
             <div key={index} className="flex flex-col items-center">
-              <Link to={book.link}>
-                <img src={book.image} alt={book.title} />
+              <Link to={`/ebooks/${book._id}`}>
+                <img src={book.img} alt={book.title} />
               </Link>
               <button
                 className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
