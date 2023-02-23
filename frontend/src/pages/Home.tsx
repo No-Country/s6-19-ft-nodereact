@@ -1,5 +1,5 @@
 import Info from "../components/Info/Info";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar";
 import Contactme from "../components/Contactme";
 import Ebooks from "../components/Ebooks";
 import Footer from "../components/Footer";
@@ -10,7 +10,6 @@ import Planes from "../components/Planes";
 const Home = () => {
   return (
     <>
-      <Navbar />
       <Hero />
       <Info />
       <Planes />

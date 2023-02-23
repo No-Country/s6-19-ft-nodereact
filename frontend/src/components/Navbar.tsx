@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout, selectAuth } from "../../redux/slices/authSlice";
+import { logout, selectAuth } from "../redux/slices/authSlice";
 
 const Navbar = () => {
   const { email } = useSelector(selectAuth);
@@ -38,7 +38,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               className="h-[55px] w-auto relative md:left-7 left-0 "
-              src="./assets/logo.png"
+              src="../assets/logo.png"
               alt="logo"
             />
           </Link>

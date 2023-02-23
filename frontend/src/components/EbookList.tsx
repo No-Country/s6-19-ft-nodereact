@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RatingStars from "../pages/EbookDetail.tsx/RatingStart";
 import { Link } from "react-router-dom";
+import AsideFilter from "./AsideFilter";
 
 interface Props {
   books: Array<{
@@ -8,7 +9,6 @@ interface Props {
     image: string;
     price: number;
     rating: number;
-    link: string;
   }>;
 }
 
@@ -17,8 +17,9 @@ const EbookList = ({ books }: Props) => {
   const [rating, setRating] = useState(0);
 
   return (
-    <>
-      <div className="grid grid-cols-4 ">
+    <section className="flex">
+      <AsideFilter />
+      <div className="w-full grid grid-cols-4  ">
         {books.map((book, index) => {
           return (
             <div key={index} className="flex flex-col items-center">
@@ -45,14 +46,17 @@ const EbookList = ({ books }: Props) => {
                 )}
               </button>
               <div className="flex items-center mb-32">
-                <RatingStars RatingIndex={book.rating} setRatingIndex={setRating} />
+                <RatingStars
+                  RatingIndex={book.rating}
+                  setRatingIndex={setRating}
+                />
                 <p className="text-sm font-black">${book.price}</p>
               </div>
             </div>
           );
         })}
       </div>
-    </>
+    </section>
   );
 };
 

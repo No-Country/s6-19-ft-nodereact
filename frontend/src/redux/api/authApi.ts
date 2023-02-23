@@ -23,6 +23,17 @@ interface BodyRegister {
   password: string;
 }
 
+interface Product {
+  _id: string;
+  title: string;
+  description: string;
+  price: number;
+  stock: number;
+  category: string;
+  img: string;
+  rating: number;
+}
+
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
@@ -44,7 +55,14 @@ export const authApi = createApi({
         body,
       }),
     }),
+    getAllEbooks: builder.query<Product[], void>({
+      query: () => "/products",
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterUserMutation } = authApi;
+export const {
+  useLoginMutation,
+  useRegisterUserMutation,
+  useGetAllEbooksQuery,
+} = authApi;

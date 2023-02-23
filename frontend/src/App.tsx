@@ -10,6 +10,7 @@ import { setCredentials } from "./redux/slices/authSlice";
 import Home from "./pages/Home";
 import EbooksPage from "./pages/EbooksPage";
 import EbooksDetail from "./pages/EbookDetail.tsx/EbooksDetail";
+import Navbar from "./components/Navbar";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
