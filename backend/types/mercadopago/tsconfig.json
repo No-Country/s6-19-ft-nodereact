@@ -13,5 +13,6 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true
   },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
   "files": ["index.d.ts", "mercadopago-tests.ts"]
 }
