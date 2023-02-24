@@ -13,7 +13,11 @@ const EbookCard = ({ book }: EbooksProps) => {
   return (
     <div className="w-[240px] ">
       <Link to={`/ebooks/${book._id}`}>
-        <img className="w-full h-[360px]" src={book.img} alt={book.title} />
+        {book.img ? (
+          <img className="w-full h-[360px]" src={book?.img} alt={book.title} />
+        ) : (
+          "not found"
+        )}
       </Link>
       <button
         className="w-full bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
@@ -35,8 +39,8 @@ const EbookCard = ({ book }: EbooksProps) => {
         )}
       </button>
       <div className="flex items-center justify-between ">
-        <RatingStars RatingIndex={book.rating} setRatingIndex={setRating} />
-        <p className="text-sm font-black">${book.price}</p>
+        <RatingStars RatingIndex={book?.rating} setRatingIndex={setRating} />
+        <p className="text-sm font-black">${book?.price}</p>
       </div>
     </div>
   );

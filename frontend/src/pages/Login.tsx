@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
-import { useLoginMutation } from "../redux/api/authApi";
+
 import { setCredentials } from "../redux/slices/authSlice";
+import background from "../assets/fondoLogin.png";
+import { useLoginMutation } from "../redux/api/authApi";
 
 type FormData = {
   email: string;
@@ -58,7 +60,7 @@ export default function Login() {
   }, [isLoginSuccess]);
 
   return (
-    <div className="bg-[url('./public/assets/fondoLogin.png')] bg-cover bg-no-repeat bg-center ">
+    <div className={`bg-[url(${background})] bg-cover bg-no-repeat bg-center`}>
       <div className="container mx-auto min-h-screen flex justify-end items-center ">
         <div className="bg-white w-[500px]  rounded-3xl shadow-lg py-10 px-14 border border-gray-400  mx-3">
           <div className=" bg-white rounded-lg p-1 m-1">

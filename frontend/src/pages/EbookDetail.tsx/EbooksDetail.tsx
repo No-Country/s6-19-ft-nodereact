@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 import RatingStars from "./RatingStart";
-import { useGetSingleEbookQuery } from "../../redux/api/authApi";
+import { useGetSingleEbookQuery } from "../../redux/api/emptyApi";
 
 interface Book {
   title: string;

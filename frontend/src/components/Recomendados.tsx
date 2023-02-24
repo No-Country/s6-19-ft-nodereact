@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetAllEbooksQuery } from "../redux/api/authApi";
+import { useGetAllEbooksQuery } from "../redux/api/emptyApi";
 
 const Recomendados = () => {
   const { data } = useGetAllEbooksQuery();

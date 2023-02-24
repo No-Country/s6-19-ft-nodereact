@@ -3,8 +3,9 @@ import Logo from "../assets/logo.png";
 import IconCarrito from "../assets/ebookdetail/map_grocery-or-supermarket.png";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useGetSingleEbookQuery } from "../redux/api/authApi";
+
 import { Ebook } from "../types";
+import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 
 const EbooksDetail = () => {
   const [loading, setLoading] = useState(false);
