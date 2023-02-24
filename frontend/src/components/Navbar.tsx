@@ -35,7 +35,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="absolute z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white">
+      <header className=" z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white">
         <div className="md:flex md:items-center md:justify-between ">
           <Link to="/">
             <img
@@ -129,7 +129,7 @@ const Navbar = () => {
             <i className="fa fa-bars text-2xl"></i>
           </div>
         </div>
-      </div>
+      </header>
     </>
   );
 };
