@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   addProductToCart,
+  clearCart,
   getCart,
   removeProductFromCart,
   updateProductQty,
@@ -16,6 +17,6 @@ router.put("/:id", verifyToken, updateProductQty);
 
 router.delete("/:id", verifyToken, removeProductFromCart);
 
-// router.delete("/", verifyToken, emptyCart);
+router.delete("/", verifyToken, clearCart);
 
 export default router;

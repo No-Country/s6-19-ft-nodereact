@@ -43,11 +43,7 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
 
     //   const user = await User.findById(owner)
 
-    let object: QueryObject = {};
-
-    let items: QueryObject[] = [];
-
-    const [cart, user, foundProduct] = await Promise.all([
+    let [cart, user, foundProduct] = await Promise.all([
       await Cart.findOne({ owner }).populate({
         path: "items",
         populate: {
@@ -58,11 +54,15 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
       await Product.findById(product),
     ]);
 
-    if (!cart) {
-      return res.status(400).json({
-        msg: "This user does not have a cart yet",
-      });
-    }
+    let object: QueryObject = {};
+
+    let items: QueryObject[] = [];
+
+    // if (!cart) {
+    //   return res.status(400).json({
+    //     msg: "This user does not have a cart yet",
+    //   });
+    // }
 
     if (cart) {
       const duplicatedProduct = cart.items.find((product) => {
@@ -81,6 +81,25 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
 
         cart.subTotal = cartTotal;
         cart.totalQty += quantity;
+      } else {
+        (object.item = foundProduct._id),
+          (object.quantity = quantity),
+          (object.total = foundProduct.price * quantity);
+
+        cart.items.push(object);
+        cart.totalQty = cart.totalQty + quantity;
+        cart.subTotal = cart.subTotal + foundProduct.price * quantity;
+
+        let t = cart.subTotal.toString();
+        let regex = /(\d*.\d{0,2})/;
+        t.match(regex)[0];
+
+        const savedCart = await cart.save();
+
+        return res.status(200).json({
+          msg: "hay carrito",
+          savedCart,
+        });
       }
 
       await cart.save();
@@ -225,4 +244,32 @@ const removeProductFromCart = async (req: UserRequest, res: Response) => {
   }
 };
 
-export { getCart, addProductToCart, updateProductQty, removeProductFromCart };
+const clearCart = async (req: UserRequest, res: Response) => {
+  const owner = req.user._id;
+
+  try {
+    const cart = await Cart.findOne({ owner });
+
+    cart.items = [];
+    cart.subTotal = 0;
+    cart.totalQty = 0;
+
+    const savedCart = await cart.save();
+
+    res.status(200).json({
+      savedCart,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error,
+    });
+  }
+};
+
+export {
+  getCart,
+  addProductToCart,
+  updateProductQty,
+  removeProductFromCart,
+  clearCart,
+};
