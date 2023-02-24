@@ -11,7 +11,7 @@ const EbookCard = ({ book }: EbooksProps) => {
   const [rating, setRating] = useState(0);
 
   return (
-    <div className="w-[260px] ">
+    <div className="w-[240px] ">
       <Link to={`/ebooks/${book._id}`}>
         <img className="w-full h-[360px]" src={book.img} alt={book.title} />
       </Link>

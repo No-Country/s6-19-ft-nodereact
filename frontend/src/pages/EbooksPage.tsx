@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetAllEbooksQuery } from "../redux/api/authApi";
 import AsideFilter from "../components/AsideFilter";
 import EbookCard from "../components/EbookCard";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 const EbooksPage = () => {
   const { data } = useGetAllEbooksQuery();
@@ -12,17 +12,17 @@ const EbooksPage = () => {
 
   return (
     <>
-      <div className="container  mx-auto">
-        <div className="flex items-center py-20 ">
+      <div className="container min-h-screen pt-10  mx-auto">
+        <div className="flex items-center py-20 gap-2 ">
           <Link to="/">
             <p className="text-sm">Inicio</p>
           </Link>
-          <MdOutlineKeyboardArrowDown />
+          <MdOutlineKeyboardArrowRight />
           <p className="text-[15px] font-black ">Adquiri tu Ebook</p>
         </div>
         <div className="flex ">
           <AsideFilter />
-          <div className="grid grid-cols-4 gap-4  ">
+          <div className="flex flex-wrap gap-6 ">
             {data?.map((book) => (
               <EbookCard key={book._id} book={book} />
             ))}
