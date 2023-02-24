@@ -1,23 +1,21 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import EbookImage from "../assets/ebooks/imageEbook.png";
+import puntitos from "../assets/plans/puntitos.png";
 
-const Ebooks = () => {
+const EbookSection = () => {
   const [loading, setLoading] = useState(false);
 
   return (
     <>
       <div className="md:container flex items-center justify-between">
-        <img src="./assets/ebooks/imageEbooks.png" alt="ebooks image" />
+        <img src={EbookImage} alt="ebooks image" />
         <div className="mt-16 mx-3 flex flex-col items-center ">
           <h1 className="text-6xl tracking-widest	leading-relaxed text-center font-bold mb-5 px-5">
             ADQUIRI TU EBOOK
           </h1>
           <div className="flex justify-center">
-            <img
-              className="relative left-4"
-              src="./assets/plans/puntitos.png"
-              alt="puntitos"
-            />
+            <img className="relative left-4" src={puntitos} alt="puntitos" />
           </div>
           <Link to="/ebooks">
             <button
@@ -43,4 +41,4 @@ const Ebooks = () => {
   );
 };
 
-export default Ebooks;
+export default EbookSection;

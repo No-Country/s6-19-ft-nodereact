@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { setCredentials } from "./redux/slices/authSlice";
 import Home from "./pages/Home";
 import EbooksPage from "./pages/EbooksPage";
-import EbooksDetail from "./pages/EbookDetail.tsx/EbooksDetail";
+import EbooksDetail from "./pages/EbooksDetail";
 import Navbar from "./components/Navbar";
 
 function App() {

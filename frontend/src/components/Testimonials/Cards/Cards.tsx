@@ -1,5 +1,8 @@
 import React from "react";
 import "./Cards.css";
+import decorationCircle from "../../../assets/decorationCircle.png";
+import reviewImg from "../../../assets/reviewImage.png";
+import greenStar from "../../../assets/greenStar.png";
 
 const Cards = () => {
   interface ProfileCard {
@@ -40,7 +43,7 @@ const Cards = () => {
           >
             <img
               className="decorationCircle"
-              src="./assets/decorationCircle.png"
+              src={decorationCircle}
               alt="decoration circle"
             />
             <div className="card">
@@ -49,14 +52,14 @@ const Cards = () => {
                   <h3>{card.name}</h3>
                   <p>{card.address}</p>
                 </div>
-                <img src="./assets/reviewImage.png" alt="review image" />
+                <img src={reviewImg} alt="review image" />
               </div>
               <div className="stars">
-                <img src="./assets/greenStar.png" alt="green start" />
-                <img src="./assets/greenStar.png" alt="green start" />
-                <img src="./assets/greenStar.png" alt="green start" />
-                <img src="./assets/greenStar.png" alt="green start" />
-                <img src="./assets/greenStar.png" alt="green start" />
+                <img src={greenStar} alt="green start" />
+                <img src={greenStar} alt="green start" />
+                <img src={greenStar} alt="green start" />
+                <img src={greenStar} alt="green start" />
+                <img src={greenStar} alt="green start" />
               </div>
 
               <p>{card.text}</p>

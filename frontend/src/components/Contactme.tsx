@@ -1,5 +1,7 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
+import ellipseLeft from "../assets/contacme/Ellipse 11.png";
+import ellipseRight from "../assets/contacme/Ellipse 12.png";
 
 type FormData = {
   user_name: string;
@@ -104,7 +106,7 @@ export default function Contactme() {
             className="opacity-80 w-48"
             style={{ marginTop: "-110px", pointerEvents: "none" }}
           >
-            <img src="./assets/contacme/Ellipse 11.png" alt="" />
+            <img src={ellipseLeft} alt="" />
           </div>
         </div>
         <div>
@@ -112,7 +114,7 @@ export default function Contactme() {
             className="flex justify-end opacity-80"
             style={{ pointerEvents: "none" }}
           >
-            <img src="./assets/contacme/Ellipse 12.png" alt="" />
+            <img src={ellipseRight} alt="" />
           </div>
         </div>
       </div>

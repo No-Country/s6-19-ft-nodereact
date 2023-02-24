@@ -1,6 +1,13 @@
 import "./Testimonials.css";
 import React from "react";
 import Cards from "./Cards/Cards";
+import img1 from "../../assets/profiles/profile1.png";
+import img2 from "../../assets/profiles/profile2.png";
+import img3 from "../../assets/profiles/profile3.png";
+import img4 from "../../assets/profiles/profile4.png";
+import img5 from "../../assets/profiles/profile4.png";
+import logoHeart from "../../assets/logoHeart.png";
+import decorationThree from "../../assets/decorationInfo.png";
 const Testimonials = () => {
   interface Profile {
     name: string;
@@ -8,11 +15,11 @@ const Testimonials = () => {
   }
 
   const arrayProfiles: Profile[] = [
-    { name: "profile1", img: "./assets/profiles/profile1.png" },
-    { name: "profil2", img: "./assets/profiles/profile2.png" },
-    { name: "profile3", img: "./assets/profiles/profile3.png" },
-    { name: "profile4", img: "./assets/profiles/profile4.png" },
-    { name: "profile5", img: "./assets/profiles/profile5.png" },
+    { name: "profile1", img: img1 },
+    { name: "profil2", img: img2 },
+    { name: "profile3", img: img3 },
+    { name: "profile4", img: img4 },
+    { name: "profile5", img: img5 },
   ];
 
   return (
@@ -22,11 +29,13 @@ const Testimonials = () => {
           <div className="profiles">
             <div className="titleTestimonials">
               <h2>Testimonios</h2>
-              <img src="./assets/logoHeart.png" alt="logo heart" />
+              <img src={logoHeart} alt="logo heart" />
             </div>
             <div className="profilesImages">
               {arrayProfiles.map((profile, index) => {
-                return <img src={profile.img} alt={profile.name} key={index} />;
+                return (
+                  <img src={profile.img} alt={profile?.name} key={index} />
+                );
               })}
             </div>
 
@@ -35,7 +44,7 @@ const Testimonials = () => {
             </div>
           </div>
           <div className="decorationThree">
-            <img src="./assets/decorationInfo.png" alt="decoration info" />
+            <img src={decorationThree} alt="decoration info" />
           </div>
         </div>
         <div className="testimonialsTwo">

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout, selectAuth } from "../redux/slices/authSlice";
+import logo from "../assets/logo.png";
+import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { email } = useSelector(selectAuth);
@@ -38,7 +40,7 @@ const Navbar = () => {
           <Link to="/">
             <img
               className="h-[55px] w-auto relative md:left-7 left-0 "
-              src="../assets/logo.png"
+              src={logo}
               alt="logo"
             />
           </Link>
@@ -65,14 +67,13 @@ const Navbar = () => {
               })}
               <li className="md:my-0 ">
                 <div className="md:pb-0 pb-3">
-                  <img
+                  <FaUserAlt
                     className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
-                    src="./assets/loginIcon.png"
-                    alt="login icon"
                     onClick={() => {
                       setOpenLogin(!openLogin);
                     }}
                   />
+
                   <span className="md:absolute md:right-2 ">{email}</span>
                 </div>
 

@@ -1,5 +1,5 @@
-import IconCheck from "../../public/assets/plans/Vector.png";
-import IconCancel from "../../public/assets/plans/leaf-quad.png";
+import IconCheck from "../assets/plans/Vector.png";
+import IconCancel from "../assets/plans/leaf-quad.png";
 
 const Planes = () => {
   return (

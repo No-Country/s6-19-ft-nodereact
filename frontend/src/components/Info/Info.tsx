@@ -1,5 +1,8 @@
 import React from "react";
 import "./Info.css";
+import viñeta from "../../assets/viñetaInfo.png";
+import decorationInfo from "../..//assets/decorationInfo.png";
+import infoImage from "../../assets/InfoImage.png";
 
 const Info = () => {
   return (
@@ -7,7 +10,7 @@ const Info = () => {
       <div className="md:container md:flex items-center  min-h-[70vh]">
         <div className=" infoText">
           <div className="infoTitle">
-            <img src="./assets/viñetaInfo.png" alt="viñeta info" />
+            <img src={viñeta} alt="viñeta info" />
             <h1>Hola, soy Camila</h1>
           </div>
           <p className="infoParagraphOne">
@@ -21,7 +24,7 @@ const Info = () => {
           <div className="infoParagraphTwo">
             <img
               className="decoration"
-              src="./assets/decorationInfo.png"
+              src={decorationInfo}
               alt="decoration info"
             />
             <p>
@@ -34,14 +37,10 @@ const Info = () => {
         <div>
           <img
             className="decorationTwo"
-            src="./assets/decorationInfo.png"
+            src={decorationInfo}
             alt="decoration info"
           />
-          <img
-            className="imageInfo"
-            src="./assets/InfoImage.png"
-            alt="info image"
-          />
+          <img className="imageInfo" src={infoImage} alt="info image" />
         </div>
       </div>
     </>

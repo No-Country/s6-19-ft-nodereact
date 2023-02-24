@@ -1,6 +1,8 @@
 import EbookList from "../components/EbookList";
 import { Link } from "react-router-dom";
 import { useGetAllEbooksQuery } from "../redux/api/authApi";
+import AsideFilter from "../components/AsideFilter";
+import EbookCard from "../components/EbookCard";
 
 const EbooksPage = () => {
   const { data } = useGetAllEbooksQuery();
@@ -19,8 +21,12 @@ const EbooksPage = () => {
           </div>
           <p className="text-[15px] font-black ">Adquiri tu Ebook</p>
         </div>
-
-        <EbookList books={data} />
+        <AsideFilter />
+        <div className="w-full grid grid-cols-4  ">
+          {data?.map((book) => (
+            <EbookCard key={book._id} book={book} />
+          ))}
+        </div>
       </div>
     </>
   );
