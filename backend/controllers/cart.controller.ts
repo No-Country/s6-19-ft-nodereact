@@ -58,12 +58,6 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
 
     let items: QueryObject[] = [];
 
-    // if (!cart) {
-    //   return res.status(400).json({
-    //     msg: "This user does not have a cart yet",
-    //   });
-    // }
-
     if (cart) {
       const duplicatedProduct = cart.items.find((product) => {
         return foundProduct.id === product.item.id;
@@ -149,7 +143,7 @@ const updateProductQty = async (req: UserRequest, res: Response) => {
   try {
     const owner = req.user._id;
     const { id } = req.params;
-    const { value } = req.body;
+    const { value } = req.query;
 
     const [cart, product] = await Promise.all([
       await Cart.findOne({ owner }).populate({
