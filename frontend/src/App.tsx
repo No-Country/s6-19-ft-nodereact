@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import EbooksPage from "./pages/EbooksPage";
 import EbooksDetail from "./pages/EbooksDetail";
 import Navbar from "./components/Navbar";
+import Layout from "./components/Layout";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/ebooks" element={<EbooksPage />} />
           <Route path="/ebooks/:ebookId" element={<EbooksDetail />} />

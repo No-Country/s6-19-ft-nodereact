@@ -6,6 +6,8 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import circlePurple from "../../../assets/carousel/circlePurple.png";
+import circle from "../../../assets/carousel/circle.png";
 
 interface Props {
   slides: Array<{
@@ -55,41 +57,25 @@ const ImageSlider = ({ slides }: Props) => {
         <div className="flex w-full absolute bottom-0 justify-center ">
           <img
             className="pr-9 pb-20 cursor-pointer hover:opacity-60"
-            src={
-              currentIndex === 0
-                ? "./assets/carousel/circlePurple.png"
-                : "./assets/carousel/circle.png"
-            }
+            src={currentIndex === 0 ? circlePurple : circle}
             alt="circle"
             onClick={() => goToImage(0)}
           />
           <img
             className="pr-9 pb-20 cursor-pointer hover:opacity-60"
-            src={
-              currentIndex === 1
-                ? "./assets/carousel/circlePurple.png"
-                : "./assets/carousel/circle.png"
-            }
+            src={currentIndex === 1 ? circlePurple : circle}
             alt="circle"
             onClick={() => goToImage(1)}
           />
           <img
             className="pr-9 pb-20 cursor-pointer hover:opacity-60"
-            src={
-              currentIndex === 2
-                ? "./assets/carousel/circlePurple.png"
-                : "./assets/carousel/circle.png"
-            }
+            src={currentIndex === 2 ? circlePurple : circle}
             alt="circle"
             onClick={() => goToImage(2)}
           />
           <img
             className="pb-20 cursor-pointer hover:opacity-60"
-            src={
-              currentIndex === 3
-                ? "./assets/carousel/circlePurple.png"
-                : "./assets/carousel/circle.png"
-            }
+            src={currentIndex === 3 ? circlePurple : circle}
             alt="circle"
             onClick={() => goToImage(3)}
           />

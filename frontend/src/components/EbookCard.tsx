@@ -11,12 +11,12 @@ const EbookCard = ({ book }: EbooksProps) => {
   const [rating, setRating] = useState(0);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="w-[260px] ">
       <Link to={`/ebooks/${book._id}`}>
-        <img src={book.img} alt={book.title} />
+        <img className="w-full h-[360px]" src={book.img} alt={book.title} />
       </Link>
       <button
-        className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
+        className="w-full bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block my-5 drop-shadow-lg"
         disabled={false}
         type="submit"
       >
@@ -34,7 +34,7 @@ const EbookCard = ({ book }: EbooksProps) => {
           </div>
         )}
       </button>
-      <div className="flex items-center mb-32">
+      <div className="flex items-center justify-between ">
         <RatingStars RatingIndex={book.rating} setRatingIndex={setRating} />
         <p className="text-sm font-black">${book.price}</p>
       </div>

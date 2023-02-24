@@ -17,7 +17,7 @@ const EbookList = ({ books }: EbooksProps) => {
   console.log(books);
 
   return (
-    <section className="flex">
+    <section className="flex flex-row justify-between">
       <AsideFilter />
       <div className="w-full grid grid-cols-4  ">
         {books?.map((book) => (
