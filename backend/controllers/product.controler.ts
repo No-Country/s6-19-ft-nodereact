@@ -65,14 +65,13 @@ const createProduct = async (req: RequestFiles, res: Response) => {
 };
 
 const getAllProducts = async (req: Request, res: Response) => {
-  const { category, minPrice } = req.query;
+  const { category, minPrice, rating } = req.query;
 
   const filters = {
     ...(category && { category }),
-    ...(minPrice && { price: { $gt: minPrice } }),
+    ...(minPrice && { price: { $gte: minPrice } }),
+    ...(rating && { rating }),
   };
-
-  console.log(filters);
 
   const products = await Product.find(filters);
 
