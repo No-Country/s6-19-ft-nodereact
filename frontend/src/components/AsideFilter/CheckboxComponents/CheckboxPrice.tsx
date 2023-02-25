@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import { Typography } from "@mui/material";
+import { addPrice } from "../../../redux/slices/filterSlice";
 
 interface ItemsProps {
   items: string[];
@@ -19,9 +20,9 @@ interface ItemsProps {
 const CheckboxPrice = ({ items }: ItemsProps) => {
   const dispatch = useDispatch();
 
-  // const handleChange = (e) => {
-  //   dispatch(addCategory(e.target.value));
-  // };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(addPrice(e.target.value));
+  };
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -48,7 +49,7 @@ const CheckboxPrice = ({ items }: ItemsProps) => {
               <FormControlLabel
                 key={index}
                 sx={{}}
-                //   onChange={handleChange}
+                onChange={handleChange}
                 value={`${category}`}
                 control={<Radio />}
                 label={<Typography variant="body2"> {category} </Typography>}

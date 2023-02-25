@@ -5,9 +5,37 @@ import AsideFilter from "../components/AsideFilter/AsideFilter";
 import EbookCard from "../components/EbookCard";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useGetAllEbooksQuery } from "../redux/api/EbooksApi";
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { selectFilter } from "../redux/slices/filterSlice";
 
 const EbooksPage = () => {
-  const { data } = useGetAllEbooksQuery();
+  const filters = useSelector(selectFilter);
+
+  const [data, setData] = useState([]);
+
+  const { category, price, rating } = filters;
+
+  console.log(data);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      // setLoading(true);
+
+      try {
+        const { data } = await axios.get(
+          `https://no-country-personaltrainer.onrender.com/api/products?category=${category}&rating=${rating}&minPrice=${price}`
+        );
+        setData(data);
+      } catch (error) {
+        console.log(error);
+      }
+
+      // setLoading(false);
+    };
+    fetchProducts();
+  }, [filters]);
 
   console.log(data);
 
@@ -24,8 +52,8 @@ const EbooksPage = () => {
         <div className="flex ">
           <AsideFilter />
           <div className="flex flex-wrap gap-6 ">
-            {data?.map((book) => (
-              <EbookCard key={book._id} book={book} />
+            {data?.map((book, index) => (
+              <EbookCard key={index} book={book} />
             ))}
           </div>
         </div>
