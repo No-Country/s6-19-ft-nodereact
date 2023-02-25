@@ -1,4 +1,10 @@
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import CheckboxCategory from "./CheckboxComponents/CheckboxCategory";
+import CheckboxPrice from "./CheckboxComponents/CheckboxPrice";
+
+const categories = ["YOGA", "TRAINING", "NUTRITION"];
+
+const prices = ["1000", "1500", "2000", "3000", "4000"];
 
 const AsideFilter = () => {
   return (
@@ -7,12 +13,8 @@ const AsideFilter = () => {
         <strong>Filtrar Por</strong>
       </h3>
       <div className="flex flex-col  mb-4">
-        <h3 className="flex gap-2">
-          Category <MdOutlineKeyboardArrowDown />
-        </h3>
-        <h3 className="flex gap-2">
-          Price <MdOutlineKeyboardArrowDown />
-        </h3>
+        <CheckboxCategory items={categories} />
+        <CheckboxPrice items={prices} />
       </div>
     </div>
   );

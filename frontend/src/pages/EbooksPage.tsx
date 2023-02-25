@@ -1,7 +1,7 @@
 import EbookList from "../components/EbookList";
 import { Link } from "react-router-dom";
 
-import AsideFilter from "../components/AsideFilter";
+import AsideFilter from "../components/AsideFilter/AsideFilter";
 import EbookCard from "../components/EbookCard";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useGetAllEbooksQuery } from "../redux/api/EbooksApi";

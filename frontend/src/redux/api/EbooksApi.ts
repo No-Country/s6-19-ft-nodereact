@@ -14,7 +14,7 @@ interface Product {
 const extendedEbooksApi = emptyApi.injectEndpoints({
   endpoints: (builder) => ({
     getAllEbooks: builder.query<Product[], void>({
-      query: () => "/products",
+      query: () => "/products/",
     }),
     getSingleEbook: builder.query<Product, string | undefined>({
       query: (id) => `/products/${id}`,

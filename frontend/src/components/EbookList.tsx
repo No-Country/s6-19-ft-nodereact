@@ -1,7 +1,7 @@
 import { useState } from "react";
 import RatingStars from "./RatingStart";
 import { Link } from "react-router-dom";
-import AsideFilter from "./AsideFilter";
+import AsideFilter from "./AsideFilter/AsideFilter";
 import { Ebook } from "../types";
 
 import EbookCard from "./EbookCard";

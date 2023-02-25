@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Ebook } from "../types";
 import RatingStars from "./RatingStart";
+import { Rating } from "@mui/material";
 
 interface EbooksProps {
   book: Ebook;
@@ -38,10 +39,19 @@ const EbookCard = ({ book }: EbooksProps) => {
           </div>
         )}
       </button>
-      <div className="flex items-center justify-between ">
+      <div className="w-full flex justify-center">
+        <Rating
+          name="read-only"
+          sx={{ transform: "scale(1.4)", color: "#9747FF" }}
+          value={book?.rating}
+          precision={0.5}
+          readOnly
+        />
+      </div>
+      {/* <div className="flex items-center justify-between ">
         <RatingStars RatingIndex={book?.rating} setRatingIndex={setRating} />
         <p className="text-sm font-black">${book?.price}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

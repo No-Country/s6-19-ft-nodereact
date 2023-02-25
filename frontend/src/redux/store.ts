@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { emptyApi } from "./api/emptyApi";
 import authSlice from "./slices/authSlice";
+import filterSlice from "./slices/filterSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authSlice,
+    filter: filterSlice,
     [emptyApi.reducerPath]: emptyApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
