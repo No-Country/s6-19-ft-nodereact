@@ -18,9 +18,7 @@ const Home = () => {
       <EbookSection />
       <Contactme />
 
-      <button type="button" className="bg-red-400 w-20">
-        <svg className="animate-bounce w-6 h-6 ..."></svg>
-      </button>
+
     </>
   );
 };

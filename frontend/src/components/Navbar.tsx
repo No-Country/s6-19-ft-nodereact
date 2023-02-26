@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
 import { FaUserAlt } from "react-icons/fa";
+import loginIcon from "../assets/loginIcon.png";
 
 const Navbar = () => {
   const { email } = useSelector(selectAuth);
@@ -57,7 +58,7 @@ const Navbar = () => {
               {links.map((link, index) => {
                 return (
                   <Link to={link.link} key={index}>
-                    <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-4 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
+                    <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-2 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
                       <span className="uppercase font-black  ">
                         {link.name}
                       </span>
@@ -67,19 +68,21 @@ const Navbar = () => {
               })}
               <li className="md:my-0 ">
                 <div className="md:pb-0 pb-3">
-                  <FaUserAlt
-                    className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
-                    onClick={() => {
-                      setOpenLogin(!openLogin);
-                    }}
-                  />
+                  <img
+                      className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
+                      src={loginIcon}
+                      alt="login icon"
+                      onClick={() => {
+                        setOpenLogin(!openLogin);
+                      }}
+                    />
 
                   <span className="md:absolute md:right-2 ">{email}</span>
                 </div>
 
                 {!email ? (
                   <ul
-                    className={`right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
+                    className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
                         ? " md:absolute opacity-0 max-h-0 pointer-events-none"
                         : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
@@ -87,13 +90,18 @@ const Navbar = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        <Link
-                          to={link.link}
-                          key={index}
-                          className=" hover:text-violeta-100 "
-                        >
-                          <li className="py-3">{link.name}</li>
-                        </Link>
+                        
+                          <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                            <Link
+                                to={link.link}
+                                key={index}
+                                
+                              >
+                                <li className="hover:font-black">{link.name}</li>
+                            </Link>
+                          </div>
+                     
+                        
                       );
                     })}
                   </ul>

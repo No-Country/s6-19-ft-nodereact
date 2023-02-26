@@ -1,5 +1,5 @@
 .carouselContainer1{
-    background: url(./assets/carousel/HeroImage1.png);
+    background: url(../../../assets/carousel/HeroImage1.png);
     background-size: cover;
     background-position: center;
     height:940px;
@@ -7,7 +7,7 @@
 }
 
 .carouselContainer2{
-    background: url(./assets/carousel/HeroImage2.png);
+    background: url(../../../assets/carousel/HeroImage2.png);
     background-size: cover;
     background-position: center;
     height:940px;
@@ -15,7 +15,7 @@
 }
 
 .carouselContainer3{
-    background: url(./assets/carousel/HeroImage3.png);
+    background: url(../../../assets/carousel/HeroImage3.png);
     background-size: cover;
     background-position: center;
     height:940px;
@@ -23,7 +23,7 @@
 }
 
 .carouselContainer4{
-    background: url(./assets/carousel/HeroImage4.png);
+    background: url(../../../assets/carousel/HeroImage4.png);
     background-size: cover;
     background-position: center;
     height:940px;
