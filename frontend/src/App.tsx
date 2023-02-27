@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
 import PlanesPage from "./pages/PlanesPage";
 import P404 from "./pages/page404/P404";
+import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function App() {
           <Route path="/ebooks" element={<EbooksPage />} />
           <Route path="/ebooks/:ebookId" element={<EbooksDetail />} />
           <Route path="/planes/:planId" element={<PlanesPage />} />
+          <Route path="/cart" element={<CartPage/>}/>
         </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
