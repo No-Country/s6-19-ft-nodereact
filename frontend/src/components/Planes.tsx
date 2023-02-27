@@ -22,7 +22,7 @@ const Planes = () => {
             </div>
           </div>
           <div className="">
-            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
+            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mr-3">
               <div className="flex justify-end ">
                 <button className="bg-white">
                   <img src={IconCancel} />
@@ -33,15 +33,15 @@ const Planes = () => {
               </h2>
               <hr className="w-2/3 mx-auto mt-20 mb-10 border-gray-300" />
               <div className="m-5">
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Disminuye factores de riesgo como obesidad, hipertensión, colesterol.</p>
                 </div>
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Desarrollar tu masa muscular.</p>
                 </div>
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Descender tus niveles de colesterol.</p>
                 </div>
@@ -55,7 +55,7 @@ const Planes = () => {
             </div>
           </div>
           <div className="">
-            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
+            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mr-3">
               <div className="flex justify-end">
                 <button className="bg-white">
                   <img src={IconCancel} />
@@ -66,15 +66,15 @@ const Planes = () => {
               </h2>
               <hr className="w-2/3 mx-auto mt-20 mb-10 border-gray-300" />
               <div className="m-5">
-                <div className="flex my-10">
+                <div className="flex my-10 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Tonifica la masa muscular.</p>
                 </div>
-                <div className="flex my-10">
+                <div className="flex my-10 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Disminuir tu presión arterial.</p>
                 </div>
-                <div className="flex my-10">
+                <div className="flex my-10 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Evita dolores y contracturas.</p>
                 </div>
@@ -88,7 +88,7 @@ const Planes = () => {
             </div>
           </div>
           <div className="">
-            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mx-3">
+            <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full ">
               <div className="flex justify-end">
                 <button className="bg-white">
                   <img src={IconCancel} />
@@ -99,17 +99,20 @@ const Planes = () => {
               </h2>
               <hr className="w-2/3 mx-auto mt-20 mb-10 border-gray-300" />
               <div className="m-5">
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Disminuye factores de riesgo como obesidad, hipertensión, colesterol.</p>
                 </div>
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Desarrollar tu masa muscular.</p>
                 </div>
-                <div className="flex my-5">
+                <div className="flex my-5 text-sm">
                   <img src={IconCheck} className="h-5 m-1" />
                   <p>Evita dolores y contracturas.</p>
+                  <br />
+                  <br />
+                  <br />
                 </div>
               </div>
               <Link to="/planes/3">

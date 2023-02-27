@@ -66,6 +66,16 @@ const Navbar = () => {
                   </Link>
                 );
               })}
+              {
+                openLogin && 
+                <Link to="/cart">
+                  <li className="text-xl">
+                      <i className="fa-solid fa-cart-shopping"></i>
+                  </li>
+                </Link>
+                
+              }
+
               <li className="md:my-0 ">
                 <div className="md:pb-0 pb-3">
                   <img

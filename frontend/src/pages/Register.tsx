@@ -62,7 +62,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="bg-[url('./public/assets/fondoRegister.png')] bg-cover bg-no-repeat bg-center ">
+      <div className="bg-[url('./assets/FondoRegister.png')] bg-cover bg-no-repeat bg-center ">
         <div className="container mx-auto min-h-screen flex justify-end items-center ">
           <div className="bg-white w-2/5 rounded-3xl shadow-lg py-50 border border-gray-400 h-full mx-3 mr-[20px]">
             <div className=" bg-white rounded-lg p-1 m-1 ">
