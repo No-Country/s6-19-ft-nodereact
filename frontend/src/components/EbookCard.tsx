@@ -42,7 +42,7 @@ const EbookCard = ({ book }: EbooksProps) => {
       <div className="w-full flex justify-center">
         <Rating
           name="read-only"
-          sx={{ transform: "scale(1.4)", color: "#9747FF" }}
+          sx={{ transform: "scale(1.4)", color: "#59CE79" }}
           value={book?.rating}
           precision={0.5}
           readOnly

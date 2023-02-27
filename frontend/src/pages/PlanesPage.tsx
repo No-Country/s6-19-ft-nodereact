@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import IcoPdf from "../assets/plans/carbon_document-pdf.png";
 import IcoGlyph from "../assets/plans/Glyph.png";
@@ -25,7 +25,7 @@ const PlanesPage = () => {
             <li className="mx-2" style={{ marginTop: "10px" }}>
               <img src={IcoGlyph} alt="" />
             </li>
-            <li >
+            <li>
               <a href="/#planes" className=" hover:text-blue-600 underline">
                 planes
               </a>
@@ -33,7 +33,12 @@ const PlanesPage = () => {
             <li className="mx-2" style={{ marginTop: "10px" }}>
               <img src={IcoGlyph} alt="" />
             </li>
-            <li className="text-gray-900 font-extrabold" style={{ fontWeight: 700 }}>Plan 3 días</li>
+            <li
+              className="text-gray-900 font-extrabold"
+              style={{ fontWeight: 700 }}
+            >
+              Plan 3 días
+            </li>
           </ol>
         </nav>
         <main>
@@ -41,19 +46,28 @@ const PlanesPage = () => {
           <div className="flex flex-col md:flex-row mr-40">
             <div className="w-full md:w-2/3 mr-40">
               <Carousel slideIndex={section - 1} withoutControls>
-                <img src={GroupLunes} alt="Group Lunes" className='w-full' />
-                <img src={GroupMartes} alt="Group Martes" className='w-full' />
-                <img src={GroupMiercoles} alt="Group Miércoles" className='w-full' />
+                <img src={GroupLunes} alt="Group Lunes" className="w-full" />
+                <img src={GroupMartes} alt="Group Martes" className="w-full" />
+                <img
+                  src={GroupMiercoles}
+                  alt="Group Miércoles"
+                  className="w-full"
+                />
               </Carousel>
             </div>
             <div className="w-full md:w-1/3 justify-center">
               <div>
-                <h1 className="text-2xl font-bold text-center">Tu plan de entrenamiento</h1>
+                <h1 className="text-2xl font-bold text-center">
+                  Tu plan de entrenamiento
+                </h1>
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-center my-10">+</h1>
-              </div><div>
-                <h1 className="text-2xl font-bold text-center mb-20">Tu plan de alimentacion</h1>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-center mb-20">
+                  Tu plan de alimentacion
+                </h1>
               </div>
               <div className="flex justify-center">
                 <div>
@@ -85,24 +99,39 @@ const PlanesPage = () => {
                   )}
                 </button>
               </div>
-
-
-
             </div>
           </div>
           <div className="flex justify-center my-8 mb-4">
-            <button className={section === 1 ? "mx-4 text-xl underline" : "mx-4 text-xl"} onClick={() => setSection(1)}>1</button>
-            <button className={section === 2 ? "mx-4 text-xl underline" : "mx-4 text-xl"} onClick={() => setSection(2)}>2</button>
-            <button className={section === 3 ? "mx-4 text-xl underline" : "mx-4 text-xl"} onClick={() => setSection(3)}>3</button>
+            <button
+              className={
+                section === 1 ? "mx-4 text-xl underline" : "mx-4 text-xl"
+              }
+              onClick={() => setSection(1)}
+            >
+              1
+            </button>
+            <button
+              className={
+                section === 2 ? "mx-4 text-xl underline" : "mx-4 text-xl"
+              }
+              onClick={() => setSection(2)}
+            >
+              2
+            </button>
+            <button
+              className={
+                section === 3 ? "mx-4 text-xl underline" : "mx-4 text-xl"
+              }
+              onClick={() => setSection(3)}
+            >
+              3
+            </button>
           </div>
         </main>
       </div>
       <div className="border-b border-violeta-100"></div>
     </>
-
   );
 };
 
 export default PlanesPage;
-
-
