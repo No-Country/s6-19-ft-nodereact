@@ -67,7 +67,7 @@ const Navbar = () => {
                 );
               })}
               {
-                openLogin && 
+                email && 
                 <Link to="/cart">
                   <li className="text-xl">
                       <i className="fa-solid fa-cart-shopping"></i>
