@@ -34,36 +34,49 @@ const DetailCart = ({ data }: any) => {
     
       {data?.items?.map((product) => (
         <div
-          className="grid grid-cols-2 md:grid-cols-4 text-center items-center justify-center border-b border-slate/50 py-4 "
+          className="flex md:pl-3 md:pb-10 pb-20 md:flex-row flex-col md:items-start items-center  "
           key={product?.item._id}
         >
-          <div className="flex md:text-left gap-4 col-span-2 md:col-span-1 ">
+          <div className="w-2/5 flex mr-20 ">
             <img
-              className="h-[150px] w-[90px] object-contain flex-1"
+              className="w-[140px] h-[160px] mr-3"
               src={product?.item.img}
               alt={product?.item.title}
             />
-            <div className="flex-1 text-left">
-              <h4 className="text-dark pt-4 font-semibold text-sm  ">
-                {product?.item.title.slice(0, 20)}
-              </h4>
-              <h5 className="text-dark mt-2 text-sm mb-2  ">
-                {product?.item.category}
-              </h5>
+            <div >
+
+                <div className="pt-6">
+                    <p className="font-black ">
+                        {product?.item.title.slice(0, 20)}    
+                    </p>
+                    <p className="text-[11px] text-[#00000080]"> Anatomía Ejercicios</p>
+                </div>
+                <div className="text-[11px] pt-16 relative w-[150px] ">
+                    <p>Categoria: {product?.item.category}</p>
+                    <p>Envío: en 3 - 6 Días Hábiles</p>
+                    <p>Stock: <span className="text-[#4ECB71]">Disponible</span></p>
+                    <p>Estado: Nuevo</p>
+                </div>
             </div>
           </div>
-          <span className="text-lg text-dark ">x {product?.quantity}</span>
-          <CounterButton product={product} />
-
-          <span className="flex items-center justify-center gap-2 text-lg text-dark  font-bold">
-            $ {(product?.total).toFixed(2)}
-            <button
-              className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
-              onClick={() => removeFromCart(product?.item._id)}
-            >
-              <TiDeleteOutline className="text-xl text-red-400" />
-            </button>
-          </span>
+          
+          <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-8">
+            <div className="md:hidden block pr-5 relative md:right-0 right-2">Precio:</div>
+            <div>${product?.item.price}</div>
+         </div>
+        <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-11">
+             <div className="md:hidden block pr-5">Cantidad:</div>
+             <span className="text-lg text-dark ">x {product?.quantity}</span>
+             <CounterButton product={product} />
+        </div>
+        <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-8 ">
+            <div className="md:hidden block pr-5">Subtotal:</div>
+            <div>${(product?.total).toFixed(2)}</div> 
+        </div>
+        <MdOutlineCancel className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
+              onClick={() => removeFromCart(product?.item._id)}>
+        </MdOutlineCancel>
+         
         </div>
       ))}
     </>
