@@ -18,7 +18,6 @@ import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   const dispatch = useDispatch();
-  // const user = JSON.parse(localStorage.getItem("user") || "{}");
 
   // useEffect(() => {
   //   dispatch(setCredentials(user));

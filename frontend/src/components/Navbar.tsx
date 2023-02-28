@@ -58,7 +58,7 @@ const Navbar = () => {
                 open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
               } md:opacity-100 `}
             >
-              {links.map((link, index) => {
+              {links?.map((link, index) => {
                 if (link.name === "Carrito" && location.pathname !== "/") {
                   return (
                     <Link to={link.link} key={index}>
