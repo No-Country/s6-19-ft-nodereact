@@ -39,7 +39,7 @@ const extendedCartApi = emptyApi.injectEndpoints({
       query: () => "/cart",
       providesTags: ["Cart"],
     }),
-    addProductToCart: builder.mutation({
+    addProductToCart: builder.mutation<any>({
       query: (body) => ({
         url: `/cart`,
         method: "POST",
@@ -63,7 +63,7 @@ const extendedCartApi = emptyApi.injectEndpoints({
       invalidatesTags: ["Cart"],
     }),
     removeFromCart: builder.mutation({
-      query: (id) => ({
+      query: (id: any) => ({
         url: `cart/${id}`,
         method: "DELETE",
       }),

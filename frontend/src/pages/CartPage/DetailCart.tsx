@@ -1,6 +1,9 @@
 import { MdOutlineCancel } from "react-icons/md";
 import CounterButton from "../../components/CounterButton";
-import { useGetCartQuery } from "../../redux/api/cartApi";
+import {
+  useGetCartQuery,
+  useRemoveFromCartMutation,
+} from "../../redux/api/cartApi";
 import { Ebook } from "../../types";
 
 type CartItem = {
@@ -21,7 +24,9 @@ interface CartProps {
 }
 
 const DetailCart = ({ data }: CartProps) => {
-  console.log(data);
+  const [removeFromCart, { data: deleteData, error, isLoading }] =
+    useRemoveFromCartMutation();
+  console.log(deleteData, error, isLoading);
   return (
     <>
       {data?.items?.map((product) => (
@@ -44,7 +49,7 @@ const DetailCart = ({ data }: CartProps) => {
               </h5>
               <button
                 className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
-                // onClick={() => removeFromCart(product?.item._id)}
+                onClick={() => removeFromCart(product?.item._id)}
               >
                 Remove
               </button>

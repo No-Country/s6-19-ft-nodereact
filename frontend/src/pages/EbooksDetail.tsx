@@ -35,12 +35,11 @@ const EbooksDetail = () => {
   const handleChange = (e: any) => setCounter(Number(e.target.value));
 
   const obj = {
-    product: data,
+    product: data?._id,
     counter: counter,
   };
 
-  console.log(counter);
-  console.log(data?._id);
+  console.log(obj);
 
   const handleClick = () => {
     if (data?.stock === 0) {
@@ -48,12 +47,10 @@ const EbooksDetail = () => {
       return;
     }
 
-    let body = {
+    addProductToCart({
       product: data?._id,
-      counter: counter,
-    };
-    // dispatch(addToCart(obj));
-    addProductToCart(body);
+      quantity: counter,
+    });
   };
 
   return (
