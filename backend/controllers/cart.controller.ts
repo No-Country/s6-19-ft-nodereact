@@ -232,12 +232,20 @@ const removeProductFromCart = async (req: UserRequest, res: Response) => {
       });
     }
 
+    const itemIndex = cart.items.findIndex((item) => {
+      return item.item.id === product.id;
+    });
+
     const newArray = cart.items.filter((item) => {
       return product.id !== item.item.id;
     });
 
     if (newArray) {
+      cart.totalQty = cart.totalQty - cart.items[itemIndex].quantity;
+      cart.subTotal = cart.subTotal - cart.items[itemIndex].total;
       cart.items = newArray;
+
+      await cart.save();
 
       res.status(200).send({ msg: "Product removed succesfully" });
     }
