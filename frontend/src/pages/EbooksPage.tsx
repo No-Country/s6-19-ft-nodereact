@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AsideFilter from "../components/AsideFilter/AsideFilter";
 import EbookCard from "../components/EbookCard";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { useGetAllEbooksQuery } from "../redux/api/EbooksApi";
+
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ const EbooksPage = () => {
 
       try {
         const { data } = await axios.get(
-          `https://no-country-personaltrainer.onrender.com/api/products?category=${category}&rating=${rating}&minPrice=${price}`
+          `https://no-country-personaltrainer-crossfit.onrender.com/api/products?category=${category}&rating=${rating}&minPrice=${price}`
         );
         setData(data);
       } catch (error) {
@@ -42,8 +42,8 @@ const EbooksPage = () => {
 
   return (
     <>
-      <div className="container min-h-screen pt-10  mx-auto">
-        <div className="flex items-center py-20 gap-2 ">
+      <div className="container min-h-screen pt-10 pb-20 mx-auto">
+        <div className="flex items-center pb-14 pl-8 gap-2 ">
           <Link to="/">
             <p className="text-sm">Inicio</p>
           </Link>

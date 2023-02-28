@@ -5,10 +5,13 @@ import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
 import { FaUserAlt } from "react-icons/fa";
 import loginIcon from "../assets/loginIcon.png";
-import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
+import { BsLinkedin } from "react-icons/bs";
+import { Link as LinkScroll } from 'react-scroll';
 
 const Navbar = () => {
-  const { email } = useSelector(selectAuth);
+  const { user } = useSelector(selectAuth);
+  const location = useLocation();
 
   const dispatch = useDispatch();
 
@@ -17,11 +20,11 @@ const Navbar = () => {
     link: string;
   }
   const links: Links[] = [
-    { name: "Sobre mi", link: "#aboutme" },
-    { name: "Planes", link: "#planes" },
-    { name: "Testimonios", link: "#testimonios" },
-    { name: "Ebooks", link: "#ebooks" },
-    { name: "Contacto", link: "#contacto" },
+    { name: "Sobre mi", link: "aboutme" },
+    { name: "Planes", link: "planes" },
+    { name: "Testimonios", link: "testimonios" },
+    { name: "Ebooks", link: "ebooks" },
+    { name: "Contacto", link: "contacto" },
   ];
 
   const subLinks: Links[] = [
@@ -34,7 +37,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
-    setOpenLogin(!openLogin)
+    setOpenLogin(!openLogin);
   };
 
   return (
@@ -58,42 +61,41 @@ const Navbar = () => {
                 open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
               } md:opacity-100 `}
             >
-              {links.map((link, index) => {
+              {links?.map((link, index) => {
+               
                 return (
-                  <HashLink smooth to={link.link} key={index}>
+                  <LinkScroll  to={link.link} spy={true} smooth={true} offset={50} duration={600} key={index}>
                     <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-2 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
                       <span className="uppercase font-black  ">
                         {link.name}
                       </span>
                     </li>
-                  </HashLink>
+                  </LinkScroll>
                 );
               })}
-              {
-                email && 
+              {user && (
                 <Link to="/cart">
                   <li className="text-xl">
-                      <i className="fa-solid fa-cart-shopping"></i>
+                    <i className="fa-solid fa-cart-shopping"></i>
                   </li>
                 </Link>
-                
-              }
+              )}
 
               <li className="md:my-0 ">
-                <div className="md:pb-0 pb-3">
+                <div className="md:pb-0 pb-3 ">
                   <img
-                      className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
-                      src={loginIcon}
-                      alt="login icon"
-                      onClick={() => {
-                        setOpenLogin(!openLogin);
-                      }}
-                    />
+                    className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
+                    src={loginIcon}
+                    alt="login icon"
+                    onClick={() => {
+                      setOpenLogin(!openLogin);
+                    }}
+                  />
 
-                  <span className="md:absolute md:right-2 ">{email}</span>
+                  <span className="md:absolute md:right-16 ">{user}</span>
                 </div>
 
-                {!email ? (
+                {!user ? (
                   <ul
                     className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
@@ -103,19 +105,11 @@ const Navbar = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        
-                          <div className="hover:border-b-2 hover:border-violeta-100 py-2">
-                            <Link
-                                to={link.link}
-                                key={index}
-                                
-                              >
-                                <li className="hover:font-black"
-                                >{link.name}</li>
-                            </Link>
-                          </div>
-                     
-                        
+                        <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                          <Link to={link.link} key={index}>
+                            <li className="hover:font-black">{link.name}</li>
+                          </Link>
+                        </div>
                       );
                     })}
                   </ul>
@@ -126,11 +120,17 @@ const Navbar = () => {
                         ? " md:absolute opacity-0 max-h-0 pointer-events-none"
                         : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
                     } `}
-                  >  <div className="hover:border-b-2 hover:border-violeta-100 py-2">
-                        <Link to="/" >
-                        <li onClick={() => {
-                        setOpenLogin(!openLogin);
-                      }}>Mi Perfil</li>
+                  >
+                    {" "}
+                    <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                      <Link to="/">
+                        <li
+                          onClick={() => {
+                            setOpenLogin(!openLogin);
+                          }}
+                        >
+                          Mi Perfil
+                        </li>
                       </Link>
                     </div>
                     <div className="hover:border-b-2 hover:border-violeta-100 py-2">
@@ -141,7 +141,6 @@ const Navbar = () => {
                         Salir
                       </li>
                     </div>
-                    
                   </ul>
                 )}
               </li>

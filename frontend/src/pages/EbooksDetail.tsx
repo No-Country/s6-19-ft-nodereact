@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import FooterPayment from "../components/FooterPayment";
+// import { toast } from "react-toastify/dist/core";
+import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 
 interface Book {
@@ -14,10 +16,15 @@ interface Book {
 
 const EbooksDetail = () => {
   const [loading, setLoading] = useState(false);
-  const { ebookId } = useParams();
+  const { ebookId } = useParams<{ ebookId: any }>();
   const [counter, setCounter] = useState(1);
 
   const { data, error, isLoading } = useGetSingleEbookQuery(ebookId);
+
+  const [addProductToCart, { data: productoData, error: addError }] =
+    useAddProductToCartMutation();
+
+  console.log(addError);
 
   const productStock = [];
   if (data?.stock) {
@@ -26,8 +33,21 @@ const EbooksDetail = () => {
     }
   }
 
-  const handleChange = (e : any) => setCounter(Number(e.target.value));
+  const handleChange = (e: any) => setCounter(Number(e.target.value));
 
+
+
+  const handleClick = () => {
+    if (data?.stock === 0) {
+     
+      return;
+    }
+
+    addProductToCart({
+      product: data?._id,
+      quantity: counter,
+    });
+  };
 
   return (
     <>
@@ -91,6 +111,7 @@ const EbooksDetail = () => {
                 className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block drop-shadow-lg"
                 disabled={loading}
                 type="submit"
+                onClick={() => handleClick()}
               >
                 {loading ? (
                   <svg

@@ -4,6 +4,10 @@
     background-position: center;
     height:940px;
     width: 100%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 800ms;
+    
 }
 
 .carouselContainer2{
@@ -12,6 +16,9 @@
     background-position: center;
     height:940px;
     width: 100%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 800ms;
 }
 
 .carouselContainer3{
@@ -20,6 +27,9 @@
     background-position: center;
     height:940px;
     width: 100%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 800ms;
 }
 
 .carouselContainer4{
@@ -28,6 +38,9 @@
     background-position: center;
     height:940px;
     width: 100%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 800ms;
 }
 
 

@@ -32,11 +32,11 @@ const CheckboxPrice = ({ items }: ItemsProps) => {
   return (
     <>
       <div className="flex gap-6 items-center mb-4">
-        <h3 onClick={handleOpen} className="text-dark font-bold ">
-          By Price
+        <h3 onClick={handleOpen} className="text-dark font-bold uppercase text-xs">
+          Monto
         </h3>
 
-        <button className="text-xl" onClick={handleOpen}>
+        <button className="text-xs" onClick={handleOpen}>
           {open ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}
         </button>
       </div>
@@ -53,7 +53,7 @@ const CheckboxPrice = ({ items }: ItemsProps) => {
                 onChange={handleChange}
                 value={`${category}`}
                 control={<Radio />}
-                label={<Typography variant="body2"> {category} </Typography>}
+                label={<Typography variant="body2" > {category} </Typography>}
               />
             ))}
           </RadioGroup>

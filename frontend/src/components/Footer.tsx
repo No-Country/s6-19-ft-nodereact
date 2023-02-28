@@ -4,40 +4,38 @@ import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 const Footer = () => {
   return (
     <>
-      <footer>
-        <div className="md:auto sm:auto flex justify-between ">
-          <div className="w-3/4 ">
-            <a className="flex items-center pt-6 pb-4 pl-16 ">
+      <footer className="border-t border-violeta-100">
+        <div className="md:auto sm:auto flex justify-between md:flex-row flex-col ">
+          <div className="md:w-3/4 md:block flex flex-col items-center">
+            <a className="flex items-center pt-16 pb-4 md:pl-16 ">
               <img
-                className="w-[230px] h-auto relative left-4 "
+                className="md:w-[230px] w-[160px] h-auto md:relative left-4 "
                 src={logo}
                 alt=""
               />
             </a>
-            <div className="text-start relative left-56 font-semibold ">
+            <div className="text-start relative md:left-56 left-20 font-semibold ">
               <h6> CAMILA BRONN</h6>
             </div>
             <br></br>
-            <div className=" font-semibold 2xl text-end pr-6">
-              <h6>Copyright@2023. All rights reserved | CR Bronn </h6>
-            </div>
+            
           </div>
-          <div className="w-2/4">
-            <div className="font-bold text-xl flex flex-col justify-center  ">
+          <div className="md:w-2/4">
+            <div className="font-bold text-xl flex flex-col justify-center md:items-start items-center pt-7 ">
               <h3> MIS REDES</h3>
-              <div className="columns-2">
+              <div className="md:columns-2">
                 <a className="flex items-center space-x-3 pt-6 pb-3 pr-5 hover:text-violeta-100 transition cursor-pointer">
                   <BsInstagram />
                   <span>Instagram</span>
                 </a>
               </div>
-              <div className="columns-2 ">
+              <div className="md:columns-2 ">
                 <a className="flex items-center space-x-3 pt-5 pb-3 pr-5 hover:text-violeta-100 transition  cursor-pointer">
                   <BsFacebook />
                   <span>Facebook</span>
                 </a>
-                <div className="w-2/4">
-                  <div className="columns-2">
+                <div className="md:w-2/4">
+                  <div className="md:columns-2">
                     <div className="flex items-center space-x-3 pt-5 pr-5 hover:text-violeta-100 transition cursor-pointer">
                       <a className="flex items-center space-x-3  ">
                         <BsTwitter />
@@ -49,8 +47,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
+          
           <div />
+          
         </div>
+        <div className=" font-semibold 2xl md:text-end text-center flex justify-center md:pr-52 md:relative bottom-5 md:py-0 py-10 md:px-0 px-10">
+              <h6>Copyright@2023. All rights reserved | CR Bronn </h6>
+          </div>
       </footer>
     </>
   );

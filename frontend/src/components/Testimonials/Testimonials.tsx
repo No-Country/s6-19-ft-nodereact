@@ -22,9 +22,9 @@ const Testimonials = () => {
 
   return (
     <>
-      <div className="md:container flex py-[200px] px-[60px] bg-white" id="testimonios">
-        <div className="relative">
-          <div className="absolute z-10 bg-white">
+      <div className="md:container flex-wrap md:flex md:flex-row flex-col py-[200px] px-[60px] bg-white" id="testimonios">
+        <div className="md:relative">
+          <div className="md:absolute md:z-10 bg-white">
             <div className="flex justify-center pb-24">
               <h2 className="text-[35px] pr-5">Testimonios</h2>
               <img src={logoHeart} alt="logo heart" />
@@ -41,11 +41,11 @@ const Testimonials = () => {
               <p>+ 24 Reviews</p>
             </div>
           </div>
-          <div className="relative top-44">
+          <div className="md:relative top-44 md:block hidden">
             <img src={decorationThree} alt="decoration info" />
           </div>
         </div>
-        <div className="flex relative left-[60px]">
+        <div className="md:flex  md:flex-row  md:relative md:left-[60px] flex-wrap flex flex-col items-center">
           <Cards />
         </div>
       </div>
@@ -54,3 +54,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+

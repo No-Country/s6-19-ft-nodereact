@@ -47,7 +47,7 @@ const Cards = () => {
       {profilesCard.map((card) => {
         return (
           <div
-            className={card.id === 2 ? "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px] mx-5 relative top-[60px]" : "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px]"}
+            className={card.id === 2 ? "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px] md:mx-5 relative top-[60px] md:mb-0 mb-12" : "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px] md:top-0 relative top-[60px] md:mb-0 mb-12"}
             key={card.id}
           >
             <img

@@ -8,14 +8,14 @@ const EbookSection = () => {
 
   return (
     <>
-      <div className="md:container flex items-center justify-between" id="ebooks">
-        <img src={EbookImage} alt="ebooks image" />
+      <div className="md:container flex  items-center justify-center md:pt-[120px]" id="ebooks">
+        <img className="md:block hidden" src={EbookImage} alt="ebooks image" />
         <div className="mt-16 mx-3 flex flex-col items-center ">
-          <h1 className="text-6xl tracking-widest	leading-relaxed text-center font-bold mb-5 px-5">
+          <h1 className="md:text-6xl text-4xl tracking-widest	leading-relaxed text-center font-bold mb-5 px-5">
             ADQUIRI TU EBOOK
           </h1>
           <div className="flex justify-center">
-            <img className="relative left-4" src={puntitos} alt="puntitos" />
+            <img className="relative left-4 w-auto h-auto" src={puntitos} alt="puntitos" />
           </div>
           <Link to="/ebooks">
             <button

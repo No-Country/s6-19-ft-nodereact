@@ -10,17 +10,17 @@ import naranja from "../assets/footerPayment/NARANJAOK.png";
 
 const FooterPayment = () => {
     return (
-        <footer className="flex pl-20  border-t border-violeta-100"> 
-            <div className="mr-20" >
+        <footer className="flex md:pl-20 justify-center border-t border-violeta-100"> 
+            <div className="md:mr-20" >
                 <div className="relative top-7">
                     <h1 className="text-base uppercase font-black">Medios de pago</h1>
                 </div>
-                <div className="flex items-center relative top-7">
-                    <div className="pr-32">
+                <div className="flex md:flex-row flex-col items-center relative top-7">
+                    <div className="md:pr-32 pr-24">
                         <p className="text-sm py-7">Hasta 12 cuotas sin tarjeta</p>
                         <img src={mercado_credito} alt="mercado crédito" />
                     </div>
-                    <div className="pr-10">
+                    <div className="md:pr-10">
                         <p className="text-sm py-7">Tarjetas de crédito</p>
                         <div className="flex">
                             <img className="pr-4 h-10" src={visa} alt="visa" />
@@ -31,7 +31,7 @@ const FooterPayment = () => {
                     </div>
                     <div>
                         <p className="text-sm py-7">Tarjetas de débito</p>
-                        <div className="flex">
+                        <div className="flex md:pb-0 pb-10">
                             <img className="pr-4 h-8" src={visa} alt="visa" />
                             <img className="pr-4 h-8" src={cabal} alt="cabal" />
                             <img className="pr-4 h-8" src={maestro} alt="maestro" />
@@ -40,7 +40,7 @@ const FooterPayment = () => {
                     </div>
                 </div>
             </div>
-            <div >
+            <div className="md:block hidden">
                 <img className="w-56" src={decoration} alt="decoration info" />
             </div>
         </footer>

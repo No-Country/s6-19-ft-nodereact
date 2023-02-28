@@ -32,11 +32,11 @@ const CheckboxCategory = ({ items }: ItemsProps) => {
   return (
     <>
       <div className="flex gap-6 items-center mb-4">
-        <h3 onClick={handleOpen} className="text-dark font-bold ">
-          By Categories
+        <h3 onClick={handleOpen} className="text-dark font-bold uppercase text-xs">
+          Categorías
         </h3>
 
-        <button className="text-xl" onClick={handleOpen}>
+        <button className="text-xs" onClick={handleOpen}>
           {open ? <MdOutlineKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown />}
         </button>
       </div>

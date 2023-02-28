@@ -18,14 +18,18 @@ const AsideFilter = () => {
   console.log("esto es filter", filters)
 
   return (
-    <div className="w-full md:w-1/4 p-4">
-      <h3 className="text-2xl font-bold mb-10">
-        <strong>Filtrar Por</strong>
+    <div className=" md:w-[20%] w-[30%]  md:p-4 p-0 md:mr-20 mr-10 ">
+      <h3 className="text-base font-bold mb-10 uppercase pb-10">
+        <strong>Filtrar Por:</strong>
       </h3>
-      <div className="flex flex-col  mb-4">
+      <div className="flex flex-col items-start mb-4 relative left-2">
+        
         <CheckboxCategory items={categories} />
         <CheckboxPrice items={prices} />
-        <button onClick={()=>dispatch(reset())} >Reset</button>
+        <div >
+          <button onClick={()=>dispatch(reset())} >Todos</button>
+        </div>
+        
       </div>
     </div>
   );

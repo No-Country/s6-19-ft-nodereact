@@ -17,13 +17,16 @@ const EbookList = ({ books }: EbooksProps) => {
   console.log(books);
 
   return (
-    <section className="flex flex-row justify-between">
+    <section className="flex  ">
       <AsideFilter />
-      <div className="w-full grid grid-cols-4  ">
-        {books?.map((book) => (
-          <EbookCard key={book._id} book={book} />
-        ))}
-      </div>
+   
+        <div className="grid grid-cols-4 md:w-[5/6] w-full ">
+          {books?.map((book) => (
+            <EbookCard key={book._id} book={book} />
+          ))}
+        </div>
+
+      
     </section>
   );
 };

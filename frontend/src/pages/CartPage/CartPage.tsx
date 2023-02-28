@@ -1,49 +1,22 @@
-
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
 import ResumenCart from "./ResumenCart";
+
+import { useGetCartQuery } from "../../redux/api/cartApi";
 import DetailCart from "./DetailCart";
-
-
-import book1 from "../../assets/EbooksPage/Book_1.png"
-import book3 from "../../assets/EbooksPage/book3.png"
 import FooterPayment from "../../components/FooterPayment";
 
-interface BookCart {
-    title: string;
-    image: string;
-    price: number;
-    cantidad: number;
-}
-
-
 const CartPage = () => {
+  const { data, error } = useGetCartQuery();
 
-    
-    const booksCart:BookCart[]=[
-
-        {   
-            title:"Fitness",
-            image:book1,
-            price:200,
-            cantidad:2
-        },
-        {   
-            title:"Meriendas para dieta",
-            image:book3,
-            price:150,
-            cantidad:1
-        }
-
-    ]
+  console.log(data, error);
 
     return (
         <>
             <div>
                 <div className="container mx-auto  mb-12">
                 <nav className="breadcrumb my-2" aria-label="breadcrumbs">
-                    <div className="flex items-center py-28 gap-2 ">
+                    <div className="flex items-center md:py-28 py-10 gap-2 ">
                         <Link to="/">
                             <p className="text-sm">Inicio</p>
                         </Link>
@@ -56,10 +29,10 @@ const CartPage = () => {
                     </div>
                 </nav>
                 <main>
-                    <h1 className="text-4xl mb-10">Detalle de la compra</h1>
+                    <h1 className="md:text-4xl text-2xl md:text-start text-center mb-10">Detalle de la compra</h1>
                     <div className="flex flex-col md:flex-row ">
                         <div className="w-full md:w-2/3 border-b border-violeta-100 mr-20 pb-5 mb-5">
-                            <div className="flex py-8 pl-5">
+                            <div className=" py-8 pl-5 md:flex hidden">
                                 <div className="w-2/5 text-start text-lg font-black mr-20">
                                     Tus productos
                                 </div>
@@ -73,16 +46,16 @@ const CartPage = () => {
                                     Subtotal
                                 </div>
                             </div>
-                            <DetailCart books={booksCart}/>
+                            <DetailCart data={data}/>
                             
                         </div>
-                        <ResumenCart />
+                        <ResumenCart  total={data?.subTotal}/>
 
                         
                     
                     </div>
-                    <div className="text-center pl-[170px] mb-12 text-2xl">
-                        $3000
+                    <div className="text-center pl-[170px] mb-12 text-2xl md:block hidden">
+                        {data?.subTotal}
                     </div>
                 
                     

@@ -70,7 +70,7 @@ export default function Login() {
             <div className="flex justify-center  items-center my-10 ">
               <h2 className="font-thin">¿Eres nuevo usuario?</h2>
               <div className="mx-2">
-                <Link to="/register" className="text-violeta-100 ">
+                <Link to="/register" className="text-violeta-100 hover:opacity-80 ">
                   Crear una cuenta
                 </Link>
               </div>
@@ -140,7 +140,7 @@ export default function Login() {
                   alt="Google Icon"
                 />
               </div>
-              <p className="text-md">Continuar con google</p>
+              <p className="text-md hover:cursor-pointer hover:opacity-80">Continuar con google</p>
             </div>
           </div>
         </div>

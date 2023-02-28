@@ -62,10 +62,10 @@ const Register = () => {
 
   return (
     <>
-      <div className="bg-[url('./assets/FondoRegister.png')] bg-cover bg-no-repeat bg-center ">
-        <div className="container mx-auto min-h-screen flex justify-end items-center ">
-          <div className="bg-white w-2/5 rounded-3xl shadow-lg py-50 border border-gray-400 h-full mx-3 mr-[20px]">
-            <div className=" bg-white rounded-lg p-1 m-1 ">
+      <div className="bg-[url('./assets/FondoRegister.png')] bg-cover bg-no-repeat bg-center md:min-h-screen flex items-center">
+        <div className="container mx-auto   flex md:justify-end justify-center items-center ">
+          <div className="bg-white md:w-2/5 w-[90%]  rounded-3xl shadow-lg py-50 border border-gray-400  mx-3 md:my-0 my-10">
+            <div className=" bg-white rounded-lg p-1 m-1  ">
               <div className="flex justify-center mt-10 mb-5">
                 <h1 className="text-2xl font-bold">Crea tu cuenta</h1>
               </div>
@@ -73,12 +73,12 @@ const Register = () => {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col items-center justify-center gap-2 ">
                   <div className="w-3/4 mr-2">
-                    <label className="block font-medium text-gray-700 mb-2">
+                    <label className="md:block hidden font-medium text-gray-700 mb-2 md:text-base text-sm">
                       Nombres y apellidos
                     </label>
                     <input
                       type="text"
-                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                      className="mt-1 px-3 py-2  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-sm focus:ring-1"
                       placeholder="Nombres y apellidos"
                       {...register("name", {
                         minLength: {
@@ -92,12 +92,12 @@ const Register = () => {
                     </div>
                   </div>
                   <div className="w-3/4 mr-2">
-                    <label className="block font-medium text-gray-700 mb-2">
+                    <label className="md:block hidden font-medium text-gray-700 mb-2 md:text-base text-sm">
                       Username
                     </label>
                     <input
                       type="text"
-                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                      className="mt-1 px-3 py-2  bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-sm focus:ring-1"
                       placeholder="Username"
                       {...register("username", {
                         minLength: {
@@ -112,13 +112,13 @@ const Register = () => {
                   </div>
 
                   <div className="w-3/4 mr-2">
-                    <label className="block font-medium text-gray-700 mb-2">
+                    <label className="md:block hidden font-medium text-gray-700 mb-2 md:text-base text-sm">
                       Email
                     </label>
                     <input
                       type="email"
                       required
-                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-sm focus:ring-1"
                       placeholder="you@example.com"
                       {...register("email", {
                         required: true,
@@ -126,12 +126,12 @@ const Register = () => {
                     />
                   </div>
                   <div className="w-3/4 mr-2">
-                    <label className="block font-medium text-gray-700 mb-2">
+                    <label className="md:block hidden font-medium text-gray-700 mb-2 md:text-base text-sm">
                       Password
                     </label>
                     <input
                       type="password"
-                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-sm focus:ring-1"
                       placeholder="Password"
                       {...register("password", {
                         minLength: {
@@ -145,12 +145,12 @@ const Register = () => {
                     </div>
                   </div>
                   <div className="w-3/4 mr-2">
-                    <label className="block font-medium text-gray-700 mb-2">
+                    <label className="md:block hidden font-medium text-gray-700 mb-2 md:text-base text-sm">
                       Confirmar password
                     </label>
                     <input
                       type="password"
-                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                      className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-sm focus:ring-1"
                       placeholder="Confirm password"
                       {...register("confirmpassword", {
                         minLength: {
@@ -179,9 +179,9 @@ const Register = () => {
                       "Registrarse"
                     )}
                   </button>
-                  <div className="mb-5">
+                  <div className="mb-5 hover:opacity-80" >
                     <Link to="/login">
-                      <h2 className="text-base">Ya tengo una cuenta</h2>
+                      <h2 className="text-base text-violeta-100">Ya tengo una cuenta</h2>
                     </Link>
                   </div>
                 </div>
