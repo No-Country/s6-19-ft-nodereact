@@ -17,13 +17,13 @@ const DetailCart = ({ books }: Props) => {
 
   return (
     <>
-      {books.map((item) => {
+      {data?.items.map((item) => {
         return (
           <div className="flex pl-3 pb-10">
             <div className="w-2/5 flex mr-20">
               <img
                 className="w-[140px] h-[160px] mr-3"
-                src={item.image}
+                src={item.img}
                 alt={item.title}
               />
               <div>
