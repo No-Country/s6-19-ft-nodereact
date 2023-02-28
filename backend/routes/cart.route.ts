@@ -11,7 +11,7 @@ const router = Router();
 
 router.get("/", verifyToken, getCart);
 
-router.post("/:id", verifyToken, addProductToCart);
+router.post("/", verifyToken, addProductToCart);
 
 router.put("/:id", verifyToken, updateProductQty);
 
