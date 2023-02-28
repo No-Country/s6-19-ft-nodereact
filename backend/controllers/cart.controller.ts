@@ -41,6 +41,8 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
     const owner = req.user._id;
     const { product, quantity } = req.body;
 
+    console.log(product);
+
     //   const user = await User.findById(owner)
 
     let [cart, user, foundProduct] = await Promise.all([
@@ -53,6 +55,12 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
       await User.findById(owner),
       await Product.findById(product),
     ]);
+
+    if (!foundProduct) {
+      return res
+        .status(404)
+        .send({ msg: `No se encontro un producto con el id ${product}` });
+    }
 
     let object: QueryObject = {};
 
@@ -100,7 +108,7 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
 
       res.status(401).send(cart);
     } else {
-      object.item = foundProduct._id;
+      object.item = foundProduct.id;
       object.quantity = quantity;
       object.total = foundProduct.price * quantity;
 
@@ -134,7 +142,7 @@ const addProductToCart = async (req: UserRequest, res: Response) => {
       });
     }
   } catch (error) {
-    console.log("errror");
+    console.log(error);
     res.status(501).send(error);
   }
 };

@@ -36,6 +36,7 @@ const login = async (req: Request, res: Response) => {
 
     res.status(201).json({
       msg: "Usuario logeado con exito",
+      user: user.username,
       email,
       token,
     });
