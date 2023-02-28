@@ -1,17 +1,18 @@
 import { MdOutlineCancel } from "react-icons/md";
+import CounterButton from "../../components/CounterButton";
 import { useGetCartQuery } from "../../redux/api/cartApi";
 import { Ebook } from "../../types";
 
 type CartItem = {
   item: Ebook;
-  total: Number;
-  quantity: Number;
+  total: number;
+  quantity: number;
 };
 
 type Cart = {
   owner: String;
-  subTotal: Number;
-  totalQty: Number;
+  subTotal: number;
+  totalQty: number;
   items?: CartItem[];
 };
 
@@ -23,43 +24,39 @@ const DetailCart = ({ data }: CartProps) => {
   console.log(data);
   return (
     <>
-      {data?.items?.map((item) => (
-        <div className="flex pl-3 pb-10">
-          <div className="w-2/5 flex mr-20">
+      {data?.items?.map((product) => (
+        <div
+          className="grid grid-cols-2 md:grid-cols-4 text-center items-center justify-center border-b border-slate/50 py-4 "
+          key={product?.item._id}
+        >
+          <div className="flex md:text-left gap-4 col-span-2 md:col-span-1 ">
             <img
-              className="w-[140px] h-[160px] mr-3"
-              src={item.item.img}
-              alt={item.item.title}
+              className="h-[150px] w-[90px] object-contain flex-1"
+              src={product?.item.img}
+              alt={product?.item.title}
             />
-            <div>
-              <div className="pt-6">
-                <p className="font-black ">{item.item.title}</p>
-                <p className="text-[11px] text-[#00000080]">
-                  {" "}
-                  Anatomía Ejercicios
-                </p>
-              </div>
-              <div className="text-[11px] pt-16 relative w-[150px] ">
-                <p>Origen: Colombia</p>
-                <p>Envío: en 3 - 6 Días Hábiles</p>
-                <p>
-                  Stock: <span className="text-[#4ECB71]">Disponible</span>
-                </p>
-                <p>Estado: Nuevo</p>
-              </div>
+            <div className="flex-1 text-left">
+              <h4 className="text-dark pt-4 font-semibold text-md  ">
+                {product?.item.title}
+              </h4>
+              <h5 className="text-dark mt-2 text-sm mb-2 capitalize ">
+                {product?.item.category}
+              </h5>
+              <button
+                className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
+                // onClick={() => removeFromCart(product?.item._id)}
+              >
+                Remove
+              </button>
             </div>
           </div>
-          <div className="w-1/5 text-center relative top-8 left-3">
-            ${item.item.price}
-          </div>
-          <div className="w-1/5 text-center relative top-8 left-3">
-            {item.item.stock}
-          </div>
-          <div className="w-1/5 text-center relative top-8 left-3">
-            ${item.item.price * item.item.stock}
-          </div>
+          <span className="text-lg text-dark ">x {product?.quantity}</span>
+          <CounterButton product={product} />
+          <button> contador</button>
 
-          <MdOutlineCancel className="text-[#FF0000] text-[22px] relative top-8 right-7 hover:cursor-pointer" />
+          <span className="text-lg text-dark  font-bold">
+            $ {(product?.total).toFixed(2)}
+          </span>
         </div>
       ))}
     </>

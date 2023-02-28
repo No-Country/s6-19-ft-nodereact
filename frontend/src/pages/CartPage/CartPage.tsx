@@ -35,17 +35,15 @@ const CartPage = () => {
           <h1 className="text-4xl mb-10">Detalle de la compra</h1>
           <div className="flex flex-col md:flex-row ">
             <div className="w-full md:w-2/3 border-b border-violeta-100 mr-20 pb-5 mb-5">
-              <div className="flex py-8 pl-5">
-                <div className="w-2/5 text-start text-lg font-black mr-20">
-                  Tus productos
-                </div>
-                <div className="w-1/5 text-center text-[15px]">Precio</div>
-                <div className="w-1/5 text-center text-[15px]">Cantidad</div>
-                <div className="w-1/5 text-center text-[15px]">Subtotal</div>
+              <div className="hidden md:grid grid-cols-4 text-center border-b border-slate/50 text-lg text-dark font-bold uppercase pb-2">
+                <h3>Product</h3>
+                <h3>Amount</h3>
+                <h3>Quantity</h3>
+                <h3>Price</h3>
               </div>
               <DetailCart data={data} />
             </div>
-            <ResumenCart />
+            <ResumenCart total={data?.subTotal} />
           </div>
           <div className="text-center pl-[170px] mb-12 text-2xl">$3000</div>
         </main>

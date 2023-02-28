@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+// import { toast } from "react-toastify/dist/core";
+import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 
 interface Book {
@@ -13,10 +15,15 @@ interface Book {
 
 const EbooksDetail = () => {
   const [loading, setLoading] = useState(false);
-  const { ebookId } = useParams();
+  const { ebookId } = useParams<{ ebookId: any }>();
   const [counter, setCounter] = useState(1);
 
   const { data, error, isLoading } = useGetSingleEbookQuery(ebookId);
+
+  const [addProductToCart, { data: productoData, error: addError }] =
+    useAddProductToCartMutation();
+
+  console.log(addError);
 
   const productStock = [];
   if (data?.stock) {
@@ -25,8 +32,29 @@ const EbooksDetail = () => {
     }
   }
 
-  const handleChange = (e : any) => setCounter(Number(e.target.value));
+  const handleChange = (e: any) => setCounter(Number(e.target.value));
 
+  const obj = {
+    product: data,
+    counter: counter,
+  };
+
+  console.log(counter);
+  console.log(data?._id);
+
+  const handleClick = () => {
+    if (data?.stock === 0) {
+      // toast.error("Product with no Stock");
+      return;
+    }
+
+    let body = {
+      product: data?._id,
+      counter: counter,
+    };
+    // dispatch(addToCart(obj));
+    addProductToCart(body);
+  };
 
   return (
     <div className="md:container mx-auto ">
@@ -89,6 +117,7 @@ const EbooksDetail = () => {
                 className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block drop-shadow-lg"
                 disabled={loading}
                 type="submit"
+                onClick={() => handleClick(obj)}
               >
                 {loading ? (
                   <svg
@@ -114,4 +143,3 @@ const EbooksDetail = () => {
 };
 
 export default EbooksDetail;
-

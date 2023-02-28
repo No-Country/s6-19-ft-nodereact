@@ -37,8 +37,46 @@ const extendedCartApi = emptyApi.injectEndpoints({
     }),
     getCart: builder.query<Cart, void>({
       query: () => "/cart",
+      providesTags: ["Cart"],
+    }),
+    addProductToCart: builder.mutation({
+      query: (body) => ({
+        url: `/cart`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Cart"],
+    }),
+    updateProductCart: builder.mutation({
+      query: ({ id, ...value }) => ({
+        url: `/cart/${id}`,
+        method: "PUT",
+        body: value,
+      }),
+      invalidatesTags: ["Cart"],
+    }),
+    clearCart: builder.mutation({
+      query: () => ({
+        url: `/cart`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Cart"],
+    }),
+    removeFromCart: builder.mutation({
+      query: (id) => ({
+        url: `cart/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Cart"],
     }),
   }),
 });
 
-export const { useCreatePaymentMutation, useGetCartQuery } = extendedCartApi;
+export const {
+  useCreatePaymentMutation,
+  useGetCartQuery,
+  useAddProductToCartMutation,
+  useUpdateProductCartMutation,
+  useClearCartMutation,
+  useRemoveFromCartMutation,
+} = extendedCartApi;

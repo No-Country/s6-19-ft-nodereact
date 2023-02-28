@@ -2,13 +2,19 @@ import { useState } from "react";
 import Spinner from "../../components/Spinner";
 import { useCreatePaymentMutation } from "../../redux/api/cartApi";
 
-const ResumenCart = () => {
+interface CartDetailProps {
+  total?: number | undefined;
+}
+
+const ResumenCart = ({ total }: CartDetailProps) => {
   const [createPayment, { data, error, isLoading }] =
     useCreatePaymentMutation();
 
   if (data) {
     window.location.href = data?.body?.init_point;
   }
+
+  console.log(total);
 
   return (
     <div className="w-full md:w-1/3 justify-center pl-20 relative top-7">
@@ -20,7 +26,7 @@ const ResumenCart = () => {
       <div className="border border-[#00000080]">
         <div className="flex justify-between  text-xl bg-[#9747ff0d] p-5">
           <p>Subtotal</p>
-          <p>$3000</p>
+          <p>$ {total}</p>
         </div>
         <div className="flex justify-center  p-4">
           <button
