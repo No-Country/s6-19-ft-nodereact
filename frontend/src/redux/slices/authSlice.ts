@@ -1,22 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-// const user = JSON.parse(localStorage.getItem("user") || "");
-// const email = JSON.parse(localStorage.getItem("email") || "");
-// const token = JSON.parse(localStorage.getItem("token") || "");
-
 interface AuthState {
   user: string;
-  // email: string;
-  // token: string;
+  email: string;
+  token: string;
 }
 
 const initialState: AuthState = {
   user: localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user") || "")
     : "",
-  // email: email ? email : "",
-  // token: token ? token : "",
+  email: localStorage.getItem("email")
+    ? JSON.parse(localStorage.getItem("email") || "")
+    : "",
+  token: localStorage.getItem("token")
+    ? JSON.parse(localStorage.getItem("token") || "")
+    : "",
 };
 
 const authSlice = createSlice({
@@ -27,19 +27,20 @@ const authSlice = createSlice({
       const { token, user, email } = action.payload;
 
       state.user = user;
-      // state.token = token;
-      // state.email = email;
+      state.token = token;
+      state.email = email;
 
       console.log(action.payload);
 
       localStorage.setItem("user", JSON.stringify(user));
-      // localStorage.setItem("email", JSON.stringify(email));
-      // localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("email", JSON.stringify(email));
+      localStorage.setItem("token", JSON.stringify(token));
     },
     logout: (state) => {
+      state.user = "";
       state.email = "";
       state.token = "";
-      localStorage.setItem("user", JSON.stringify({}));
+      localStorage.clear();
     },
   },
 });
