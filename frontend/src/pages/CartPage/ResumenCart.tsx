@@ -6,7 +6,7 @@ interface CartDetailProps {
   total?: number | undefined;
 }
 
-const ResumenCart = ({ total }: CartDetailProps) => {
+const ResumenCart = ({ total }: any) => {
   const [createPayment, { data, error, isLoading }] =
     useCreatePaymentMutation();
 

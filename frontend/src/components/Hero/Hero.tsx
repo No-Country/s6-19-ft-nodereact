@@ -1,5 +1,4 @@
-import React from "react";
-import "./Hero.css";
+
 import ImageSlider from "./ImageSlider/ImageSlider";
 
 const Hero = () => {

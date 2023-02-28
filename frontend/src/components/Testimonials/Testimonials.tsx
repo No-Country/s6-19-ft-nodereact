@@ -1,5 +1,3 @@
-import "./Testimonials.css";
-import React from "react";
 import Cards from "./Cards/Cards";
 import img1 from "../../assets/profiles/profile1.png";
 import img2 from "../../assets/profiles/profile2.png";
@@ -24,30 +22,30 @@ const Testimonials = () => {
 
   return (
     <>
-      <div className="md:container testimonialsSection">
+      <div className="md:container flex py-[200px] px-[60px] bg-white" id="testimonios">
         <div className="relative">
-          <div className="profiles">
-            <div className="titleTestimonials">
-              <h2>Testimonios</h2>
+          <div className="absolute z-10 bg-white">
+            <div className="flex justify-center pb-24">
+              <h2 className="text-[35px] pr-5">Testimonios</h2>
               <img src={logoHeart} alt="logo heart" />
             </div>
-            <div className="profilesImages">
+            <div className="flex justify-center pb-10">
               {arrayProfiles.map((profile, index) => {
                 return (
-                  <img src={profile.img} alt={profile?.name} key={index} />
+                  <img className="pr-[10px]" src={profile.img} alt={profile?.name} key={index} />
                 );
               })}
             </div>
 
-            <div className="reviews">
+            <div className="pb-[15px] text-center text-[16px] font-extrabold">
               <p>+ 24 Reviews</p>
             </div>
           </div>
-          <div className="decorationThree">
+          <div className="relative top-44">
             <img src={decorationThree} alt="decoration info" />
           </div>
         </div>
-        <div className="testimonialsTwo">
+        <div className="flex relative left-[60px]">
           <Cards />
         </div>
       </div>

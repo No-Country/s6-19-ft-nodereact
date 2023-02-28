@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import AsideFilter from "../components/AsideFilter/AsideFilter";
 import EbookCard from "../components/EbookCard";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { useGetAllEbooksQuery } from "../redux/api/EbooksApi";
+
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { selectFilter } from "../redux/slices/filterSlice";
+import FooterPayment from "../components/FooterPayment";
 
 const EbooksPage = () => {
   const filters = useSelector(selectFilter);
@@ -58,6 +59,7 @@ const EbooksPage = () => {
           </div>
         </div>
       </div>
+      <FooterPayment />
     </>
   );
 };

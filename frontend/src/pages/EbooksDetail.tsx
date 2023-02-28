@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import FooterPayment from "../components/FooterPayment";
 // import { toast } from "react-toastify/dist/core";
 import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
@@ -34,16 +35,11 @@ const EbooksDetail = () => {
 
   const handleChange = (e: any) => setCounter(Number(e.target.value));
 
-  const obj = {
-    product: data?._id,
-    counter: counter,
-  };
 
-  console.log(obj);
 
   const handleClick = () => {
     if (data?.stock === 0) {
-      // toast.error("Product with no Stock");
+     
       return;
     }
 
@@ -54,6 +50,7 @@ const EbooksDetail = () => {
   };
 
   return (
+    <>
     <div className="md:container mx-auto ">
       <nav className="breadcrumb mb-6 pt-10 " aria-label="breadcrumbs">
         <ol className="flex">
@@ -114,7 +111,7 @@ const EbooksDetail = () => {
                 className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block drop-shadow-lg"
                 disabled={loading}
                 type="submit"
-                onClick={() => handleClick(obj)}
+                onClick={() => handleClick()}
               >
                 {loading ? (
                   <svg
@@ -135,7 +132,11 @@ const EbooksDetail = () => {
         </div>
       </div>
       {/* <EbookList books={books} /> */}
+
     </div>
+    <FooterPayment/>
+    </>
+    
   );
 };
 

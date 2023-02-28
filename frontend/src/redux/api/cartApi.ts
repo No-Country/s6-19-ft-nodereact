@@ -39,7 +39,7 @@ const extendedCartApi = emptyApi.injectEndpoints({
       query: () => "/cart",
       providesTags: ["Cart"],
     }),
-    addProductToCart: builder.mutation<any>({
+    addProductToCart: builder.mutation({
       query: (body) => ({
         url: `/cart`,
         method: "POST",

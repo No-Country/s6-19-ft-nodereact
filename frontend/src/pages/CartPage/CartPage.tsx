@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
 import ResumenCart from "./ResumenCart";
-import DetailCart from "./DetailCart";
 
-import book1 from "../../assets/EbooksPage/Book_1.png";
-import book3 from "../../assets/EbooksPage/book3.png";
 import { useGetCartQuery } from "../../redux/api/cartApi";
-import { useSelector } from "react-redux";
-import { selectAuth } from "../../redux/slices/authSlice";
+import DetailCart from "./DetailCart";
 
 const CartPage = () => {
   const { data, error } = useGetCartQuery();
@@ -36,10 +31,10 @@ const CartPage = () => {
           <div className="flex flex-col md:flex-row ">
             <div className="w-full md:w-2/3 border-b border-violeta-100 mr-20 pb-5 mb-5">
               <div className="hidden md:grid grid-cols-4 text-center border-b border-slate/50 text-lg text-dark font-bold uppercase pb-2">
-                <h3>Product</h3>
-                <h3>Amount</h3>
-                <h3>Quantity</h3>
-                <h3>Price</h3>
+                <h3>Producto</h3>
+                <h3>Cantidad</h3>
+                <h3>Contador</h3>
+                <h3>Precio</h3>
               </div>
               <DetailCart data={data} />
             </div>

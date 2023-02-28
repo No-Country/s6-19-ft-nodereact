@@ -25,7 +25,7 @@ interface CartProps {
   data?: Cart | undefined;
 }
 
-const DetailCart = ({ data }: CartProps) => {
+const DetailCart = ({ data }: any) => {
   const [removeFromCart, { data: deleteData, error, isLoading }] =
     useRemoveFromCartMutation();
   console.log(deleteData, error, isLoading);

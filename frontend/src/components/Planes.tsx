@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Planes = () => {
   return (
-    <section id="planes">
+    <section className="pt-28" id="planes">
       <div className="container mx-auto my-10 ">
         <div className="grid grid-cols-4">
           <div className="mt-16 mx-3">

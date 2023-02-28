@@ -7,6 +7,7 @@ import GroupMartes from "../assets/plans/GroupLunes.svg";
 import GroupMiercoles from "../assets/plans/GroupLunes.svg";
 import Carousel from "nuka-carousel";
 import IconCart from "../assets/map_grocery-or-supermarket.png";
+import FooterPayment from "../components/FooterPayment";
 
 const PlanesPage = () => {
   const [loading, setLoading] = useState(false);
@@ -130,8 +131,12 @@ const PlanesPage = () => {
         </main>
       </div>
       <div className="border-b border-violeta-100"></div>
+      <FooterPayment/>
     </>
   );
 };
 
 export default PlanesPage;
+
+
+
