@@ -25,7 +25,7 @@ const EbooksPage = () => {
 
       try {
         const { data } = await axios.get(
-          `https://no-country-personaltrainer.onrender.com/api/products?category=${category}&rating=${rating}&minPrice=${price}`
+          `https://no-country-personaltrainer-crossfit.onrender.com/api/products?category=${category}&rating=${rating}&minPrice=${price}`
         );
         setData(data);
       } catch (error) {

@@ -48,10 +48,9 @@ const extendedCartApi = emptyApi.injectEndpoints({
       invalidatesTags: ["Cart"],
     }),
     updateProductCart: builder.mutation({
-      query: ({ id, ...value }) => ({
-        url: `/cart/${id}`,
+      query: ({ id, value }) => ({
+        url: `/cart/${id}?value=${value}`,
         method: "PUT",
-        body: value,
       }),
       invalidatesTags: ["Cart"],
     }),

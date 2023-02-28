@@ -4,6 +4,8 @@ import {
   useGetCartQuery,
   useRemoveFromCartMutation,
 } from "../../redux/api/cartApi";
+
+import { TiDeleteOutline } from "react-icons/ti";
 import { Ebook } from "../../types";
 
 type CartItem = {
@@ -41,26 +43,25 @@ const DetailCart = ({ data }: CartProps) => {
               alt={product?.item.title}
             />
             <div className="flex-1 text-left">
-              <h4 className="text-dark pt-4 font-semibold text-md  ">
-                {product?.item.title}
+              <h4 className="text-dark pt-4 font-semibold text-sm  ">
+                {product?.item.title.slice(0, 20)}
               </h4>
-              <h5 className="text-dark mt-2 text-sm mb-2 capitalize ">
+              <h5 className="text-dark mt-2 text-sm mb-2  ">
                 {product?.item.category}
               </h5>
-              <button
-                className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
-                onClick={() => removeFromCart(product?.item._id)}
-              >
-                Remove
-              </button>
             </div>
           </div>
           <span className="text-lg text-dark ">x {product?.quantity}</span>
           <CounterButton product={product} />
-          <button> contador</button>
 
-          <span className="text-lg text-dark  font-bold">
+          <span className="flex items-center justify-center gap-2 text-lg text-dark  font-bold">
             $ {(product?.total).toFixed(2)}
+            <button
+              className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
+              onClick={() => removeFromCart(product?.item._id)}
+            >
+              <TiDeleteOutline className="text-xl text-red-400" />
+            </button>
           </span>
         </div>
       ))}
