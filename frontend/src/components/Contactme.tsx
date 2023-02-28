@@ -28,7 +28,7 @@ export default function Contactme() {
   };
 
   return (
-    <div className="container mx-auto my-10">
+    <div className="container mx-auto my-10 pt-20" id="contacto">
       <div className="grid grid-cols-2">
         <div className=" bg-white rounded-lg p-3 m-3">
           <h1 className="text-6xl font-bold mb-10">Contactame</h1>

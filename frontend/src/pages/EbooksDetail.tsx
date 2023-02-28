@@ -1,11 +1,6 @@
 import { useState } from "react";
-import Logo from "../assets/logo.png";
-
-import IconCarrito from "../assets/ebookdetail/map_grocery-or-supermarket.png";
 import { useParams } from "react-router-dom";
-
-import { Link } from "react-router-dom";
-import RatingStars from "../components/RatingStart";
+import FooterPayment from "../components/FooterPayment";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 
 interface Book {
@@ -31,10 +26,11 @@ const EbooksDetail = () => {
     }
   }
 
-  const handleChange = (e) => setCounter(Number(e.target.value));
-  console.log(data, error);
+  const handleChange = (e : any) => setCounter(Number(e.target.value));
+
 
   return (
+    <>
     <div className="md:container mx-auto ">
       <nav className="breadcrumb mb-6 pt-10 " aria-label="breadcrumbs">
         <ol className="flex">
@@ -43,7 +39,7 @@ const EbooksDetail = () => {
               Inicio
             </a>
           </li>
-          <li className="mx-2">{">"}</li>
+          <li className="mx-2"></li>
           <li>
             <a href="/ebooks" className="text-blue-500 hover:text-blue-600">
               eBooks
@@ -115,64 +111,12 @@ const EbooksDetail = () => {
         </div>
       </div>
       {/* <EbookList books={books} /> */}
+
     </div>
+    <FooterPayment/>
+    </>
+    
   );
 };
 
 export default EbooksDetail;
-
-// const Navbar = () => {
-//   interface Links {
-//     name: string;
-//     link: string;
-//   }
-//   const links: Links[] = [{ name: "Sobre mi", link: "/" }];
-
-//   const [open, setOpen] = useState<boolean>(false);
-
-//   const handleLogout = () => {};
-
-//   return (
-//     <div className="fixed w-full h-20  left-0 top-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white">
-//       <div className="md:flex md:items-center md:justify-between ">
-//         <Link to="/">
-//           <img
-//             className="h-[55px] w-auto relative md:left-7 left-0"
-//             src={Logo}
-//             alt="logo"
-//           />
-//         </Link>
-//         <div
-//           className={`md:flex md:items-center md:ml-0 ml-5 transition-all duration-500 ease-in ${
-//             open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]"
-//           } md:opacity-100  `}
-//         >
-//           <ul
-//             className={`md:flex md:items-center transition-all duration-500 ease-in ${
-//               open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
-//             } md:opacity-100 `}
-//           >
-//             {links.map((link, index) => {
-//               return (
-//                 <Link to={link.link} key={index}>
-//                   <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-4 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
-//                     <img src={IconCarrito} />
-//                   </li>
-//                 </Link>
-//               );
-//             })}
-//           </ul>
-//         </div>
-
-//         <div
-//           className="absolute right-8 top-6 cursor-pointer md:hidden"
-//           onClick={() => {
-//             setOpen(!open);
-//           }}
-//         >
-//           <i className="fa fa-bars text-2xl"></i>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };

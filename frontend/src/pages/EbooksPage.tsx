@@ -9,6 +9,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { selectFilter } from "../redux/slices/filterSlice";
+import FooterPayment from "../components/FooterPayment";
 
 const EbooksPage = () => {
   const filters = useSelector(selectFilter);
@@ -58,6 +59,7 @@ const EbooksPage = () => {
           </div>
         </div>
       </div>
+      <FooterPayment/>
     </>
   );
 };

@@ -5,6 +5,7 @@ import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
 import { FaUserAlt } from "react-icons/fa";
 import loginIcon from "../assets/loginIcon.png";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const { email } = useSelector(selectAuth);
@@ -16,10 +17,11 @@ const Navbar = () => {
     link: string;
   }
   const links: Links[] = [
-    { name: "Sobre mi", link: "/" },
-    { name: "Planes", link: "/" },
-    { name: "Testimonios", link: "/" },
-    { name: "Contacto", link: "/" },
+    { name: "Sobre mi", link: "#aboutme" },
+    { name: "Planes", link: "#planes" },
+    { name: "Testimonios", link: "#testimonios" },
+    { name: "Ebooks", link: "#ebooks" },
+    { name: "Contacto", link: "#contacto" },
   ];
 
   const subLinks: Links[] = [
@@ -32,11 +34,12 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    setOpenLogin(!openLogin)
   };
 
   return (
     <>
-      <header className=" z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white">
+      <header className=" z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white ">
         <div className="md:flex md:items-center md:justify-between ">
           <Link to="/">
             <img
@@ -57,13 +60,13 @@ const Navbar = () => {
             >
               {links.map((link, index) => {
                 return (
-                  <Link to={link.link} key={index}>
+                  <HashLink smooth to={link.link} key={index}>
                     <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-2 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
                       <span className="uppercase font-black  ">
                         {link.name}
                       </span>
                     </li>
-                  </Link>
+                  </HashLink>
                 );
               })}
               {
@@ -107,7 +110,8 @@ const Navbar = () => {
                                 key={index}
                                 
                               >
-                                <li className="hover:font-black">{link.name}</li>
+                                <li className="hover:font-black"
+                                >{link.name}</li>
                             </Link>
                           </div>
                      
@@ -117,21 +121,27 @@ const Navbar = () => {
                   </ul>
                 ) : (
                   <ul
-                    className={`right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
+                    className={`right-2 h-[90px] z-10 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
                         ? " md:absolute opacity-0 max-h-0 pointer-events-none"
                         : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
                     } `}
-                  >
-                    <Link to="/" className=" hover:text-violeta-100 ">
-                      <li className="py-3">Mi Perfil</li>
-                    </Link>
-                    <li
-                      className="hover:text-violeta-100 py-3 cursor-pointer"
-                      onClick={() => handleLogout()}
-                    >
-                      Salir
-                    </li>
+                  >  <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                        <Link to="/" >
+                        <li onClick={() => {
+                        setOpenLogin(!openLogin);
+                      }}>Mi Perfil</li>
+                      </Link>
+                    </div>
+                    <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                      <li
+                        className="hover:text-violeta-100 cursor-pointer"
+                        onClick={() => handleLogout()}
+                      >
+                        Salir
+                      </li>
+                    </div>
+                    
                   </ul>
                 )}
               </li>

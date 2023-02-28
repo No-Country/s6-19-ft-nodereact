@@ -20,8 +20,9 @@ interface ItemsProps {
 const CheckboxPrice = ({ items }: ItemsProps) => {
   const dispatch = useDispatch();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(addPrice(e.target.value));
+  const handleChange = (e: React.SyntheticEvent) => {
+    let target = e.target as HTMLInputElement;
+    dispatch(addPrice(target.value));
   };
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
