@@ -1,17 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
+// const user = JSON.parse(localStorage.getItem("user") || "");
 // const email = JSON.parse(localStorage.getItem("email") || "");
 // const token = JSON.parse(localStorage.getItem("token") || "");
 
 interface AuthState {
-  email?: string;
-  token?: string;
+  user: string;
+  // email: string;
+  // token: string;
 }
 
 const initialState: AuthState = {
-  email: "",
-  token: "",
+  user: localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user") || "")
+    : "",
+  // email: email ? email : "",
+  // token: token ? token : "",
 };
 
 const authSlice = createSlice({
@@ -19,17 +24,17 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      const { email, token } = action.payload;
-      state.email = email;
-      state.token = token;
+      const { token, user, email } = action.payload;
 
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email: action.payload.email,
-          token: action.payload.token,
-        })
-      );
+      state.user = user;
+      // state.token = token;
+      // state.email = email;
+
+      console.log(action.payload);
+
+      localStorage.setItem("user", JSON.stringify(user));
+      // localStorage.setItem("email", JSON.stringify(email));
+      // localStorage.setItem("token", JSON.stringify(token));
     },
     logout: (state) => {
       state.email = "";

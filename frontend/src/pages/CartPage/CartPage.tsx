@@ -10,28 +10,10 @@ import { useGetCartQuery } from "../../redux/api/cartApi";
 import { useSelector } from "react-redux";
 import { selectAuth } from "../../redux/slices/authSlice";
 
-interface BookCart {
-  title: string;
-  image: string;
-  price: number;
-  cantidad: number;
-}
-
 const CartPage = () => {
-  const booksCart: BookCart[] = [
-    {
-      title: "Fitness",
-      image: book1,
-      price: 200,
-      cantidad: 2,
-    },
-    {
-      title: "Meriendas para dieta",
-      image: book3,
-      price: 150,
-      cantidad: 1,
-    },
-  ];
+  const { data, error } = useGetCartQuery();
+
+  console.log(data, error);
 
   return (
     <div>
@@ -61,7 +43,7 @@ const CartPage = () => {
                 <div className="w-1/5 text-center text-[15px]">Cantidad</div>
                 <div className="w-1/5 text-center text-[15px]">Subtotal</div>
               </div>
-              <DetailCart books={booksCart} />
+              <DetailCart data={data} />
             </div>
             <ResumenCart />
           </div>

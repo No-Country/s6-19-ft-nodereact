@@ -8,7 +8,7 @@ import loginIcon from "../assets/loginIcon.png";
 import IconCart from "../assets/map_grocery-or-supermarket.png";
 
 const Navbar = () => {
-  const { email } = useSelector(selectAuth);
+  const { user } = useSelector(selectAuth);
   const location = useLocation();
 
   const dispatch = useDispatch();
@@ -64,7 +64,7 @@ const Navbar = () => {
                     <Link to={link.link} key={index}>
                       <img src={IconCart} alt="icon cart" />
                     </Link>
-                  ); 
+                  );
                 }
                 return (
                   <Link to={link.link} key={index}>
@@ -76,31 +76,29 @@ const Navbar = () => {
                   </Link>
                 );
               })}
-              {
-                email && 
+              {user && (
                 <Link to="/cart">
                   <li className="text-xl">
-                      <i className="fa-solid fa-cart-shopping"></i>
+                    <i className="fa-solid fa-cart-shopping"></i>
                   </li>
                 </Link>
-                
-              }
+              )}
 
               <li className="md:my-0 ">
                 <div className="md:pb-0 pb-3">
                   <img
-                      className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
-                      src={loginIcon}
-                      alt="login icon"
-                      onClick={() => {
-                        setOpenLogin(!openLogin);
-                      }}
-                    />
+                    className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
+                    src={loginIcon}
+                    alt="login icon"
+                    onClick={() => {
+                      setOpenLogin(!openLogin);
+                    }}
+                  />
 
-                  <span className="md:absolute md:right-2 ">{email}</span>
+                  <span className="md:absolute md:right-2 ">{user}</span>
                 </div>
 
-                {!email ? (
+                {!user ? (
                   <ul
                     className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
@@ -110,18 +108,11 @@ const Navbar = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        
-                          <div className="hover:border-b-2 hover:border-violeta-100 py-2">
-                            <Link
-                                to={link.link}
-                                key={index}
-                                
-                              >
-                                <li className="hover:font-black">{link.name}</li>
-                            </Link>
-                          </div>
-                     
-                        
+                        <div className="hover:border-b-2 hover:border-violeta-100 py-2">
+                          <Link to={link.link} key={index}>
+                            <li className="hover:font-black">{link.name}</li>
+                          </Link>
+                        </div>
                       );
                     })}
                   </ul>

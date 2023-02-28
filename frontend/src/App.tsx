@@ -18,11 +18,11 @@ import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  // const user = JSON.parse(localStorage.getItem("user") || "{}");
 
-  useEffect(() => {
-    dispatch(setCredentials(user));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setCredentials(user));
+  // }, []);
 
   return (
     <>
@@ -33,7 +33,7 @@ function App() {
           <Route path="/ebooks" element={<EbooksPage />} />
           <Route path="/ebooks/:ebookId" element={<EbooksDetail />} />
           <Route path="/planes/:planId" element={<PlanesPage />} />
-          <Route path="/cart" element={<CartPage/>}/>
+          <Route path="/cart" element={<CartPage />} />
         </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>

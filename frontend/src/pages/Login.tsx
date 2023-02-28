@@ -52,6 +52,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isLoginSuccess) {
+      console.log(loginData);
       dispatch(setCredentials(loginData));
 
       navigate("/");
@@ -59,7 +60,9 @@ export default function Login() {
   }, [isLoginSuccess]);
 
   return (
-    <div className={`bg-[url(./assets/FondoLogin.png)] bg-cover bg-no-repeat bg-center`}>
+    <div
+      className={`bg-[url(./assets/FondoLogin.png)] bg-cover bg-no-repeat bg-center`}
+    >
       <div className="container mx-auto min-h-screen flex justify-end items-center ">
         <div className="bg-white w-[500px]  rounded-3xl shadow-lg py-10 px-14 border border-gray-400  mx-3">
           <div className=" bg-white rounded-lg p-1 m-1">
@@ -135,10 +138,7 @@ export default function Login() {
             </form>
             <div className="flex justify-center mt-10">
               <div className="mx-2">
-                <img
-                  src={googleIcon}
-                  alt="Google Icon"
-                />
+                <img src={googleIcon} alt="Google Icon" />
               </div>
               <p className="text-md">Continuar con google</p>
             </div>
