@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
 import { FaUserAlt } from "react-icons/fa";
 import loginIcon from "../assets/loginIcon.png";
+<<<<<<< HEAD
 import { HashLink } from "react-router-hash-link";
+=======
+import IconCart from "../assets/map_grocery-or-supermarket.png";
+>>>>>>> ae3e76a00844be227f8fade714b10b4bc1269de6
 
 const Navbar = () => {
   const { email } = useSelector(selectAuth);
+  const location = useLocation();
 
   const dispatch = useDispatch();
 
@@ -17,11 +22,19 @@ const Navbar = () => {
     link: string;
   }
   const links: Links[] = [
+<<<<<<< HEAD
     { name: "Sobre mi", link: "#aboutme" },
     { name: "Planes", link: "#planes" },
     { name: "Testimonios", link: "#testimonios" },
     { name: "Ebooks", link: "#ebooks" },
     { name: "Contacto", link: "#contacto" },
+=======
+    { name: "Sobre mi", link: "/" },
+    { name: "Planes", link: "/" },
+    { name: "Testimonios", link: "/" },
+    { name: "Contacto", link: "/" },
+    { name: "Carrito", link: "/" },
+>>>>>>> ae3e76a00844be227f8fade714b10b4bc1269de6
   ];
 
   const subLinks: Links[] = [
@@ -59,6 +72,13 @@ const Navbar = () => {
               } md:opacity-100 `}
             >
               {links.map((link, index) => {
+                if (link.name === "Carrito" && location.pathname !== "/") {
+                  return (
+                    <Link to={link.link} key={index}>
+                      <img src={IconCart} alt="icon cart" />
+                    </Link>
+                  ); 
+                }
                 return (
                   <HashLink smooth to={link.link} key={index}>
                     <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-2 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
