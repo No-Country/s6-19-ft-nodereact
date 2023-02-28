@@ -213,7 +213,7 @@ const updateProductQty = async (req: UserRequest, res: Response) => {
 
 const removeProductFromCart = async (req: UserRequest, res: Response) => {
   try {
-    const { owner } = req.user;
+    const owner = req.user._id;
     const { id } = req.params;
 
     const [cart, product] = await Promise.all([
