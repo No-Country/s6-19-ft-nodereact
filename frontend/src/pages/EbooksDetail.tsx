@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import FooterPayment from "../components/FooterPayment";
 import ReviewModal from "../components/ReviewModal";
+import Reviews from "../components/Reviews";
 // import { toast } from "react-toastify/dist/core";
 import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
@@ -130,6 +131,7 @@ const EbooksDetail = () => {
             </div>
           </div>
         </div>
+        <Reviews />
       </div>
     </>
   );

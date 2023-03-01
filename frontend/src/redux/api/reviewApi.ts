@@ -9,7 +9,11 @@ const extendedReviewApi = emptyApi.injectEndpoints({
         body,
       }),
     }),
+    getAllReviews: builder.query({
+      query: (id) => `reviews/${id}`,
+    }),
   }),
 });
 
-export const { useCreateReviewMutation } = extendedReviewApi;
+export const { useCreateReviewMutation, useGetAllReviewsQuery } =
+  extendedReviewApi;
