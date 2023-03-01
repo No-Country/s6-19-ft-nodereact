@@ -7,12 +7,12 @@ import UserRequest from "../types";
 const createReview = async (req: UserRequest, res: Response) => {
   try {
     const { _id } = req.user;
-    const { id } = req.params;
-    const { comment, rating } = req.body;
+
+    const { productId, comment, rating } = req.body;
 
     const [user, product] = await Promise.all([
       await User.findById(_id),
-      await Product.findById(id),
+      await Product.findById(productId),
     ]);
 
     const newReview = new Review({

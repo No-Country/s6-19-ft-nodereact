@@ -7,7 +7,7 @@ import {
 import verifyToken from "../middlewares/verify-token";
 const router = Router();
 
-router.post("/:id", verifyToken, createReview);
+router.post("/", verifyToken, createReview);
 
 router.put("/:id", verifyToken, updateReview);
 
