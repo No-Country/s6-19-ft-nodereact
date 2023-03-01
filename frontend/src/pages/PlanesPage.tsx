@@ -38,7 +38,7 @@ const PlanesPage = () => {
         </nav>
         <main>
           <h1 className="text-4xl mb-16">Tu Plan por 3 días</h1>
-          <div className="flex flex-col md:flex-row mr-40">
+          <div className="flex flex-col md:flex-row md:mr-40">
             <div className="w-full md:w-2/3 mr-40">
               <Carousel slideIndex={section - 1} withoutControls>
                 <img src={GroupLunes} alt="Group Lunes" className='w-full' />
