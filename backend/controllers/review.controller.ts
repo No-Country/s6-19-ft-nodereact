@@ -4,6 +4,23 @@ import Review from "../models/review.model";
 import User from "../models/user.model";
 import UserRequest from "../types";
 
+const getAllReviewsFromProduct = async (req: UserRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.findById(id).populate({
+      path: "reviews",
+      populate: "commentedBy",
+    });
+
+    console.log(product);
+
+    res.status(200).send({ data: product.reviews });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 const createReview = async (req: UserRequest, res: Response) => {
   try {
     const { _id } = req.user;
@@ -12,7 +29,10 @@ const createReview = async (req: UserRequest, res: Response) => {
 
     const [user, product] = await Promise.all([
       await User.findById(_id),
-      await Product.findById(productId),
+      await Product.findById(productId).populate({
+        path: "reviews",
+        populate: "commentedBy",
+      }),
     ]);
 
     const newReview = new Review({
@@ -83,4 +103,4 @@ const deleteReview = async (req: UserRequest, res: Response) => {
   }
 };
 
-export { createReview, updateReview, deleteReview };
+export { createReview, updateReview, deleteReview, getAllReviewsFromProduct };
