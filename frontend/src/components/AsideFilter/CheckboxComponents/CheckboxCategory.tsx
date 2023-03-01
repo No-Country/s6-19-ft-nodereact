@@ -31,7 +31,7 @@ const CheckboxCategory = ({ items }: ItemsProps) => {
 
   return (
     <>
-      <div className="flex gap-6 items-center mb-4">
+      <div className="flex w-full   justify-between  items-center mb-4">
         <h3 onClick={handleOpen} className="text-dark font-bold ">
           By Categories
         </h3>

@@ -42,7 +42,7 @@ const EbooksPage = () => {
 
   return (
     <>
-      <div className="container min-h-screen pt-10  mx-auto">
+      <div className="container min-h-screen   mx-auto">
         <div className="flex items-center py-20 gap-2 ">
           <Link to="/">
             <p className="text-sm">Inicio</p>
@@ -59,6 +59,7 @@ const EbooksPage = () => {
           </div>
         </div>
       </div>
+      <FooterPayment />
     </>
   );
 };
