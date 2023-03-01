@@ -9,6 +9,9 @@ import FooterPayment from "../../components/FooterPayment";
 const CartPage = () => {
   const { data, error } = useGetCartQuery();
 
+
+  const cartSubtotal:any = data?.subTotal
+
   console.log(data, error);
 
     return (
@@ -16,7 +19,7 @@ const CartPage = () => {
             <div>
                 <div className="container mx-auto  mb-12">
                 <nav className="breadcrumb my-2" aria-label="breadcrumbs">
-                    <div className="flex items-center md:py-28 py-10 gap-2 ">
+                    <div className="flex items-center py-10 gap-2 ">
                         <Link to="/">
                             <p className="text-sm">Inicio</p>
                         </Link>
@@ -29,7 +32,7 @@ const CartPage = () => {
                     </div>
                 </nav>
                 <main>
-                    <h1 className="md:text-4xl text-2xl md:text-start text-center mb-10">Detalle de la compra</h1>
+                    <h1 className="md:text-4xl text-2xl md:text-start text-center mb-10 md:relative right-7">Detalle de la compra</h1>
                     <div className="flex flex-col md:flex-row ">
                         <div className="w-full md:w-2/3 border-b border-violeta-100 mr-20 pb-5 mb-5">
                             <div className=" py-8 pl-5 md:flex hidden">
@@ -54,8 +57,8 @@ const CartPage = () => {
                         
                     
                     </div>
-                    <div className="text-center pl-[170px] mb-12 text-2xl md:block hidden">
-                        {data?.subTotal}
+                    <div  className="text-center pl-[170px] mb-12 text-2xl md:block hidden">
+                        ${cartSubtotal}
                     </div>
                 
                     

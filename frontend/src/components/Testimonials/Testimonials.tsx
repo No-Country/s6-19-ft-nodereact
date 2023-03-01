@@ -3,7 +3,7 @@ import img1 from "../../assets/profiles/profile1.png";
 import img2 from "../../assets/profiles/profile2.png";
 import img3 from "../../assets/profiles/profile3.png";
 import img4 from "../../assets/profiles/profile4.png";
-import img5 from "../../assets/profiles/profile4.png";
+import img5 from "../../assets/profiles/profile5.png";
 import logoHeart from "../../assets/logoHeart.png";
 import decorationThree from "../../assets/decorationInfo.png";
 const Testimonials = () => {
@@ -45,7 +45,7 @@ const Testimonials = () => {
             <img src={decorationThree} alt="decoration info" />
           </div>
         </div>
-        <div className="md:flex  md:flex-row  md:relative md:left-[60px] flex-wrap flex flex-col items-center">
+        <div className="md:flex  md:flex-row  md:relative md:left-[16px] flex-wrap flex flex-col items-center">
           <Cards />
         </div>
       </div>

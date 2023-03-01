@@ -11,6 +11,8 @@ import circle from "../../../assets/carousel/circle.png";
 import arrowRight from "../../../assets/carousel/arrowRight.png"
 import { arrow } from "@popperjs/core";
 
+
+
 interface Props {
   slides: Array<{
     title: string;
@@ -20,12 +22,12 @@ interface Props {
 
 const ImageSlider = ({ slides }: Props) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [dissapearRight, setDissapearRight] = useState<boolean>(false)
+ 
 
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex-1);
+    setCurrentIndex(newIndex);
   };
 
   const goToNext = () => {
@@ -41,7 +43,8 @@ const ImageSlider = ({ slides }: Props) => {
   return (
     <div className="h-full flex relative " id="hero">
     <div className="absolute top-1/2 cursor-pointer hover:opacity-80 transform -scale-x-100 left-9" onClick={goToPrevious}><img src={arrowRight} alt="circle2" /></div>
-            <div className={`absolute top-1/2 cursor-pointer hover:opacity-80 right-9 ${dissapearRight&&"hidden"}`} onClick={goToNext}><img src={arrowRight} alt="circle2" /></div>
+    
+            <div className="absolute top-1/2 cursor-pointer hover:opacity-80 right-9" onClick={goToNext}><img src={arrowRight} alt="circle2" /></div>
       <div className={`${slides[currentIndex].class}`}>
         <a
           className="fixed bottom-6 right-6 z-10 hover:scale-150 transition-all duration-300 "

@@ -18,6 +18,6 @@ export const emptyApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Cart"],
+
   endpoints: () => ({}),
 });

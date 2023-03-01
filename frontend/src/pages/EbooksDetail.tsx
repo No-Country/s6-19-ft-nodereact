@@ -4,6 +4,13 @@ import FooterPayment from "../components/FooterPayment";
 // import { toast } from "react-toastify/dist/core";
 import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
+import { Link } from "react-router-dom";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import { Rating } from "@mui/material";
+import { ToastContainer, toast } from 'react-toastify';
+import ReviewModal from "../components/ReviwModal";
+import Reviews from "../components/Reviews";
+
 
 interface Book {
   title: string;
@@ -35,7 +42,7 @@ const EbooksDetail = () => {
 
   const handleChange = (e: any) => setCounter(Number(e.target.value));
 
-
+  
 
   const handleClick = () => {
     if (data?.stock === 0) {
@@ -47,6 +54,8 @@ const EbooksDetail = () => {
       product: data?._id,
       quantity: counter,
     });
+    
+    toast.success("Se ha agregado al carrito", {autoClose: 1500})
   };
 
   return (
@@ -54,42 +63,55 @@ const EbooksDetail = () => {
     <div className="md:container mx-auto ">
       <nav className="breadcrumb mb-6 pt-10 " aria-label="breadcrumbs">
         <ol className="flex">
-          <li>
-            <a href="/" className="text-blue-500 hover:text-blue-600">
-              Inicio
-            </a>
-          </li>
-          <li className="mx-2"></li>
-          <li>
-            <a href="/ebooks" className="text-blue-500 hover:text-blue-600">
-              eBooks
-            </a>
-          </li>
-          <li className="mx-2">{">"}</li>
-          <li className="text-gray-500">Detail</li>
+          <div className="flex items-center pb-14 pl-8 gap-2 ">
+            <Link to="/">
+              <p className="text-sm">Inicio</p>
+            </Link>
+            <MdOutlineKeyboardArrowRight />
+            <Link to="/ebooks">
+              <p className="text-[15px] font-black ">Adquiri tu Ebook</p>
+            </Link>
+            <MdOutlineKeyboardArrowRight />
+            <p className="text-[15px] font-black ">Ver más</p>
+          </div>
         </ol>
       </nav>
       <div className="">
-        <div className="grid grid-cols-3  w-full mb-4 gap-4">
-          <img
-            src={data?.img}
-            alt="Nombre del eBook"
-            className="w-full object-cover"
-          />
-          <div className="col-span-2 ml-20">
-            <h3 className="text-slate-700 font-bold text-3xl mb-4">
+        <div className="md:grid md:grid-cols-3  w-full mb-4 gap-4 flex flex-col items-center ">
+          <div className="flex flex-col items-center">
+              <img
+                src={data?.img}
+                alt="Nombre del eBook"
+                className="w-full object-cove rounded-[10px] mb-5"
+              />
+              <Rating
+              className="pb-20"
+              name="read-only"
+              sx={{ transform: "scale(0.8)", color: "#59CE79" }}
+              value={data?.rating}
+              precision={0.5}
+              readOnly
+              />
+          </div>
+         
+          <div className="col-span-2 md:ml-20 ml-10 md:mr-0 mr-10">
+            <h3 className="text-slate-700 font-bold text-3xl mb-4 md:pr-80">
               {data?.title}
             </h3>
             <span className="text-3xl font-bold ">$ {data?.price}</span>
-            <p className="text-gray-600 text-sm my-4 capitalize">
+            <p className="text-gray-600 text-sm my-4 capitalize md:pr-80">
               {data?.description.slice(0, 700)}
             </p>
-
-            <div className="flex items-center   gap-4">
-              <div className=" w-[100px]">
+            <div className="pt-8 pb-8">
+              <p>Estado: Nuevo</p>
+            </div>
+            
+            <div className="flex items-center gap-4 pb-10">
+              <div className="flex items-center">
+                <div className="pr-5">Cantidad:</div>
                 {productStock.length === 0 ? (
                   <select
-                    className=" px-2 py-1 w-full rounded-sm hover:cursor-pointer"
+                    className=" px-2 py-1 w-full rounded-sm hover:cursor-pointer "
                     disabled
                   >
                     <option value="0">0</option>
@@ -107,31 +129,37 @@ const EbooksDetail = () => {
                   </select>
                 )}
               </div>
-              <button
-                className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm   rounded-[10px] block drop-shadow-lg"
-                disabled={loading}
-                type="submit"
-                onClick={() => handleClick()}
-              >
-                {loading ? (
-                  <svg
-                    className="motion-reduce:hidden animate-spin ..."
-                    viewBox="0 0 24 24"
-                  >
-                    Processing...
-                  </svg>
-                ) : (
-                  <div className="flex uppercase items-center justify-center ">
-                    <i className="fa-solid fa-cart-shopping text-base pr-2"></i>
-                    <p className="text-xs">Agregar al carrito</p>
-                  </div>
-                )}
-              </button>
+              
             </div>
+            <div className="flex justify-center pb-10">
+              <button
+                  className="bg-violeta-100 hover:bg-purple-500 text-white font-medium  text-sm py-[7px] px-4  rounded-[10px] block drop-shadow-lg"
+                  disabled={loading}
+                  type="submit"
+                  onClick={() => handleClick()}
+                >
+                  {loading ? (
+                    <svg
+                      className="motion-reduce:hidden animate-spin ..."
+                      viewBox="0 0 24 24"
+                    >
+                      Processing...
+                    </svg>
+                  ) : (
+                    <div className="flex uppercase items-center justify-center ">
+                      <i className="fa-solid fa-cart-shopping text-base pr-2"></i>
+                      <p className="text-xs">Agregar al carrito</p>
+                    </div>
+                  )}
+                </button>
+                <ToastContainer theme="colored" />
+                
+            </div>
+            <ReviewModal/>
           </div>
         </div>
       </div>
-      {/* <EbookList books={books} /> */}
+      <Reviews/>
 
     </div>
     <FooterPayment/>

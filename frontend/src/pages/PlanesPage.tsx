@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import IcoPdf from "../assets/plans/carbon_document-pdf.png";
-import IcoGlyph from "../assets/plans/Glyph.png";
-import GroupLunes from "../assets/plans/GroupLunes.svg";
-import GroupMartes from "../assets/plans/GroupLunes.svg";
-import GroupMiercoles from "../assets/plans/GroupLunes.svg";
+import GroupLunes from "../assets/plans/GroupLunes.png";
+import GroupMartes from "../assets/plans/GroupMartes.png";
+import GroupJueves from "../assets/plans/GroupJueves.png";
 import Carousel from "nuka-carousel";
-import IconCart from "../assets/map_grocery-or-supermarket.png";
 import FooterPayment from "../components/FooterPayment";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+
 
 const PlanesPage = () => {
   const [loading, setLoading] = useState(false);
@@ -17,47 +17,30 @@ const PlanesPage = () => {
     <>
       <div className="container mx-auto">
         <nav className="breadcrumb my-10 mb-14 ml-8" aria-label="breadcrumbs">
-          <ol className="flex">
-            <li>
-              <a href="/" className=" hover:text-blue-600 underline font-bold">
-                Inicio
-              </a>
-            </li>
-            <li className="mx-2" style={{ marginTop: "10px" }}>
-              <img src={IcoGlyph} alt="" />
-            </li>
-            <li>
-              <a href="/#planes" className=" hover:text-blue-600 underline">
-                planes
-              </a>
-            </li>
-            <li className="mx-2" style={{ marginTop: "10px" }}>
-              <img src={IcoGlyph} alt="" />
-            </li>
-            <li
-              className="text-gray-900 font-extrabold"
-              style={{ fontWeight: 700 }}
-            >
-              Plan 3 días
-            </li>
+          <ol className="flex items-center  gap-2">
+            <Link to="/">
+              <p className="text-sm">Inicio</p>
+            </Link>
+            <MdOutlineKeyboardArrowRight />
+            <p className="text-[15px] font-black ">Planes</p>
           </ol>
         </nav>
         <main>
           <h1 className="text-4xl mb-16">Tu Plan por 3 días</h1>
-          <div className="flex flex-col md:flex-row mr-40">
+          <div className="flex flex-col md:flex-row md:mr-40">
             <div className="w-full md:w-2/3 mr-40">
               <Carousel slideIndex={section - 1} withoutControls>
                 <img src={GroupLunes} alt="Group Lunes" className="w-full" />
                 <img src={GroupMartes} alt="Group Martes" className="w-full" />
                 <img
-                  src={GroupMiercoles}
+                  src={GroupJueves}
                   alt="Group Miércoles"
                   className="w-full"
                 />
               </Carousel>
             </div>
             <div className="w-full md:w-1/3 justify-center">
-              <div>
+              <div className="md:pt-0 pt-10">
                 <h1 className="text-2xl font-bold text-center">
                   Tu plan de entrenamiento
                 </h1>

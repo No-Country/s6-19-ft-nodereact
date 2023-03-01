@@ -28,14 +28,14 @@ export default function Contactme() {
   };
 
   return (
-    <div className="container mx-auto my-10 pt-28" id="contacto">
-      <div className="grid grid-cols-2">
-        <div className=" bg-white rounded-lg p-3 m-3">
-          <h1 className="text-6xl font-bold mb-10">Contactame</h1>
-          <div className="pl-10">
+    <div className="container mx-auto my-10 pt-20" id="contacto">
+      <div className="grid md:grid-cols-2">
+        <div className=" bg-white rounded-lg p-3  flex flex-col ">
+          <h1 className="md:text-6xl text-[35px] font-bold mb-10">Contactame</h1>
+          <div className="md:pl-10 pl-2">
             <form onSubmit={onSubmit}>
-              <div className="mb-2 flex">
-                <div className="w-1/2 mr-2">
+              <div className="mb-2 flex md:flex-row flex-col">
+                <div className="md:w-1/2 w-full mr-2">
                   <label className="block font-medium text-gray-700 mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">
                     Nombre
                   </label>
@@ -46,7 +46,7 @@ export default function Contactme() {
                     placeholder="Nombre"
                   />
                 </div>
-                <div className="w-1/2">
+                <div className="md:w-1/2 w-full">
                   <label className="block font-medium text-gray-700 mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">
                     Apellidos
                   </label>
@@ -82,7 +82,7 @@ export default function Contactme() {
                 ></textarea>
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end ">
                 <button
                   className="bg-purple-600 hover:bg-purple-500 text-xs text-white font-medium py-2 px-16 rounded-xl block mt-5 drop-shadow-lg uppercase"
                   disabled={loading}
@@ -111,7 +111,7 @@ export default function Contactme() {
         </div>
         <div>
           <div
-            className="flex justify-end opacity-80"
+            className="md:flex justify-end opacity-80 hidden"
             style={{ pointerEvents: "none" }}
           >
             <img src={ellipseRight} alt="" />

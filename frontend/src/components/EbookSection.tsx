@@ -8,7 +8,7 @@ const EbookSection = () => {
 
   return (
     <>
-      <div className="md:container flex  items-center justify-center md:pt-[120px]" id="ebooks">
+      <div className="md:container flex  items-center justify-center md:pt-[50px]" id="ebooks">
         <img className="md:block hidden" src={EbookImage} alt="ebooks image" />
         <div className="mt-16 mx-3 flex flex-col items-center ">
           <h1 className="md:text-6xl text-4xl tracking-widest	leading-relaxed text-center font-bold mb-5 px-5">

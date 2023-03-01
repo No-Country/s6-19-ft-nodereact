@@ -32,11 +32,11 @@ const Info = () => {
         </div>
         <div className="md:block flex justify-center">
           <img
-            className="w-[220px] absolute ml-[25px] md:block hidden"
+            className="w-[220px] absolute ml-[50px] md:block hidden"
             src={decorationInfo}
             alt="decoration info"
           />
-          <img className="w-[750px] max-w-[80%] h-auto relative top-[55px]" src={infoImage} alt="info image" />
+          <img className="w-[750px] md:max-w-[100%] max-w-[80%] h-auto relative top-[55px]" src={infoImage} alt="info image" />
         </div>
       </div>
     </>

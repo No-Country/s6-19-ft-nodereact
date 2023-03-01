@@ -33,10 +33,12 @@ const EbookCard = ({ book }: EbooksProps) => {
             Processing...
           </svg>
         ) : (
-          <div className="flex uppercase items-center justify-center ">
-            <i className="fa-solid fa-cart-shopping text-base pr-2"></i>
-            <p className="text-xs">Agregar al carrito</p>
-          </div>
+          <Link to={`/ebooks/${book._id}`}>
+            <div className="flex uppercase items-center justify-center py-1">
+              
+              <p className="text-xs">Ver más</p>
+            </div>
+          </Link>
         )}
       </button>
       <div className="w-full flex justify-center items-center">

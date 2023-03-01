@@ -1,11 +1,11 @@
 import { MdOutlineCancel } from "react-icons/md";
 import CounterButton from "../../components/CounterButton";
 import {
-  useGetCartQuery,
   useRemoveFromCartMutation,
 } from "../../redux/api/cartApi";
 
-import { TiDeleteOutline } from "react-icons/ti";
+import { ToastContainer, toast } from 'react-toastify';
+
 import { Ebook } from "../../types";
 
 type CartItem = {
@@ -28,6 +28,7 @@ interface CartProps {
 const DetailCart = ({ data }: any) => {
   const [removeFromCart, { data: deleteData, error, isLoading }] =
     useRemoveFromCartMutation();
+    //toast.info("Producto eliminado del carrito", {autoClose: 1500})
   console.log(deleteData, error, isLoading);
   return (
     <>
@@ -37,17 +38,20 @@ const DetailCart = ({ data }: any) => {
           className="flex md:pl-3 md:pb-10 pb-20 md:flex-row flex-col md:items-start items-center  "
           key={product?.item._id}
         >
-          <div className="w-2/5 flex mr-20 ">
+          <div className="flex md:pb-0 pb-10">
+            <div>
             <img
-              className="w-[140px] h-[160px] mr-3"
+              className="w-[140px] h-[160px] rounded-[10px] "
               src={product?.item.img}
               alt={product?.item.title}
             />
-            <div >
+            </div>
+            
+            <div className="relative left-2">
 
                 <div className="pt-6">
-                    <p className="font-black ">
-                        {product?.item.title.slice(0, 20)}    
+                    <p className="font-black">
+                        {product?.item.title.slice(0, 19)}    
                     </p>
                     <p className="text-[11px] text-[#00000080]"> Anatomía Ejercicios</p>
                 </div>
@@ -60,22 +64,22 @@ const DetailCart = ({ data }: any) => {
             </div>
           </div>
           
-          <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-8">
+          <div className="md:w-1/5 text-center relative md:top-8 md:left-3 md:block flex md:right-0 right-11">
             <div className="md:hidden block pr-5 relative md:right-0 right-2">Precio:</div>
-            <div>${product?.item.price}</div>
+            <div className="md:block relative md:left-0 left-2">${product?.item.price}</div>
          </div>
-        <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-11">
+        <div className="md:w-1/5 text-center relative md:top-6 md:left-3 md:block flex items-center left-1 md:py-0 py-1">
              <div className="md:hidden block pr-5">Cantidad:</div>
-             <span className="text-lg text-dark ">x {product?.quantity}</span>
              <CounterButton product={product} />
         </div>
-        <div className="md:w-1/5 text-center relative top-8 md:left-3 md:block flex md:right-0 right-8 ">
+        <div className="md:w-1/5 text-center relative md:top-8 md:left-3 md:block flex md:right-0 right-8 ">
             <div className="md:hidden block pr-5">Subtotal:</div>
             <div>${(product?.total).toFixed(2)}</div> 
         </div>
-        <MdOutlineCancel className="py-2 px-1 bg-gray rounded-sm text-dark text-sm cursor-pointer  "
+        <MdOutlineCancel className="  text-dark hover:cursor-pointer text-[#FF0000] text-[22px] relative top-8 right-2   "
               onClick={() => removeFromCart(product?.item._id)}>
         </MdOutlineCancel>
+        <ToastContainer theme="colored" />
          
         </div>
       ))}

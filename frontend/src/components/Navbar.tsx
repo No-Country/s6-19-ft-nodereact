@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
-import { FaUserAlt } from "react-icons/fa";
 import loginIcon from "../assets/loginIcon.png";
-import { useLocation } from "react-router-dom";
 import { BsLinkedin } from "react-icons/bs";
 import { Link as LinkScroll } from 'react-scroll';
+import { useGetCartQuery } from "../redux/api/cartApi";
+
 
 const Navbar = () => {
   const { user } = useSelector(selectAuth);
-  const location = useLocation();
+  const { data } = useGetCartQuery();
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -38,7 +40,10 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
     setOpenLogin(!openLogin);
+    navigate("/")
   };
+
+  const cartTotalQty:any = data?.totalQty
 
   return (
     <>
@@ -76,15 +81,16 @@ const Navbar = () => {
               {user && (
                 <Link to="/cart">
                   <li className="text-xl">
-                    <i className="fa-solid fa-cart-shopping"></i>
+                    <i className="fa-solid fa-cart-shopping mr-1 md:pb-0 pb-8"></i>
+                    <span>{cartTotalQty}</span>
                   </li>
                 </Link>
               )}
 
-              <li className="md:my-0 ">
-                <div className="md:pb-0 pb-3 ">
+              <li className="md:my-0">
+                <div className="md:pb-0  md:block flex ">
                   <img
-                    className="md:mr-20 md:ml-10 md:mb-0 mb-5 hover:cursor-pointer"
+                    className="md:mr-20 mr-2 md:ml-10 md:mb-0 hover:cursor-pointer"
                     src={loginIcon}
                     alt="login icon"
                     onClick={() => {
@@ -97,7 +103,7 @@ const Navbar = () => {
 
                 {!user ? (
                   <ul
-                    className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
+                    className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out md:shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
                         ? " md:absolute opacity-0 max-h-0 pointer-events-none"
                         : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
@@ -105,8 +111,8 @@ const Navbar = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        <div className="hover:border-b-2 hover:border-violeta-100 py-2">
-                          <Link to={link.link} key={index}>
+                        <div className="hover:border-b-2 hover:border-violeta-100 py-2" key={index}>
+                          <Link to={link.link} >
                             <li className="hover:font-black">{link.name}</li>
                           </Link>
                         </div>
@@ -115,7 +121,7 @@ const Navbar = () => {
                   </ul>
                 ) : (
                   <ul
-                    className={`right-2 h-[90px] z-10 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
+                    className={`right-2 h-[90px] z-10 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out md:shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
                       !openLogin
                         ? " md:absolute opacity-0 max-h-0 pointer-events-none"
                         : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"

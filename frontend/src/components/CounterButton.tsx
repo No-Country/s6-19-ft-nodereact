@@ -5,9 +5,9 @@ const CounterButton = ({ product }: any) => {
   const [updateProductCart, { isLoading }] = useUpdateProductCartMutation();
 
   return (
-    <div className=" cursor-pointer border-2 border-orange px-4 py-2 flex justify-between w-[140px] md:mx-auto rounded-md bg-slate/10 ">
+    <div className=" cursor-pointer border-2 border-orange px-4 md:py-2 p-1 flex justify-between w-[140px] md:mx-auto rounded-md bg-slate/10 ">
       <span
-        className="text-[1.4rem] "
+        className="text-[1rem] "
         onClick={() =>
           updateProductCart({
             id: product?.item?._id,
@@ -17,12 +17,12 @@ const CounterButton = ({ product }: any) => {
       >
         -
       </span>
-      <span className="text-lg  ">
+      <span className="text-sm  ">
         {isLoading ? (
           <>
             <CircularProgress
               sx={{ color: "rgba(000,000,000,.8)" }}
-              size="1.5rem"
+              size="1rem"
             />
           </>
         ) : (
@@ -30,7 +30,7 @@ const CounterButton = ({ product }: any) => {
         )}
       </span>
       <span
-        className="text-[1.4rem]  "
+        className="text-[1rem]  "
         onClick={() => {
           updateProductCart({
             id: product?.item?._id,
