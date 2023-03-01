@@ -43,7 +43,7 @@ const createReview = async (req: UserRequest, res: Response) => {
 
     await newReview.save();
 
-    product.reviews = newReview._id;
+    product.reviews.push(newReview._id);
 
     await product.save();
 

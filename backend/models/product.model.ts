@@ -30,10 +30,12 @@ const ProductSchema = new Schema(
       type: Number,
       default: 0,
     },
-    reviews: {
-      type: Schema.Types.ObjectId,
-      ref: "Review",
-    },
+    reviews: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
     boughtBy: {
       type: Schema.Types.ObjectId,
       ref: "User",
