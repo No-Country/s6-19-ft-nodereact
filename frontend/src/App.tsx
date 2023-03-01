@@ -1,5 +1,5 @@
 import './index.css'
-import Contactme from './components/contact/Contactme'
+import Contactme from './components/Contactme'
 import Planes from './components/plans/Planes'
 
 function App() {
