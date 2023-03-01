@@ -9,7 +9,7 @@ const Reviews = () => {
   console.log(ebookId);
   const { data: dataReviews, error } = useGetAllReviewsQuery(ebookId);
 
-  console.log(dataReviews.data, error);
+  console.log(dataReviews?.data, error);
 
   return (
     <section className="col-span-4 ">
@@ -39,7 +39,7 @@ const Reviews = () => {
           ) : (
             <>
               <div className="flex flex-col-reverse  gap-2 mb-10  ">
-                {dataReviews?.productReviews?.map((review, index) => (
+                {dataReviews?.data.map((review, index) => (
                   <div
                     key={index}
                     className=" md:flex border-t border-slate/50 p-2 pt-6"
@@ -47,7 +47,7 @@ const Reviews = () => {
                     <div className="flex-1 space-y-1 mb-4 md:mb-0  ">
                       <Rating
                         className="read-only"
-                        value={review.ratings}
+                        value={review?.rating}
                         precision={0.5}
                         readOnly
                       />
