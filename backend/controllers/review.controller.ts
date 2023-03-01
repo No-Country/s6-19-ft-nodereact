@@ -33,4 +33,54 @@ const createReview = async (req: UserRequest, res: Response) => {
   }
 };
 
-export { createReview };
+type ObjectReview = {
+  comment?: string;
+  rating?: number;
+};
+
+const updateReview = async (req: UserRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const { comment, rating } = req.body;
+
+    let obj: ObjectReview = {};
+
+    if (comment) {
+      obj.comment = comment;
+    }
+    if (rating) {
+      obj.rating = rating;
+    }
+
+    const review = await Review.findByIdAndUpdate(id, obj, {
+      new: true,
+    });
+
+    if (!review) {
+      return res.status(400).send({ msg: "No se encontro un comentario" });
+    }
+
+    res.status(200).send(review);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const deleteReview = async (req: UserRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const review = await Review.findByIdAndDelete(id);
+
+    if (!review) {
+      return res.status(400).send({ msg: "No se encontro un comentario" });
+    }
+
+    res.status(200).send({ msg: "Comentario borrado exitosamente" });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export { createReview, updateReview, deleteReview };
