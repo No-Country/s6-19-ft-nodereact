@@ -26,50 +26,52 @@ type prepareHeaders = (
   }
 ) => Headers | void;
 
-const extendedCartApi = emptyApi.injectEndpoints({
-  endpoints: (builder) => ({
-    createPayment: builder.mutation({
-      query: (body) => ({
-        url: "/payments",
-        method: "POST",
-        body,
+const extendedCartApi = emptyApi
+  .enhanceEndpoints({ addTagTypes: ["Cart"] })
+  .injectEndpoints({
+    endpoints: (builder) => ({
+      createPayment: builder.mutation({
+        query: (body) => ({
+          url: "/payments",
+          method: "POST",
+          body,
+        }),
+      }),
+      getCart: builder.query<Cart, void>({
+        query: () => "/cart",
+        providesTags: ["Cart"],
+      }),
+      addProductToCart: builder.mutation({
+        query: (body) => ({
+          url: `/cart`,
+          method: "POST",
+          body,
+        }),
+        invalidatesTags: ["Cart"],
+      }),
+      updateProductCart: builder.mutation({
+        query: ({ id, value }) => ({
+          url: `/cart/${id}?value=${value}`,
+          method: "PUT",
+        }),
+        invalidatesTags: ["Cart"],
+      }),
+      clearCart: builder.mutation({
+        query: () => ({
+          url: `/cart`,
+          method: "DELETE",
+        }),
+        invalidatesTags: ["Cart"],
+      }),
+      removeFromCart: builder.mutation({
+        query: (id: any) => ({
+          url: `cart/${id}`,
+          method: "DELETE",
+        }),
+        invalidatesTags: ["Cart"],
       }),
     }),
-    getCart: builder.query<Cart, void>({
-      query: () => "/cart",
-      providesTags: ["Cart"],
-    }),
-    addProductToCart: builder.mutation({
-      query: (body) => ({
-        url: `/cart`,
-        method: "POST",
-        body,
-      }),
-      invalidatesTags: ["Cart"],
-    }),
-    updateProductCart: builder.mutation({
-      query: ({ id, value }) => ({
-        url: `/cart/${id}?value=${value}`,
-        method: "PUT",
-      }),
-      invalidatesTags: ["Cart"],
-    }),
-    clearCart: builder.mutation({
-      query: () => ({
-        url: `/cart`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Cart"],
-    }),
-    removeFromCart: builder.mutation({
-      query: (id: any) => ({
-        url: `cart/${id}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Cart"],
-    }),
-  }),
-});
+  });
 
 export const {
   useCreatePaymentMutation,
