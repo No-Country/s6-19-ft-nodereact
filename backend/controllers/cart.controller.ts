@@ -2,11 +2,8 @@ import { Request, Response } from "express";
 import Cart from "../models/cart.model";
 import User from "../models/user.model";
 import Product from "../models/product.model";
-import { ObjectId, Schema } from "mongoose";
 
-interface UserRequest extends Request {
-  user: any;
-}
+import UserRequest from "../types";
 
 const getCart = async (req: UserRequest, res: Response) => {
   try {

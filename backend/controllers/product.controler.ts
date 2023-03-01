@@ -82,7 +82,12 @@ const getProduct = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    const product = await Product.findById(id);
+    const product = await (
+      await Product.findById(id)
+    ).populate({
+      path: "reviews",
+      populate: "commentedBy",
+    });
 
     if (!product) {
       return res.status(400).send({ msg: "Product not found" });
