@@ -14,9 +14,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCreateReviewMutation } from "../redux/api/reviewApi";
 
+import { selectAuth } from "../redux/slices/authSlice";
+import { useSelector } from "react-redux";
+
 import RatingComponent from "./RatingComponent";
 
 const ReviewModal = () => {
+  const { token } = useSelector(selectAuth);
   const { ebookId } = useParams();
 
   const [open, setOpen] = useState(false);
@@ -30,6 +34,8 @@ const ReviewModal = () => {
   const [createReview, { data: reviewData, isLoading, error }] =
     useCreateReviewMutation();
 
+  console.log(error);
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -41,6 +47,11 @@ const ReviewModal = () => {
   };
 
   const handleOpen = () => {
+    if (!token) {
+      toast.error("Debes estar autenticado");
+      navigate("/login");
+      return;
+    }
     setOpen(true);
   };
 
@@ -51,13 +62,8 @@ const ReviewModal = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     try {
-      // if (!auth.token) {
-      //   toast.error("Debes estar autenticado");
-      //   navigate("/login");
-      //   return;
-      // }
       createReview({
-        id: ebookId,
+        productId: ebookId,
         comment,
         rating: value,
       });
