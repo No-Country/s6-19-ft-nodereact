@@ -59,7 +59,6 @@ const EbooksPage = () => {
           </div>
         </div>
       </div>
-      <FooterPayment />
     </>
   );
 };

@@ -9,6 +9,7 @@ export const store = configureStore({
     filter: filterSlice,
     [emptyApi.reducerPath]: emptyApi.reducer,
   },
+  
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(emptyApi.middleware),
 });
