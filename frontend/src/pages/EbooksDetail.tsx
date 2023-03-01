@@ -1,11 +1,9 @@
 import { useState } from "react";
 import Logo from "../assets/logo.png";
+import Ebook from "../assets/ebookdetail/imagebook.png";
 
-import IconCarrito from "../assets/ebookdetail/map_grocery-or-supermarket.png";
 import { useParams } from "react-router-dom";
 
-import { Link } from "react-router-dom";
-import RatingStars from "../components/RatingStart";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 
 interface Book {
@@ -31,11 +29,11 @@ const EbooksDetail = () => {
     }
   }
 
-  const handleChange = (e) => setCounter(Number(e.target.value));
+  const handleChange = (e:any) => setCounter(Number(e.target.value));
   console.log(data, error);
 
   return (
-    <div className="md:container mx-auto ">
+    <div className="container mx-auto ">
       <nav className="breadcrumb mb-6 pt-10 " aria-label="breadcrumbs">
         <ol className="flex">
           <li>
@@ -53,20 +51,25 @@ const EbooksDetail = () => {
           <li className="text-gray-500">Detail</li>
         </ol>
       </nav>
-      <div className="">
-        <div className="grid grid-cols-3  w-full mb-4 gap-4">
+      <div className="md:my-20 my-10">
+        <div className="grid md:grid-cols-3 grid-cols-1  w-full mb-4 gap-4">
           <img
-            src={data?.img}
+            // src={data?.img}
+            src={Ebook}
             alt="Nombre del eBook"
             className="w-full object-cover"
           />
           <div className="col-span-2 ml-20">
             <h3 className="text-slate-700 font-bold text-3xl mb-4">
-              {data?.title}
+              {/* {data?.title} */}
+              Lorem ipsum
             </h3>
             <span className="text-3xl font-bold ">$ {data?.price}</span>
             <p className="text-gray-600 text-sm my-4 capitalize">
-              {data?.description.slice(0, 700)}
+              {/* {data?.description.slice(0, 700)} */}
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dicta quia aperiam
+               ipsum quo reiciendis repellat quis necessitatibus consequatur, at officia voluptate 
+               est rerum qui sapiente culpa cum mollitia in.
             </p>
 
             <div className="flex items-center   gap-4">
@@ -114,65 +117,9 @@ const EbooksDetail = () => {
           </div>
         </div>
       </div>
-      {/* <EbookList books={books} /> */}
     </div>
   );
 };
 
 export default EbooksDetail;
 
-// const Navbar = () => {
-//   interface Links {
-//     name: string;
-//     link: string;
-//   }
-//   const links: Links[] = [{ name: "Sobre mi", link: "/" }];
-
-//   const [open, setOpen] = useState<boolean>(false);
-
-//   const handleLogout = () => {};
-
-//   return (
-//     <div className="fixed w-full h-20  left-0 top-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white">
-//       <div className="md:flex md:items-center md:justify-between ">
-//         <Link to="/">
-//           <img
-//             className="h-[55px] w-auto relative md:left-7 left-0"
-//             src={Logo}
-//             alt="logo"
-//           />
-//         </Link>
-//         <div
-//           className={`md:flex md:items-center md:ml-0 ml-5 transition-all duration-500 ease-in ${
-//             open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]"
-//           } md:opacity-100  `}
-//         >
-//           <ul
-//             className={`md:flex md:items-center transition-all duration-500 ease-in ${
-//               open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
-//             } md:opacity-100 `}
-//           >
-//             {links.map((link, index) => {
-//               return (
-//                 <Link to={link.link} key={index}>
-//                   <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-4 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg hover:font-black">
-//                     <img src={IconCarrito} />
-//                   </li>
-//                 </Link>
-//               );
-//             })}
-//           </ul>
-//         </div>
-
-//         <div
-//           className="absolute right-8 top-6 cursor-pointer md:hidden"
-//           onClick={() => {
-//             setOpen(!open);
-//           }}
-//         >
-//           <i className="fa fa-bars text-2xl"></i>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };

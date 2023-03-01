@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 
 const Planes = () => {
   return (
-    <section id="planes">
+    <section className="pt-28" id="planes">
       <div className="container mx-auto my-10 ">
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="mt-16 mx-3">
-            <div className="flex justify-end mr-10 mb-24">
+            <div className="flex justify-end sm:justify-center md:justify-end mr-10 mb-8 sm:mb-24">
               <img src={actions} alt="" />
             </div>
             <h1 className="text-4xl text-center font-bold mb-5">
@@ -21,7 +21,7 @@ const Planes = () => {
               <img src={puntitos} alt="" />
             </div>
           </div>
-          <div className="">
+          <div className="mt-8 sm:mt-0">
             <div className="bg-white rounded-3xl shadow-lg p-8 border border-gray-400 h-full mr-3">
               <div className="flex justify-end ">
                 <button className="bg-white">
@@ -51,7 +51,6 @@ const Planes = () => {
                   Descargar
                 </button>
               </Link>
-
             </div>
           </div>
           <div className="">

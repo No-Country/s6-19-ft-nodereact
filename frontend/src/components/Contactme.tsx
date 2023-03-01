@@ -28,11 +28,21 @@ export default function Contactme() {
   };
 
   return (
-    <div className="container mx-auto my-10">
-      <div className="grid grid-cols-2">
-        <div className=" bg-white rounded-lg p-3 m-3">
-          <h1 className="text-6xl font-bold mb-10">Contactame</h1>
-          <div className="pl-10">
+    <div className="container mx-auto my-10 pt-20" id="contacto">
+      <div className="grid">
+        <div>
+          <div
+            className="flex justify-end "
+            style={{  marginBottom: "-310px", pointerEvents: "none",  }}
+          >
+            <div className="hidden md:block">
+              <img src={ellipseRight} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className=" bg-white rounded-lg p-3 m-3 md:w-2/3">
+          <h1 className="text-2xl md:text-6xl font-bold mb-10">Contactame</h1>
+          <div className="pl-10 md:w-2/3">
             <form onSubmit={onSubmit}>
               <div className="mb-2 flex">
                 <div className="w-1/2 mr-2">
@@ -42,7 +52,7 @@ export default function Contactme() {
                   <input
                     type="text"
                     required
-                    className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                    className="mt-1 px-3 py-2 bg-white border shadow-sm  border-gray-500 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                     placeholder="Nombre"
                   />
                 </div>
@@ -53,7 +63,7 @@ export default function Contactme() {
                   <input
                     type="text"
                     required
-                    className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                    className="mt-1 px-3 py-2 bg-white border shadow-sm  border-gray-500 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                     placeholder="Apellidos"
                   />
                 </div>
@@ -66,7 +76,7 @@ export default function Contactme() {
                   <input
                     type="email"
                     name="email"
-                    className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                    className="mt-1 px-3 py-2 bg-white border shadow-sm  border-gray-500 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                     placeholder="you@example.com"
                   />
                 </label>
@@ -76,7 +86,7 @@ export default function Contactme() {
                   ¿Cómo puedo ayudarte?
                 </label>
                 <textarea
-                  className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
+                  className="mt-1 px-3 py-2 bg-white border shadow-sm  border-gray-500 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1"
                   rows={6}
                   placeholder="Mensaje"
                 ></textarea>
@@ -107,14 +117,6 @@ export default function Contactme() {
             style={{ marginTop: "-110px", pointerEvents: "none" }}
           >
             <img src={ellipseLeft} alt="" />
-          </div>
-        </div>
-        <div>
-          <div
-            className="flex justify-end opacity-80"
-            style={{ pointerEvents: "none" }}
-          >
-            <img src={ellipseRight} alt="" />
           </div>
         </div>
       </div>

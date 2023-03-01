@@ -60,14 +60,13 @@ export default function Login() {
 
   return (
     <div className={`bg-[url(./assets/FondoLogin.png)] bg-cover bg-no-repeat bg-center`}>
-      <div className="container mx-auto min-h-screen flex justify-end items-center ">
-        <div className="bg-white w-[500px]  rounded-3xl shadow-lg py-10 px-14 border border-gray-400  mx-3">
-          <div className=" bg-white rounded-lg p-1 m-1">
-            <div className="flex justify-center mt-10">
+      <div className="md:container mx-auto min-h-screen flex justify-end items-center ">
+      <div className="bg-white w-full md:w-auto rounded-3xl shadow-lg md:py-10 py-3 md:px-14 px-3 border border-gray-400 mx-3 md:mx-0 md:mt-20">
+          <div className=" bg-white rounded-lg md:p-1 md:m-1">
+            <div className="flex justify-center md:mt-10 mt-5">
               <h1 className="text-2xl font-thin ">Inicio de Sesión</h1>
             </div>
-
-            <div className="flex justify-center  items-center my-10 ">
+            <div className="flex justify-center  items-center md:my-10 my-5 ">
               <h2 className="font-thin">¿Eres nuevo usuario?</h2>
               <div className="mx-2">
                 <Link to="/register" className="text-violeta-100 ">
