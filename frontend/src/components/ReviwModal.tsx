@@ -118,7 +118,7 @@ import {
               <textarea
                 className="bg-slate/10 p-2 text-sm w-full outline-none mt-2 resize-none rounded-md"
                 name="textarea"
-                rows="7"
+                rows={7}
                 onChange={(e) => setComment(e.target.value)}
               ></textarea>
               <div className="flex items-center justify-between">

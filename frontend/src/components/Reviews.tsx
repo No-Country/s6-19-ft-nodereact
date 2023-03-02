@@ -2,7 +2,7 @@ import { Rating } from "@mui/material";
 import { useParams } from "react-router";
 
 import { useGetAllReviewsQuery } from "../redux/api/reviewApi";
-import ReviewModal from "./ReviewModal";
+//import ReviewModal from "./ReviewModal";
 
 const Reviews = () => {
   const { ebookId } = useParams();
@@ -38,7 +38,7 @@ const Reviews = () => {
           ) : (
             <>
               <div className="flex flex-col-reverse  gap-2 mb-10  ">
-                {dataReviews?.data.map((review, index) => (
+                {dataReviews?.data.map((review:any, index:number) => (
                   <div
                     key={index}
                     className=" md:flex border-t border-slate/50 p-2 pt-6"

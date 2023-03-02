@@ -33,7 +33,7 @@ const DetailCart = ({ data }: any) => {
   return (
     <>
     
-      {data?.items?.map((product) => (
+      {data?.items?.map((product:any) => (
         <div
           className="flex md:pl-3 md:pb-10 pb-20 md:flex-row flex-col md:items-start items-center  "
           key={product?.item._id}
