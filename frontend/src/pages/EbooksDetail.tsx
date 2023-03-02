@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import FooterPayment from "../components/FooterPayment";
-// import { toast } from "react-toastify/dist/core";
 import { useAddProductToCartMutation } from "../redux/api/cartApi";
 import { useGetSingleEbookQuery } from "../redux/api/EbooksApi";
 import { Link } from "react-router-dom";
@@ -10,7 +9,9 @@ import { Rating } from "@mui/material";
 import { ToastContainer, toast } from 'react-toastify';
 import ReviewModal from "../components/ReviwModal";
 import Reviews from "../components/Reviews";
-
+import { useSelector } from "react-redux";
+import { selectAuth } from "../redux/slices/authSlice";
+import NavbarTwo from "../components/NavbarTwo";
 
 interface Book {
   title: string;
@@ -30,6 +31,18 @@ const EbooksDetail = () => {
 
   const [addProductToCart, { data: productoData, error: addError }] =
     useAddProductToCartMutation();
+
+
+  const { user } = useSelector(selectAuth);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+        
+    if (!user) {
+     navigate("/login")
+    }
+ }, [navigate]);
 
   console.log(addError);
 
@@ -60,19 +73,20 @@ const EbooksDetail = () => {
 
   return (
     <>
+    <NavbarTwo/>
     <div className="md:container mx-auto ">
       <nav className="breadcrumb mb-6 pt-10 " aria-label="breadcrumbs">
         <ol className="flex">
           <div className="flex items-center pb-14 pl-8 gap-2 ">
             <Link to="/">
-              <p className="text-sm">Inicio</p>
+              <p className="text-sm font-medium">Inicio</p>
             </Link>
             <MdOutlineKeyboardArrowRight />
             <Link to="/ebooks">
-              <p className="text-[15px] font-black ">Adquiri tu Ebook</p>
+              <p className="text-[15px] font-medium ">Adquiri tu Ebook</p>
             </Link>
             <MdOutlineKeyboardArrowRight />
-            <p className="text-[15px] font-black ">Ver más</p>
+            <p className="text-[15px] font-bold ">Ver más</p>
           </div>
         </ol>
       </nav>
@@ -103,12 +117,12 @@ const EbooksDetail = () => {
               {data?.description.slice(0, 700)}
             </p>
             <div className="pt-8 pb-8">
-              <p>Estado: Nuevo</p>
+              <p className="font-semibold">Estado: <span className="font-bold">Nuevo</span> </p>
             </div>
             
             <div className="flex items-center gap-4 pb-10">
               <div className="flex items-center">
-                <div className="pr-5">Cantidad:</div>
+                <div className="pr-5 font-semibold">Cantidad:</div>
                 {productStock.length === 0 ? (
                   <select
                     className=" px-2 py-1 w-full rounded-sm hover:cursor-pointer "

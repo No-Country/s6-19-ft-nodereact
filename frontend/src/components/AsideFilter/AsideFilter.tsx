@@ -26,7 +26,7 @@ const AsideFilter = () => {
         
         <CheckboxCategory items={categories} />
         <CheckboxPrice items={prices} />
-        <div >
+        <div className="relative right-5">
           <button onClick={()=>dispatch(reset())} >Todos</button>
         </div>
         

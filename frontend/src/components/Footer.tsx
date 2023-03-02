@@ -21,25 +21,25 @@ const Footer = () => {
             
           </div>
           <div className="md:w-2/4">
-            <div className="font-bold text-xl flex flex-col justify-center md:items-start items-center pt-7 ">
-              <h3> MIS REDES</h3>
+            <div className=" text-xl flex flex-col justify-center md:items-start items-center pt-7 ">
+              <h3 className="font-bold"> MIS REDES</h3>
               <div className="md:columns-2">
                 <a className="flex items-center space-x-3 pt-6 pb-3 pr-5 hover:text-violeta-100 transition cursor-pointer">
                   <BsInstagram />
-                  <span>Instagram</span>
+                  <span className="font-semibold">Instagram</span>
                 </a>
               </div>
               <div className="md:columns-2 ">
                 <a className="flex items-center space-x-3 pt-5 pb-3 pr-5 hover:text-violeta-100 transition  cursor-pointer">
                   <BsFacebook />
-                  <span>Facebook</span>
+                  <span className="font-semibold">Facebook</span>
                 </a>
                 <div className="md:w-2/4">
                   <div className="md:columns-2">
                     <div className="flex items-center space-x-3 pt-5 pr-5 hover:text-violeta-100 transition cursor-pointer">
                       <a className="flex items-center space-x-3  ">
                         <BsTwitter />
-                        <span>Twitter</span>
+                        <span className="font-semibold">Twitter</span>
                       </a>
                     </div>
                   </div>

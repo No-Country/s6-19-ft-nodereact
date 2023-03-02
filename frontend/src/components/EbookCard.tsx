@@ -34,7 +34,7 @@ const EbookCard = ({ book }: EbooksProps) => {
           </svg>
         ) : (
           <Link to={`/ebooks/${book._id}`}>
-            <div className="flex uppercase items-center justify-center py-1">
+            <div className="flex uppercase items-center justify-center py-1 font-bold">
               
               <p className="text-xs">Ver más</p>
             </div>
@@ -49,7 +49,7 @@ const EbookCard = ({ book }: EbooksProps) => {
           precision={0.5}
           readOnly
         />
-        <p className="text-sm">${book?.price}</p>
+        <p className="text-sm font-bold">${book?.price}</p>
       </div>
       {/* <div className="flex items-center justify-between ">
         <RatingStars RatingIndex={book?.rating} setRatingIndex={setRating} />

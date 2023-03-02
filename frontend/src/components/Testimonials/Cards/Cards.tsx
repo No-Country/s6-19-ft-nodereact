@@ -58,9 +58,9 @@ const Cards = () => {
             <div className="relative p-5 text-[11px]">
               <div className="flex justify-between">
                 <div className="text-white">
-                  <h3 className="text-[14px] pt-5 pb-5 ">{card.name}</h3>
-                  <p>{card.city},</p>
-                  <p>{card.state}</p>
+                  <h3 className="text-[13px] pt-5 pb-5 font-bold">{card.name}</h3>
+                  <p className="text-[11px font-bold]">{card.city},</p>
+                  <p className="text-[11px font-bold]">{card.state}</p>
                 </div>
                 <img src={card.picture} alt="review image" />
               </div>
@@ -72,7 +72,7 @@ const Cards = () => {
                 <img src={greenStar} alt="green start" />
               </div>
 
-              <p>{card.text}</p>
+              <p className="text-[11px] font-semibold">{card.text}</p>
             </div>
           </div>
         );

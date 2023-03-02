@@ -4,11 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { logout, selectAuth } from "../redux/slices/authSlice";
 import logo from "../assets/logo.png";
 import loginIcon from "../assets/loginIcon.png";
-import { Link as LinkScroll } from 'react-scroll';
 import { useGetCartQuery } from "../redux/api/cartApi";
 
 
-const Navbar = () => {
+const NavbarTwo = () => {
   const { user } = useSelector(selectAuth);
   const { data } = useGetCartQuery();
 
@@ -65,18 +64,6 @@ const Navbar = () => {
                 open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
               } md:opacity-100 `}
             >
-              {links?.map((link, index) => {
-               
-                return (
-                  <LinkScroll  to={link.link} spy={true} smooth={true} offset={50} duration={600} key={index}>
-                    <li className="md:mr-2 md:my-0 my-6 w-[130px] h-[43px] flex md:items-center md:justify-center hover:border-b-4 hover:border-violeta-100 hover:cursor-pointer text-base hover:text-lg font-semibold hover:font-black">
-                      <span className="uppercase    ">
-                        {link.name}
-                      </span>
-                    </li>
-                  </LinkScroll>
-                );
-              })}
               {user && (
                 <Link to="/cart">
                   <li className="text-xl">
@@ -110,9 +97,9 @@ const Navbar = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        <div className="hover:border-b-4 hover:border-violeta-100 py-2" key={index}>
+                        <div className="hover:border-b-2 hover:border-violeta-100 py-2" key={index}>
                           <Link to={link.link} >
-                            <li className="hover:font-bold">{link.name}</li>
+                            <li className="hover:font-black">{link.name}</li>
                           </Link>
                         </div>
                       );
@@ -121,10 +108,10 @@ const Navbar = () => {
                 ) : (
                   <ul
                     className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out md:shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
-                      !openLogin
-                        ? " md:absolute opacity-0 max-h-0 pointer-events-none"
-                        : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
-                    } `}
+                        !openLogin
+                          ? " md:absolute opacity-0 max-h-0 pointer-events-none"
+                          : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
+                      } `}
                   >
                     {" "}
                     <div className="hover:border-b-4 hover:border-violeta-100 py-2 hover:font-bold">
@@ -166,4 +153,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarTwo;

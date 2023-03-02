@@ -31,7 +31,7 @@ export default function Contactme() {
     <div className="container mx-auto my-10 pt-20" id="contacto">
       <div className="grid md:grid-cols-2">
         <div className=" bg-white rounded-lg p-3  flex flex-col ">
-          <h1 className="md:text-6xl text-[35px] font-bold mb-10">Contactame</h1>
+          <h1 className="md:text-[46px] text-[35px] font-bold mb-10">Contactame</h1>
           <div className="md:pl-10 pl-2">
             <form onSubmit={onSubmit}>
               <div className="mb-2 flex md:flex-row flex-col">

@@ -50,7 +50,7 @@ const DetailCart = ({ data }: any) => {
             <div className="relative left-2">
 
                 <div className="pt-6">
-                    <p className="font-black">
+                    <p className="font-semibold">
                         {product?.item.title.slice(0, 19)}    
                     </p>
                     <p className="text-[11px] text-[#00000080]"> Anatomía Ejercicios</p>
@@ -64,17 +64,17 @@ const DetailCart = ({ data }: any) => {
             </div>
           </div>
           
-          <div className="md:w-1/5 text-center relative md:top-8 md:left-3 md:block flex md:right-0 right-11">
+          <div className="md:w-1/5 text-center relative md:top-8 md:left-12 md:block flex md:right-0 right-11">
             <div className="md:hidden block pr-5 relative md:right-0 right-2">Precio:</div>
-            <div className="md:block relative md:left-0 left-2">${product?.item.price}</div>
+            <div className="md:block relative md:left-0 left-2 ">${product?.item.price}</div>
          </div>
-        <div className="md:w-1/5 text-center relative md:top-6 md:left-3 md:block flex items-center left-1 md:py-0 py-1">
-             <div className="md:hidden block pr-5">Cantidad:</div>
+        <div className="md:w-1/5 text-center relative md:top-6 md:left-10 md:block flex items-center left-1 md:py-0 py-1">
+             <div className="md:hidden block pr-5 ">Cantidad:</div>
              <CounterButton product={product} />
         </div>
-        <div className="md:w-1/5 text-center relative md:top-8 md:left-3 md:block flex md:right-0 right-8 ">
+        <div className="md:w-1/5 text-center relative md:top-8 md:left-6 md:block flex md:right-0 right-8 ">
             <div className="md:hidden block pr-5">Subtotal:</div>
-            <div>${(product?.total).toFixed(2)}</div> 
+            <div >${(product?.total).toFixed(0)}</div> 
         </div>
         <MdOutlineCancel className="  text-dark hover:cursor-pointer text-[#FF0000] text-[22px] relative top-8 right-2   "
               onClick={() => removeFromCart(product?.item._id)}>

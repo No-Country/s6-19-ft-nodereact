@@ -19,14 +19,14 @@ const ResumenCart = ({ total }: any) => {
   return (
     <div className="w-full md:w-1/3 justify-center md:pl-20 relative top-7">
       <div className="pb-7">
-        <h1 className="text-2xl font-bold text-center uppercase">
+        <h1 className="text-2xl font-semibold text-center uppercase">
           Resumen de la compra
         </h1>
       </div>
       <div className="border border-[#00000080]">
         <div className="flex justify-between  text-xl bg-[#9747ff0d] p-5">
           <p>Subtotal</p>
-          <p>${total}</p>
+          <p className="font-semibold">${total}</p>
         </div>
         <div className="flex justify-center  py-4 px-12">
           <button

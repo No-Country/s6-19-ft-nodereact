@@ -8,18 +8,18 @@ const Info = () => {
     <>
       <div className="md:container flex md:flex-row flex-col  min-h-[70vh] pt-40" id="aboutme">
         <div className=" pr-[30px] md:pl-0 pl-[30px] md:text-left text-justify">
-          <div className="md:text-[50px] text-[35px] text-start flex w-full md:justify-start justify-center items-center">
-            <img className="md:w-[50px] md:h-[54.3px] w-[30px] h-[32px] mr-[25px]" src={viñeta} alt="viñeta info" />
+          <div className="md:text-[64px] text-[35px] text-start flex w-full md:justify-start justify-center items-center font-semibold">
+            <img className="md:w-[50px] md:h-[54.3px] w-[30px] h-[32px] mr-[25px] " src={viñeta} alt="viñeta info" />
             <h1>Hola, soy Camila</h1>
           </div>
-          <p className="pt-[50px] md:pb-[0px] pb-[20px]">
+          <p className="pt-[50px] md:pb-[0px] pb-[20px] font-semibold md:text-xl">
           Mi misión es transformar lo complicado en simple, es decir, aquí tendrás comodidad y menos burocracia desde los servicios en línea hasta el autoservicio en las sedes.
           </p>
-          <p className="md:pb-[0px] pb-[40px] ">
+          <p className="md:pb-[0px] pb-[40px] font-semibold md:text-xl">
           Te brindo un entrenamiento rápido e intenso desarrollado para quien quiera pierda peso y aumente la resistencia de la musculatura, además  de incentivar el aceleramiento de su metabolismo y favorecer el adelgazamiento.
           </p>
           
-          <div className="flex items-center">
+          <div className="flex items-center font-semibold md:text-xl">
             <img
               className="w-[220px] mr-[90px] md:block hidden"
               src={decorationInfo}

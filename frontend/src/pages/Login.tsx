@@ -64,12 +64,13 @@ export default function Login() {
         <div className="bg-white md:w-[500px] w-auto rounded-3xl shadow-lg py-10 px-14  border border-gray-400  mx-3 md:my-0 my-10">
           <div className=" bg-white rounded-lg p-1 m-1">
             <div className="flex justify-center mt-10">
-              <h1 className="text-2xl font-thin ">Inicio de Sesión</h1>
+              <h1 className="text-[32px] ">Inicio de Sesión</h1>
             </div>
 
-            <div className="md:flex justify-center  items-center my-10 ">
-              <h2 className="font-thin">¿Eres nuevo usuario?</h2>
-              <div className="md:mx-2 md:my-0 mt-5">
+            <div className="md:flex justify-center  items-center my-10 text-lg ">
+            
+              <h2 className="">¿Eres nuevo usuario?</h2>
+              <div className="md:mx-2 md:my-0 mt-5 font-semibold">
                 <Link to="/register" className="text-violeta-100 hover:opacity-80 ">
                   Crear una cuenta
                 </Link>
@@ -78,7 +79,7 @@ export default function Login() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-2">
                 <label className="block">
-                  <span className="after:content-['*'] after:ml-0.5 after:text-red-500 md:block hidden text-sm font-medium text-slate-700">
+                  <span className=" md:block hidden text-lg font-medium text-slate-700">
                     Email
                   </span>
                   <input
@@ -92,7 +93,7 @@ export default function Login() {
               </div>
               <div>
                 <div className="">
-                  <label className="md:block hidden font-medium text-gray-700 mb-2 text-sm">
+                  <label className="md:block hidden text-lg  font-medium text-gray-700 mb-2 ">
                     Contraseña
                   </label>
                   <input
@@ -125,7 +126,7 @@ export default function Login() {
 
               <div className="">
                 <button
-                  className="bg-purple-600 w-full hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-xl mt-5 drop-shadow-lg flex justify-center items-center"
+                  className="bg-purple-600 w-full hover:bg-purple-500 text-white font-bold py-2 px-14 rounded-xl mt-5 drop-shadow-lg flex justify-center items-center text-lg"
                   disabled={isLoading}
                   type="submit"
                 >
@@ -133,14 +134,19 @@ export default function Login() {
                 </button>
               </div>
             </form>
-            <div className="flex justify-center mt-10">
+            <div className="flex justify-center items-center mt-10">
+              <Link to="/">
+                <i className="fa-solid fa-house mr-2"></i>
+              </Link>
               <div className="mx-2">
                 <img
                   src={googleIcon}
                   alt="Google Icon"
                 />
               </div>
-              <p className="text-md hover:cursor-pointer hover:opacity-80">Continuar con google</p>
+             
+                <p className="text-md hover:cursor-pointer hover:opacity-80 font-bold">Continuar con google</p>
+
             </div>
           </div>
         </div>

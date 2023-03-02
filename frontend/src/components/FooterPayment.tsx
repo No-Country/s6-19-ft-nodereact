@@ -13,7 +13,7 @@ const FooterPayment = () => {
         <footer className="flex md:pl-20 justify-center border-t border-violeta-100"> 
             <div className="md:mr-20" >
                 <div className="relative top-7">
-                    <h1 className="text-base uppercase font-black">Medios de pago</h1>
+                    <h1 className="text-base uppercase font-bold">Medios de pago</h1>
                 </div>
                 <div className="flex md:flex-row flex-col items-center relative top-7">
                     <div className="md:pr-32 pr-24">

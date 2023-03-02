@@ -26,7 +26,7 @@ const Testimonials = () => {
         <div className="md:relative">
           <div className="md:absolute md:z-10 bg-white">
             <div className="flex justify-center pb-24">
-              <h2 className="text-[35px] pr-5">Testimonios</h2>
+              <h2 className="text-[36px] pr-5 font-semibold">Testimonios</h2>
               <img src={logoHeart} alt="logo heart" />
             </div>
             <div className="flex justify-center pb-10">
