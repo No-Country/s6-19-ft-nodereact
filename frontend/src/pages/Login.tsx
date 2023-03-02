@@ -135,9 +135,7 @@ export default function Login() {
               </div>
             </form>
             <div className="flex justify-center items-center mt-10">
-              <Link to="/">
-                <i className="fa-solid fa-house mr-2"></i>
-              </Link>
+          
               <div className="mx-2">
                 <img
                   src={googleIcon}
