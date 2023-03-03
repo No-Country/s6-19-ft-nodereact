@@ -47,7 +47,7 @@ const Cards = () => {
       {profilesCard.map((card) => {
         return (
           <div
-            className={card.id === 2 ? "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px] md:mx-5 relative top-[60px] md:mb-0 mb-12" : "w-[306px] h-[295px] border-2 border-[#0000004d] rounded-[20px] md:top-0 relative top-[60px] md:mb-0 mb-12"}
+            className={card.id === 2 ? "border-2 border-[#0000004d] rounded-[20px] md:mr-3 relative top-[60px] md:mb-0 mb-12" : " md:mr-3 border-2 border-[#0000004d] rounded-[20px] md:top-0 relative top-[60px] md:mb-0 mb-12"}
             key={card.id}
           >
             <img
@@ -55,7 +55,7 @@ const Cards = () => {
               src={decorationCircle}
               alt="decoration circle"
             />
-            <div className="relative p-5 text-[11px]">
+            <div className="relative p-5 text-[11px] min-w-[306px] max-w-[345px]">
               <div className="flex justify-between">
                 <div className="text-white">
                   <h3 className="text-[13px] pt-5 pb-5 font-bold">{card.name}</h3>
@@ -72,7 +72,7 @@ const Cards = () => {
                 <img src={greenStar} alt="green start" />
               </div>
 
-              <p className="text-[11px] font-semibold">{card.text}</p>
+              <p className="text-[11px] font-semibold ]">{card.text}</p>
             </div>
           </div>
         );
