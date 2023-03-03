@@ -11,7 +11,7 @@ import {
   } from "@mui/material";
   import { useEffect, useState } from "react";
   import { useNavigate, useParams } from "react-router-dom";
-  import { toast } from "react-toastify";
+  import { toast, ToastContainer } from "react-toastify";
   import { useCreateReviewMutation } from "../redux/api/reviewApi";
   
   import { selectAuth } from "../redux/slices/authSlice";
@@ -103,6 +103,7 @@ import {
             >
             Dejá un comentario
             </button>
+            <ToastContainer theme="colored" />
         </div>
         
         <Modal open={open} onClose={handleClose}>
