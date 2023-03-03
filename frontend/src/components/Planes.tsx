@@ -2,9 +2,26 @@ import IconCheck from "../assets/plans/Vector.png";
 import IconCancel from "../assets/plans/leaf-quad.png";
 
 import puntitos from "../assets/plans/puntitos.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth } from "../redux/slices/authSlice";
 
 const Planes = () => {
+
+  const { token } = useSelector(selectAuth);
+
+  const navigate = useNavigate();
+
+  const goToPlans = () => {
+    if (!token) {
+      navigate("/login") 
+      return
+    }
+    navigate("/planes/1")
+  }
+  
+
+
   return (
     <section className="pt-28" id="planes">
       <div className="container mx-auto  ">
@@ -44,11 +61,11 @@ const Planes = () => {
                   <p>Descender tus niveles de colesterol.</p>
                 </div>
               </div>
-              <Link to="/planes/2">
-                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg uppercase text-xs">
+   
+                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg uppercase text-xs" onClick={()=>goToPlans()}>
                   Descargar
                 </button>
-              </Link>
+    
             </div>
           </div>
           <div className="">
@@ -76,11 +93,11 @@ const Planes = () => {
                   <p>Evita dolores y contracturas.</p>
                 </div>
               </div>
-              <Link to="/planes/2">
-                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg relative top-5 uppercase text-xs">
+        
+                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg relative top-5 uppercase text-xs" onClick={()=>goToPlans()}>
                   Descargar
                 </button>
-              </Link>
+
 
             </div>
           </div>
@@ -113,12 +130,9 @@ const Planes = () => {
                   <br />
                 </div>
               </div>
-              <Link to="/planes/3">
-                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg uppercase text-xs ">
+                <button className="bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 px-14 rounded-[10px] block mx-auto mt-10 drop-shadow-lg uppercase text-xs " onClick={()=>goToPlans()}>
                   Descargar
                 </button>
-              </Link>
-
             </div>
           </div>
         </div>

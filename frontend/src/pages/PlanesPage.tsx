@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import IcoPdf from "../assets/plans/carbon_document-pdf.png";
 import GroupLunes from "../assets/plans/GroupLunes.png";
 import GroupMartes from "../assets/plans/GroupMartes.png";
@@ -7,26 +7,13 @@ import GroupJueves from "../assets/plans/GroupJueves.png";
 import Carousel from "nuka-carousel";
 import FooterPayment from "../components/FooterPayment";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
-import { selectAuth } from "../redux/slices/authSlice";
+
 import NavbarTwo from "../components/NavbarTwo";
 
 
 const PlanesPage = () => {
   const [loading, setLoading] = useState(false);
   const [section, setSection] = useState<number>(1);
-
-  const { token } = useSelector(selectAuth);
-
-  const navigate = useNavigate();
-
-
-  if (!token) {
-     navigate("/login")
-     return
-  }
-
-
 
 
   return (
