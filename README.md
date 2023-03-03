@@ -1,40 +1,43 @@
-<h3 align="center">Pagina web para publicitar los servicios y productos de una personal trainer</h3>
+<h3 align="center">Personal Trainer - Landing Page Website 🏋🏼‍♀️</h3>
 
 
 <p align="left">
 </p>
 
-Equipo de trabajo / Team:
+![](https://firebasestorage.googleapis.com/v0/b/libreria-melquiades-6e32c.appspot.com/o/be8cacf5-f086-4cb1-933a-b572e0bf567c.jpg?alt=media&token=e7b78bbf-a327-4ad3-a275-566c7aaa7a54)
 
-🟢Back-End: Mosquella Juan Manuel / Diego Silva Cordoba
+## Descripción
 
-🟢Front-End: Alexander Paul Castañeda Salinas / Ronny / Andres Betancur
+ El proyecto desarrollado es una landing page diseñada para una personal trainer que buscaba promocionar sus servicios en línea. Este proyecto siguio los requerimientos de una cliente real que tenia como objetivo principal presentar en su landing page una variedad de características diseñadas para atraer a clientes potenciales y proporcionar información útil sobre sus servicios como personal trainer y además productos que ofrece de manera virtual como pueden ser planes de entrenamiento personalizados e ebooks.
 
-🟢Design UX/UI: Natali Leones
+La landing page cuenta con un diseño moderno y profesional que refleja la energía y el estilo de vida saludable que promueve la personal trainer. Se presenta una descripción detallada de los servicios ofrecidos, así como una sección de testimonios de clientes satisfechos.
 
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a>  <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a> <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a></p>
+De igual manera las personas que visiten la landing page pueden registrarse y loguearse para tener acceso a servicios especiales como es la compra de planes de entrenamientos personalizados y la compra de ebooks los cuales puede ser cancelados a traves de Mercado Pago, ya que se cuenta con una pasarela de la misma. Adicionalmente a la compra de los ebooks, el usuario puede dejar un comentario de cada uno de los ebooks y calificarlos con sus sistema de estrellas. 
 
+Finalmente, la página web presenta un formulario de contacto fácil de usar para que los clientes puedan comunicarse directamente con la personal trainer y solicitar más información sobre sus servicios. También se incluyen enlaces a las cuentas de redes sociales de la personal trainer para facilitar el seguimiento y la interacción con los clientes.
 
+## Equipo
+ ### s6-19-ft-nodereact
 
-End points de interes:
+## Stack/Tecnologias 🛠️ :
 
-/api/auth/register  => require un username, email, y password, opcionalmente puede user una imagen si el cliente asi lo decide.
-<br>
-<br>
-/api/auth/login  => require un email, y password, en caso de dar una respuesta con status 200 devuelve un token.
-<br>
-<br>
-/api/auth/generateOTP?username=test1234  => require un username que sera enviado por query para identificar al email de que usuario dbe eenviar el codigo de verificacion, este codigo puede ser solicitado todas las veces que se requiera.
-<br>
-<br>
-/api/auth/verifyOTP?username=test1234&code=252690 => requiere un username y el codigo de verificacion que seran enviados por query, si el codigo es correcto se redireccionara al usaurio a la pagina para reestablecer la contraseña.
-<br>
-<br>
-/api/auth/reset-password => finalmente el usuario podra cambiar su contraseña, para esto debera enviar por body su username y la nueva contraseña. Este endpoint es de UNICO USO, si se equivoca debera repetir todo el proceso
+- **Frontend** : Typescript <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://logospng.org/wp-content/uploads/typescript.png" alt="typescript" width="40" height="40"/> </a> - ReactJs <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> - Redux <a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="40" height="40"/> </a> -  TailwindCSS <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="tailwind" width="40" height="40"/> </a>
+- **Backend**: Typescript <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://logospng.org/wp-content/uploads/typescript.png" alt="typescript" width="40" height="40"/> </a> - NodeJs <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> - Express <a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a>
+- **Databases** : MongoDB <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/>
+- **Diseño UX/UI** : Figma <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a>
 
 
+## Equipo de trabajo / Team 🧑‍💻:
 
+| Desarrolladores | Roles| Github  | LinkedIn |
+| ------------- |:-------------:| -----|------- |
+|Rony Hernando Puche Navarro |Front-end | [link](https://github.com/rony171998) |[link](https://www.linkedin.com/in/rony-puche-a80275234/)|
+| Alexander Paul Castañeda Salinas| Front-end |  [link](https://github.com/iwill88) | [link](https://www.linkedin.com/in/alexander-casta%C3%B1eda/)|
+| Felix Andres Betancur | Front-end   |  [link](https://github.com/18517701) | [link](https://www.linkedin.com/in/felix-andres-betancur-9389ab1a5/)|
+| Juan Manuel Mosquella | Back-end  |   [link](https://github.com/JuanMosquela) | [link](https://www.linkedin.com/in/juan-mosquella/)|
+| Diego Ignacio Silva Cordoba | Back-end   |  [link](https://github.com/Diegosilcor) | [link](https://www.linkedin.com/in/diego-ignacio-silva-cordoba/)|
+| Natali Leones | Design UX/UI  |  [link](https://github.com/NatyLeones) | [link](https://www.linkedin.com/in/na-leones-aguiar/)|
 
+## Link de Producción :
 
-
+**Deploy** :https://personaltrainer-crossfit.vercel.app/
