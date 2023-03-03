@@ -33,7 +33,7 @@ const EbooksDetail = () => {
     useAddProductToCartMutation();
 
 
-  const { user } = useSelector(selectAuth);
+    const { token } = useSelector(selectAuth);
 
   const navigate = useNavigate();
 
@@ -59,9 +59,11 @@ const EbooksDetail = () => {
 
   const handleClick = () => {
 
-    if (!user) {
-      navigate("/login")
-     }
+    if (!token) {
+      toast.error("Debes estar autenticado");
+      navigate("/login");
+      return;
+    }
     if (data?.stock === 0) {
      
       return;
