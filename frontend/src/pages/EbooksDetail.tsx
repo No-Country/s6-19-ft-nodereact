@@ -37,12 +37,12 @@ const EbooksDetail = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /*useEffect(() => {
         
     if (!user) {
      navigate("/login")
     }
- }, [navigate]);
+ }, [navigate]);*/
 
   console.log(addError);
 
@@ -58,6 +58,10 @@ const EbooksDetail = () => {
   
 
   const handleClick = () => {
+
+    if (!user) {
+      navigate("/login")
+     }
     if (data?.stock === 0) {
      
       return;

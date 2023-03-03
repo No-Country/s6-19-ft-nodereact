@@ -29,7 +29,7 @@ Finalmente, la página web presenta un formulario de contacto fácil de usar par
 | Desarrolladores | Roles| Github  | LinkedIn |
 | ------------- |:-------------:| -----|------- |
 |Rony Hernando Puche Navarro |Front-end | [Github](https://github.com/rony171998) | [LinkedIn](https://www.linkedin.com/in/rony-puche-a80275234/) |
-| Alexander Paul Castañeda Salinas| Front-end |  [GitHubb](https://github.com/iwill88) | [LinkedIn](https://www.linkedin.com/in/alexander-casta%C3%B1eda/)|
+| Alexander Paul Castañeda Salinas| Front-end |  [GitHub](https://github.com/iwill88) | [LinkedIn](https://www.linkedin.com/in/alexander-casta%C3%B1eda/)|
 | Felix Andres Betancur | Front-end   |  [GitHub](https://github.com/18517701) | [LinkedIn](https://www.linkedin.com/in/felix-andres-betancur-9389ab1a5/)|
 | Juan Manuel Mosquella | Back-end  |   [GitHub](https://github.com/JuanMosquela) | [LinkedIn](https://www.linkedin.com/in/juan-mosquella/)|
 | Diego Ignacio Silva Cordoba | Back-end   |  [GitHub](https://github.com/Diegosilcor) | [LinkedIn](https://www.linkedin.com/in/diego-ignacio-silva-cordoba/)|

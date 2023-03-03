@@ -26,12 +26,12 @@ const EbooksPage = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /*useEffect(() => {
         
     if (!user) {
      navigate("/login")
     }
- }, [navigate]);
+ }, [navigate]);*/
 
   useEffect(() => {
     const fetchProducts = async () => {
