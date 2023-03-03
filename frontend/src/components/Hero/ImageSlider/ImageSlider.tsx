@@ -42,9 +42,9 @@ const ImageSlider = ({ slides }: Props) => {
 
   return (
     <div className="h-full flex relative " id="hero">
-    <div className="absolute top-1/2 cursor-pointer hover:opacity-80 transform -scale-x-100 left-9" onClick={()=>goToPrevious()}><img src={arrowRight} alt="circle2" /></div>
+    <div className="absolute top-1/2 cursor-pointer hover:opacity-80 transform -scale-x-100 left-9" onClick={goToPrevious}><img src={arrowRight} alt="circle2" /></div>
     
-            <div className="absolute top-1/2 cursor-pointer hover:opacity-80 right-9" onClick={()=>goToNext()}><img src={arrowRight} alt="circle2" /></div>
+            <div className="absolute top-1/2 cursor-pointer hover:opacity-80 right-9" onClick={goToNext}><img src={arrowRight} alt="circle2" /></div>
       <div className={`${slides[currentIndex].class}`}>
         <a
           className="fixed bottom-6 right-6 z-10 hover:scale-150 transition-all duration-300 "
