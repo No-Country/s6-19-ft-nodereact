@@ -8,7 +8,7 @@ const Info = () => {
     <>
       <div className="md:container flex md:flex-row flex-col  min-h-[70vh] pt-40" id="aboutme">
         <div className=" pr-[30px] md:pl-0 pl-[30px] md:text-left text-justify">
-          <div className="md:text-[64px] text-[35px] text-start flex w-full md:justify-start justify-center items-center font-semibold">
+          <div className="md:text-[64px] text-[31px] text-start flex w-full md:justify-start justify-center items-center font-semibold">
             <img className="md:w-[50px] md:h-[54.3px] w-[30px] h-[32px] mr-[25px] " src={viñeta} alt="viñeta info" />
             <h1>Hola, soy Camila</h1>
           </div>

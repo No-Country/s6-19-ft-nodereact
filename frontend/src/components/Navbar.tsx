@@ -57,12 +57,12 @@ const Navbar = () => {
           </Link>
           <div
             className={`md:flex md:items-center md:ml-0 ml-5 transition-all duration-500 ease-in ${
-              open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]"
+              !open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]"
             } md:opacity-100  `}
           >
             <ul
               className={`md:flex md:items-center transition-all duration-500 ease-in ${
-                open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
+                !open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
               } md:opacity-100 `}
             >
               {links?.map((link, index) => {
