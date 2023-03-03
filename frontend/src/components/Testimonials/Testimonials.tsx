@@ -22,7 +22,7 @@ const Testimonials = () => {
 
   return (
     <>
-      <div className="md:container md:flex md:flex-row justify-center flex-col py-[200px] px-[60px] bg-white" id="testimonios">
+      <div className="container mx-auto grid grid-cols-1  md:grid-cols-4 gap-4 md:py-[200px] py-[60px] bg-white" id="testimonios">
         <div className="md:relative">
           <div className="md:absolute md:z-10 bg-white">
             <div className="flex justify-center pb-24">
@@ -45,9 +45,9 @@ const Testimonials = () => {
             <img src={decorationThree} alt="decoration info" />
           </div>
         </div>
-        <div className="grid grid-cols-1  md:grid-cols-3 gap-4 md:relative md:left-[68px]">
+        
           <Cards />
-        </div>
+    
       </div>
     </>
   );
