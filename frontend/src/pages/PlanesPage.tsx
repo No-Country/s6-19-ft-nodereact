@@ -16,16 +16,16 @@ const PlanesPage = () => {
   const [loading, setLoading] = useState(false);
   const [section, setSection] = useState<number>(1);
 
-  const { user } = useSelector(selectAuth);
+  const { token } = useSelector(selectAuth);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-        
-    if (!user) {
+
+  if (!token) {
      navigate("/login")
-    }
- }, [navigate]);
+     return
+  }
+
 
 
 
