@@ -78,7 +78,7 @@ const Navbar = () => {
                 );
               })}
               {user && (
-                <Link to="/cart">
+                 <Link to="/cart" className={`${!open&&"hidden" } block `}>
                   <li className="text-xl">
                     <i className="fa-solid fa-cart-shopping mr-1 md:pb-0 pb-8"></i>
                     <span>{cartTotalQty}</span>
