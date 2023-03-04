@@ -19,14 +19,7 @@ const NavbarTwo = () => {
     name: string;
     link: string;
   }
-  const links: Links[] = [
-    { name: "Sobre mi", link: "aboutme" },
-    { name: "Planes", link: "planes" },
-    { name: "Testimonios", link: "testimonios" },
-    { name: "Ebooks", link: "ebooks" },
-    { name: "Contacto", link: "contacto" },
-  ];
-
+  
   const subLinks: Links[] = [
     { name: "Registrarse", link: "/register" },
     { name: "Login", link: "/login" },
@@ -45,30 +38,28 @@ const NavbarTwo = () => {
 
   return (
     <>
-      <header className=" z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white ">
+      <header className=" z-10 w-full h-50  left-0 md:pl-12 pl-10 py-4 border-b border-violeta-100 bg-white ">
         <div className="md:flex md:items-center md:justify-between ">
-          <div className="w-[110px]">
           <Link to="/">
             <img
-              className="h-[55px] w-auto  relative md:left-7 left-0 "
+              className="h-[55px] w-auto relative md:mb-0 mb-5  "
               src={logo}
               alt="logo"
             />
           </Link>
-          </div>
-          
           <div
             className={`md:flex md:items-center md:ml-0 ml-5 transition-all duration-500 ease-in ${
               !open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]"
             } md:opacity-100  `}
           >
             <ul
-              className={`md:flex md:items-center transition-all duration-500 ease-in pt-5 ${
+              className={`md:flex md:items-center transition-all duration-500 ease-in ${
                 !open ? "opacity-0 max-h-0" : "opacity-100 max-h-[500px]   "
               } md:opacity-100 `}
             >
+              
               {user && (
-                <Link to="/cart" className={`${!open&&"hidden" } block `}>
+                 <Link to="/cart" className={`${open&&"md:hidden" } block `}>
                   <li className="text-xl">
                     <i className="fa-solid fa-cart-shopping mr-1 md:pb-0 pb-8"></i>
                     <span>{cartTotalQty}</span>
@@ -100,9 +91,9 @@ const NavbarTwo = () => {
                   >
                     {subLinks.map((link, index) => {
                       return (
-                        <div className="hover:border-b-2 hover:border-violeta-100 py-2" key={index}>
+                        <div className="hover:border-b-4 hover:border-violeta-100 py-2" key={index}>
                           <Link to={link.link} >
-                            <li className="hover:font-black">{link.name}</li>
+                            <li className="hover:font-bold">{link.name}</li>
                           </Link>
                         </div>
                       );
@@ -111,10 +102,10 @@ const NavbarTwo = () => {
                 ) : (
                   <ul
                     className={`z-10 h-[90px] right-2 md:px-5 md:pt-0 pt-3 pl-2 bg-white top-[87px]  transition-all duration-500 ease-in-out md:shadow-[-1px_1px_5px_0px_#9747FF] text-black ${
-                        !openLogin
-                          ? " md:absolute opacity-0 max-h-0 pointer-events-none"
-                          : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
-                      } `}
+                      !openLogin
+                        ? " md:absolute opacity-0 max-h-0 pointer-events-none"
+                        : "md:absolute opacity-100 max-h-[100px] pointer-events-auto"
+                    } `}
                   >
                     {" "}
                     <div className="hover:border-b-4 hover:border-violeta-100 py-2 hover:font-bold">
@@ -155,5 +146,4 @@ const NavbarTwo = () => {
     </>
   );
 };
-
 export default NavbarTwo;

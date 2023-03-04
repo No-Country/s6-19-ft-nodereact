@@ -46,11 +46,11 @@ const Navbar = () => {
 
   return (
     <>
-      <header className=" z-10 w-full h-50  left-0 md:pl-20 pl-10 py-4 border-b border-violeta-100 bg-white ">
+      <header className=" z-10 w-full h-50  left-0 md:pl-12 pl-10 py-4 border-b border-violeta-100 bg-white ">
         <div className="md:flex md:items-center md:justify-between ">
           <Link to="/">
             <img
-              className="h-[55px] w-auto relative md:left-7 left-0 "
+              className="h-[55px] w-auto relative"
               src={logo}
               alt="logo"
             />
@@ -78,7 +78,7 @@ const Navbar = () => {
                 );
               })}
               {user && (
-                 <Link to="/cart" className={`${!open&&"hidden" } block `}>
+                 <Link to="/cart" className={`${open&&"md:hidden" } block `}>
                   <li className="text-xl">
                     <i className="fa-solid fa-cart-shopping mr-1 md:pb-0 pb-8"></i>
                     <span>{cartTotalQty}</span>

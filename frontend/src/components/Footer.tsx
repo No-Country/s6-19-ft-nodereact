@@ -7,16 +7,14 @@ const Footer = () => {
       <footer className="border-t border-violeta-100">
         <div className="md:auto sm:auto flex justify-between md:flex-row flex-col ">
           <div className="md:w-3/4 md:block flex flex-col items-center">
-            <a className="flex items-center pt-16 pb-4 md:pl-16 ">
+            <a className="flex items-center pt-16 pb-4 md:pl-20 ">
               <img
                 className="md:w-[230px] w-[160px] h-auto md:relative left-4 "
                 src={logo}
                 alt=""
               />
             </a>
-            <div className="text-start relative md:left-56 left-20 font-semibold ">
-              <h6> CAMILA BRONN</h6>
-            </div>
+           
             <br></br>
             
           </div>

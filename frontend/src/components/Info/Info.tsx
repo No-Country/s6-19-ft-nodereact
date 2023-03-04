@@ -10,7 +10,7 @@ const Info = () => {
         <div className=" pr-[30px] md:pl-0 pl-[30px] md:text-left text-justify">
           <div className="md:text-[64px] text-[31px] text-start flex w-full md:justify-start justify-center items-center font-semibold">
             <img className="md:w-[50px] md:h-[54.3px] w-[30px] h-[32px] mr-[25px] " src={viñeta} alt="viñeta info" />
-            <h1>Hola, soy Camila</h1>
+            <h1>Hola, soy Mari</h1>
           </div>
           <p className="pt-[50px] md:pb-[0px] pb-[20px] font-semibold md:text-xl">
           Mi misión es transformar lo complicado en simple, es decir, aquí tendrás comodidad y menos burocracia desde los servicios en línea hasta el autoservicio en las sedes.

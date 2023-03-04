@@ -47,10 +47,10 @@ const ImageSlider = ({ slides }: Props) => {
             <div className="absolute top-1/2 cursor-pointer hover:opacity-80 right-9" onClick={goToNext}><img src={arrowRight} alt="circle2" /></div>
       <div className={`${slides[currentIndex].class}`}>
         <a
-          className="fixed bottom-6 right-6 z-10 hover:scale-150 transition-all duration-300 "
+          className="fixed bottom-6 right-6 z-20 hover:scale-150 transition-all duration-300 "
           href="./index.html"
         >
-          <img className="w-20 h-20" src={wsp} alt="logo whatsapp" />
+          <img className="w-20 h-20 " src={wsp} alt="logo whatsapp" />
         </a>
         <div className="flex w-full absolute bottom-0 justify-center ">
           <img

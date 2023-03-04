@@ -22,9 +22,9 @@ const Testimonials = () => {
 
   return (
     <>
-      <div className="container mx-auto grid grid-cols-1  md:grid-cols-4 gap-4 md:py-[200px] py-[60px] bg-white" id="testimonios">
-        <div className="md:relative">
-          <div className="md:absolute md:z-10 bg-white">
+      <div className="container mx-auto grid grid-cols-1  md:grid-cols-4 gap-4 md:py-[200px] py-[60px] bg-white " id="testimonios">
+        <div className="md:relative md:pb-0 pb-40 flex justify-center">
+          <div className="absolute z-10 bg-white ">
             <div className="flex justify-center pb-24">
               <h2 className="text-[36px] pr-5 font-semibold">Testimonios</h2>
               <img src={logoHeart} alt="logo heart" />
@@ -37,11 +37,11 @@ const Testimonials = () => {
               })}
             </div>
 
-            <div className="pb-[15px] text-center text-[16px] font-extrabold">
+            <div className="pb-[15px] text-center text-[16px] font-extrabold ">
               <p>+ 24 Reviews</p>
             </div>
           </div>
-          <div className="md:relative top-44 md:block hidden">
+          <div className="relative top-44   ">
             <img src={decorationThree} alt="decoration info" />
           </div>
         </div>

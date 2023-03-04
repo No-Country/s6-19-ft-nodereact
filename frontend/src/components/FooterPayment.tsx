@@ -10,7 +10,7 @@ import naranja from "../assets/footerPayment/NARANJAOK.png";
 
 const FooterPayment = () => {
     return (
-        <footer className="flex md:pl-20 justify-center border-t border-violeta-100"> 
+        <footer className="flex md:px-20 justify-between border-t border-violeta-100"> 
             <div className="md:mr-20" >
                 <div className="relative top-7">
                     <h1 className="text-base uppercase font-bold">Medios de pago</h1>
