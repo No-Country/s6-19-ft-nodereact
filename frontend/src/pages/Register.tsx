@@ -182,7 +182,7 @@ const Register = () => {
                   <div className="mb-5  flex items-center" >
                     
                     <Link to="/login">
-                      <h2 className="text-base text-violeta-100 hover:opacity-80 font-semibold">Ya tengo una cuenta</h2>
+                      <h2 className="md:text-lg text-base text-violeta-100 hover:opacity-80 font-semibold">Ya tengo una cuenta</h2>
                       
                     </Link>
                     
