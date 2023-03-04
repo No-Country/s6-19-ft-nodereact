@@ -12,7 +12,7 @@ const EbookCard = ({ book }: EbooksProps) => {
   const [rating, setRating] = useState(0);
 
   return (
-    <div className="flex flex-col mr-5 items-center">
+    <div className="flex flex-col mr-5 items-center pb-5">
       <Link to={`/ebooks/${book._id}`}>
         {book.img ? (
           <img className="w-[193px] h-[237px] border rounded-[10px]" src={book?.img} alt={book.title} />
