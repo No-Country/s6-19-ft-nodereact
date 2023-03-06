@@ -26,13 +26,13 @@ const Planes = () => {
     <section className="pt-28" id="planes">
       <div className="container mx-auto  ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 ">
-          <div className="mt-16 self-center">
+          <div className="mt-16 self-center" >
             
             <h1 className="text-4xl text-center font-bold mb-5">
               ELEGÍ UN PLAN ACORDE A VOS
             </h1>
            
-            <div className="flex justify-center">
+            <div className="flex justify-center md:block relative md:left-0 left-4">
               <img src={puntitos} alt="" />
             </div>
           </div>
